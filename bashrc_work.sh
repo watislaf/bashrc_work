@@ -317,7 +317,7 @@ function bash__gTools__ {
   ghu
 }
 
-function bash__remote_updater {
+function bash__remote_updater__ {
   function bash__remote_updater__update__ {
     cd  $( dirname -- "$0"; )
     git pull
@@ -327,9 +327,4 @@ function bash__remote_updater {
   bash__remote_updater__update__
 }
 
-bash___basics__
-bash__fixes__
-bash__gTools__
-bash__decorations__
-bash__remote_updater
 
