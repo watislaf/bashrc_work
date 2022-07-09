@@ -308,7 +308,6 @@ function bash__gTools__ {
       }
     }
   }
-  
   gha
   ght
   ghi
@@ -318,12 +317,13 @@ function bash__gTools__ {
 }
 
 function bash__remote_updater__ {
-  function bash__remote_updater__update__ {
+  echo "update bashrc => sourceBashrc"
+  function sourceBashrc {
     cd  $( dirname -- "$0"; )
     git pull
     cd -
+    source ~/.bashrc
   }
-
-  bash__remote_updater__update__
+  sourceBashrc
 }
 
