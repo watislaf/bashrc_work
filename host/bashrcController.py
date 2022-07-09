@@ -19,7 +19,7 @@ def waitUntilProcessDie(proc):
     while proc.poll() is None:
         time.sleep(0.5)
 
-
+#
 def startGitHubAutoPushThread():
     import hashlib
     def md5():
