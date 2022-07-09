@@ -327,4 +327,3 @@ function bash__remote_updater__ {
   bash__remote_updater__update__
 }
 
-
