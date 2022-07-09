@@ -319,7 +319,10 @@ function bash__remote_updater__ {
   echo "bash__remote_updater__"
   echo "update bashrc => sourceBashrc"
   function sourceBashrc {
-    
+    git fetch
+    if [ $(git rev-parse HEAD) == $(git rev-parse @{u}) ]; then
+      return 1
+    fi;
     cd "${BASH__REMOTE_UPDATER_DIRNAME}"
     git
     } pull
