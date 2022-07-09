@@ -145,7 +145,7 @@ function bash__gTools__ {
         ~/local/bin/tmux attach-session -t 0
       }
     }
-    echo "help build -> ghb"
+    echo "Build -> ghb"
     function ghb {
       echo "-------------- Build--------------"
 
@@ -269,7 +269,7 @@ function bash__gTools__ {
       }
     }
 
-    echo "Unit Tests => ghu"
+    echo "UnitTests => ghu"
     function ghu {
 
       echo "-------------------UT---------------"
@@ -282,22 +282,18 @@ function bash__gTools__ {
         #    ./buildscript/L2-PS/server ut_build --extra_cmake_flags "-DCMAKE_BUILD_TYPE=Debug" --icecc
       }
 
-      echo "go test Ut -> gtT name"
-      function gtT() {
+      echo "go test Ut -> gut name"
+      function gut() {
         if [ $1 == "" ]; then
           echo provide name of the test
           return 0
         fi
-        gue
-        ./buildscript/L2-PS/server ut_build --extra_cmake_flags "-DCMAKE_BUILD_TYPE=Debug" --icecc
-        cd build/l2_ps/ut_build/
-        ninja $1
-        ctest --output-on-failure -j 22 . -R $1
+
         cd -
       }
 
-      echo "go find Ut -> gfT name"
-      function gfT() {
+      echo "go find Ut -> guf"
+      function guf() {
         if [ $1 == "" ]; then
           echo provide name of the test
           return 0
