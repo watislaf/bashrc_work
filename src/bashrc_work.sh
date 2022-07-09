@@ -308,7 +308,7 @@ function bash__gTools__ {
       }
     }
   }
-
+  
   gha
   ght
   ghi

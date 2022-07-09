@@ -1,6 +1,4 @@
 import subprocess
-import time
-
 import signal
 import time
 
@@ -32,9 +30,11 @@ def startGitHubAutoPushThread():
         return hash_md5.hexdigest()
 
     def task():
-
         def save():
-            print("Save and Send")
+            print("Save")
+            subprocess.call(['git', 'add', '-A'])
+            subprocess.call(['git', 'commit', '-m', 'change'])
+            subprocess.call(['git', 'push'])
 
         def ifHashChangedPush():
             global hash__
@@ -54,18 +54,22 @@ def startGitHubAutoPushThread():
     t = Thread(target=task)
     t.start()
 
+
 def main():
-    proc = openProc()
-
-    def end(signum, frame):
-        proc.terminate()
-
-    signal.signal(signal.SIGINT, end)
-
     startGitHubAutoPushThread()
-    waitUntilProcessDie(proc)
-    global dead__
-    dead__ = True
+    proc = openProc()
+    if proc.poll() is None:
+        def end(signum, frame):
+            proc.terminate()
+
+        signal.signal(signal.SIGINT, end)
+        signal.signal(signal.SIGILL, end)
+        signal.signal(signal.SIGTERM, end)
+
+        waitUntilProcessDie(proc)
+        global dead__
+        dead__ = True
+
 
 if __name__ == "__main__":
     main()

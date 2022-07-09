@@ -9,5 +9,6 @@ Install on host
 ```
 git clone https://github.com/watislaf/bashrc_work.git
 cd bashrc_work/
-python 
+./venv/Scripts/activate
+python ./host/buildExe.py
 ```
