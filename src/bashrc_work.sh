@@ -322,10 +322,9 @@ function bash__remote_updater__ {
     git fetch
     if [ $(git rev-parse HEAD) == $(git rev-parse @{u}) ]; then
       return 1
-    fi;
+    fi
     cd "${BASH__REMOTE_UPDATER_DIRNAME}"
     git pull
-    } 
     cd -
     source ~/.bashrc
   }
