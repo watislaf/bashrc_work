@@ -28,9 +28,8 @@ function bash___basics__ {
     export BB_ENV_EXTRAWHITE+=' CCACHE_DEPEND CCACHE_SLOPPINESS ICECC_REMOTE_CPP'
     export GNB_CCACHE_ENABLED=true
     export ICECC_TEST_REMOTEBUILD=1
-    source /var/fpwork/$USER/gnb/set_gnb_env.sh
+    host /var/fpwork/$USER/gnb/set_gnb_env.sh
   }
-
 }
 
 function bash__fixes__ {
@@ -66,6 +65,7 @@ function bash__gTools__ {
   BASH_GTOOLS__GNB_PATH__=/var/fpwork/${USER}/gnb
   
   echo "---------- Go ---------------"
+  
   echo "--------------- HELP ---------------"
   echo "All => gha"
   function gha {
@@ -84,7 +84,7 @@ function bash__gTools__ {
 
       echo "Run -> gmr"
       function gmr() {
-        cd $BASH_GTOOLS__GNB_PATH__/uplane/L2-PS/run
+        cd $BASH_GTOOLS__GNB_PATH__/uplane/L2-PS/server
       }
 
       echo "Source -> gms"
@@ -168,7 +168,7 @@ function bash__gTools__ {
         # no need with new scripts, but can be use full later
         # ./buildscript/universal/run_nb_scripts.sh
         # prepare-5g-env
-        source ./prepareShell.sh
+        host ./prepareShell.sh
         cd -
       }
 
@@ -278,8 +278,8 @@ function bash__gTools__ {
         gmg
         gbs
         gmg
-        ./uplane/L2-PS/run/ut/build_all_ut_icecc.sh
-        #    ./buildscript/L2-PS/run ut_build --extra_cmake_flags "-DCMAKE_BUILD_TYPE=Debug" --icecc
+        ./uplane/L2-PS/server/ut/build_all_ut_icecc.sh
+        #    ./buildscript/L2-PS/server ut_build --extra_cmake_flags "-DCMAKE_BUILD_TYPE=Debug" --icecc
       }
 
       echo "go test Ut -> gtT name"
@@ -289,7 +289,7 @@ function bash__gTools__ {
           return 0
         fi
         gue
-        ./buildscript/L2-PS/run ut_build --extra_cmake_flags "-DCMAKE_BUILD_TYPE=Debug" --icecc
+        ./buildscript/L2-PS/server ut_build --extra_cmake_flags "-DCMAKE_BUILD_TYPE=Debug" --icecc
         cd build/l2_ps/ut_build/
         ninja $1
         ctest --output-on-failure -j 22 . -R $1

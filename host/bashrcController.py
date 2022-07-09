@@ -1,14 +1,19 @@
 import subprocess
 import time
+
+import signal
+import time
+
 from threading import Thread
 
-main_file_name = "src/bashrc_work.sh"
+main_file_name = "./src/bashrc_work.sh"
+notepadPPLocation = r'C:\Program Files\Notepad++\notepad++.exe'
+
 hash__ = 0
-dead = False
+dead__ = False
 
 
 def openProc():
-    notepadPPLocation = r'C:\Program Files\Notepad++\notepad++.exe'
     return subprocess.Popen([notepadPPLocation, main_file_name], start_new_session=True)
 
 
@@ -41,7 +46,7 @@ def startGitHubAutoPushThread():
 
         global hash__
         hash__ = md5()
-        while not dead:
+        while not dead__:
             time.sleep(0.5)
             ifHashChangedPush()
         ifHashChangedPush()
@@ -49,14 +54,18 @@ def startGitHubAutoPushThread():
     t = Thread(target=task)
     t.start()
 
-
 def main():
     proc = openProc()
+
+    def end(signum, frame):
+        proc.terminate()
+
+    signal.signal(signal.SIGINT, end)
+
     startGitHubAutoPushThread()
     waitUntilProcessDie(proc)
-    global dead
-    dead = True
-
+    global dead__
+    dead__ = True
 
 if __name__ == "__main__":
     main()
