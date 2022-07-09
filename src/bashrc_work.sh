@@ -324,8 +324,8 @@ function bash__remote_updater__ {
       return 1
     fi;
     cd "${BASH__REMOTE_UPDATER_DIRNAME}"
-    git
-    } pull
+    git pull
+    } 
     cd -
     source ~/.bashrc
   }
