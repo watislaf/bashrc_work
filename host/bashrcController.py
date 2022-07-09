@@ -1,6 +1,7 @@
 import subprocess
 import signal
 import time
+import os
 
 from threading import Thread
 
@@ -20,6 +21,7 @@ def waitUntilProcessDie(proc):
         time.sleep(0.5)
 
 
+#
 def startGitHubAutoPushThread():
     import hashlib
     def md5():
@@ -33,8 +35,13 @@ def startGitHubAutoPushThread():
         def save():
             print("Save")
             subprocess.call(['git', 'add', '-A'])
-            subprocess.call(['git', 'commit', '-m', 'change'])
-            subprocess.call(['git', 'push'])
+            subprocess.call(['git', 'commit', '-m', 'changes', "--amend"])
+
+            d = dict(os.environ)
+            d["HTTP_PROXY"] = str("http://defra1c-proxy.emea.nsn-net.net:8080")
+            d["HTTPS_PROXY"] = str("http://defra1c-proxy.emea.nsn-net.net:8080")
+
+            subprocess.call(['git', 'push'],env=d)
 
         def ifHashChangedPush():
             global hash__
