@@ -33,7 +33,7 @@ def startGitHubAutoPushThread():
         def save():
             print("Save")
             subprocess.call(['git', 'add', '-A'])
-            subprocess.call(['git', 'commit', '-m', 'changes', "--amend"])
+            subprocess.call(['git', 'commit', '-m', 'changes'])
 
             d = dict(os.environ)
             d["HTTP_PROXY"] = str("http://defra1c-proxy.emea.nsn-net.net:8080")
