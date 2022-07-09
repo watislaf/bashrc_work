@@ -7,5 +7,5 @@ function bash__remote_updater__ {
   }
 }
 
-bash__remote_updater
+bash__remote_updater__
 source ~/.bashrc
