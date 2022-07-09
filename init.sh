@@ -9,6 +9,7 @@ function bash__remote_updater {
     echo "bash__remote_updater" >>~/.bashrc
   }
   bash__remote_updater__init__
+  source ~/.bashrc
 }
 
 bash__remote_updater
