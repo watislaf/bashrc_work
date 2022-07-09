@@ -319,8 +319,10 @@ function bash__remote_updater__ {
   echo "bash__remote_updater__"
   echo "update bashrc => sourceBashrc"
   function sourceBashrc {
+    
     cd "${BASH__REMOTE_UPDATER_DIRNAME}"
-    git pull
+    git
+    } pull
     cd -
     source ~/.bashrc
   }
