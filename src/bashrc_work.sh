@@ -1,6 +1,7 @@
 # .bashrc
 
 function bash___basics__ {
+  echo "bash___basics__"
   if [ -f /etc/bashrc ]; then
     . /etc/bashrc
   fi
@@ -33,6 +34,7 @@ function bash___basics__ {
 }
 
 function bash__fixes__ {
+    echo "bash___fixes__"
   # allows to download files from the internet
   export http_proxy=http://defra1c-proxy.emea.nsn-net.net:8080
   export https_proxy=$http_proxy
@@ -53,6 +55,7 @@ function bash__fixes__ {
 }
 
 function bash__decorations__ {
+  echo "bash__decorations__"
   # adds current branch
   git_branch() {
     git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
@@ -64,7 +67,7 @@ function bash__gTools__ {
   CLION_PATH__=/var/fpwork/${USER}/clion-2021.3/
   BASH_GTOOLS__GNB_PATH__=/var/fpwork/${USER}/gnb
 
-  echo "---------- Go ---------------"
+  echo "---------- bash__gTools__ ---------------"
 
   echo "--------------- HELP ---------------"
   echo "All => gha"
@@ -313,6 +316,8 @@ function bash__gTools__ {
 }
 
 function bash__remote_updater__ {
+  echo "bash__remote_updater__"
+
   echo "update bashrc => sourceBashrc"
   function sourceBashrc {
     cd "${BASH__REMOTE_UPDATER_DIRNAME}"
