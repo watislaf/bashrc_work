@@ -334,3 +334,5 @@ function bash__main__ {
   bash__decorations__
   bash__remote_updater__
 }
+
+bash__main__
