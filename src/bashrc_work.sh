@@ -63,9 +63,9 @@ function bash__decorations__ {
 function bash__gTools__ {
   CLION_PATH__=/var/fpwork/${USER}/clion-2021.3/
   BASH_GTOOLS__GNB_PATH__=/var/fpwork/${USER}/gnb
-  
+
   echo "---------- Go ---------------"
-  
+
   echo "--------------- HELP ---------------"
   echo "All => gha"
   function gha {
@@ -315,7 +315,7 @@ function bash__gTools__ {
 function bash__remote_updater__ {
   echo "update bashrc => sourceBashrc"
   function sourceBashrc {
-    cd  $( dirname -- "$0"; )
+    cd "${BASH__REMOTE_UPDATER_DIRNAME}"
     git pull
     cd -
     source ~/.bashrc
@@ -323,3 +323,10 @@ function bash__remote_updater__ {
   sourceBashrc
 }
 
+function bash__main__ {
+  bash___basics__
+  bash__fixes__
+  bash__gTools__
+  bash__decorations__
+  bash__remote_updater__
+}
