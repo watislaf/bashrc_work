@@ -34,7 +34,7 @@ function bash___basics__ {
 }
 
 function bash__fixes__ {
-    echo "bash___fixes__"
+  echo "bash___fixes__"
   # allows to download files from the internet
   export http_proxy=http://defra1c-proxy.emea.nsn-net.net:8080
   export https_proxy=$http_proxy
@@ -317,7 +317,6 @@ function bash__gTools__ {
 
 function bash__remote_updater__ {
   echo "bash__remote_updater__"
-
   echo "update bashrc => sourceBashrc"
   function sourceBashrc {
     cd "${BASH__REMOTE_UPDATER_DIRNAME}"
