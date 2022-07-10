@@ -330,6 +330,13 @@ function bash__remote_updater__ {
     cd -
     source ~/.bashrc
   }
+
+  echo "auto update Onn(default) => aon"
+  function ubr {
+    cd "${BASH__REMOTE_UPDATER_DIRNAME}"
+    source ./server/autoPullDeamon.sh &
+    cd -
+  }
   aon
 }
 
