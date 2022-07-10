@@ -315,8 +315,13 @@ function bash__gTools__ {
 
 function bash__remote_updater__ {
   echo "----------------------Updater--------------------"
-  echo "UpdateAutomaticOff=> auo"
-  function auo {
+  echo "UpdateAutomaticOff=> uof"
+  function uof {
+
+  }
+
+  echo "UpdateAutomaticOnn (default)=> uon"
+  function uon {
 
   }
 
@@ -329,6 +334,7 @@ function bash__remote_updater__ {
     cd -
     source ~/.bashrc
   }
+  aon
 }
 
 function bash__main__ {
