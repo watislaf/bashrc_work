@@ -142,6 +142,12 @@ function bash__gTools__ {
 
       echo "Tmux => gst"
       function gst() {
+        ~/local/bin/tmux has-session -t 0 2>/dev/null
+
+        if [ $? != 0 ]; then
+          source ~/local/bin/tmux
+        fi
+
         ~/local/bin/tmux attach-session -t 0
       }
     }
