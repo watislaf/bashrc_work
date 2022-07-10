@@ -1,8 +1,5 @@
 function bash__remote_updater__init__ {
-  BASH__REMOTE_UPDATER_DIRNAME="$(
-    cd -- "$(dirname "$0")" >/dev/null 2>&1
-    pwd -P
-  )"
+  BASH__REMOTE_UPDATER_DIRNAME=$(dirname -- $0)
   cd ${BASH__REMOTE_UPDATER_DIRNAME}
   if [ $? == 0 ]; then
     echo error ${BASH__REMOTE_UPDATER_DIRNAME} is not a path
