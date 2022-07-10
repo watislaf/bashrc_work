@@ -335,7 +335,7 @@ function bash__remote_updater__ {
     cd -
   }
 
-  echo "auto update Onn(default) => aof"
+  echo "auto update Off => aof"
   function aof {
     kill -9 $(cat $BASH__WORK__DEAMON__PIDFILE)
     rm ${BASH__WORK__DEAMON__PIDFILE}
