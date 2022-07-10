@@ -164,7 +164,7 @@ function bash__gTools__ {
 
       echo "source -> gbs"
       function gbs() {
-        grn
+        gmr
         # no need with new scripts, but can be use full later
         # ./buildscript/universal/run_nb_scripts.sh
         # prepare-5g-env
@@ -274,8 +274,10 @@ function bash__gTools__ {
       echo "build -> gub"
       function gub() {
         gbs
+        gmr
         ./uplane/L2-PS/server/ut/build_all_ut_icecc.sh
         #    ./buildscript/L2-PS/server ut_build --extra_cmake_flags "-DCMAKE_BUILD_TYPE=Debug" --icecc
+        cd -
       }
 
       echo "go test Ut -> gut name"
