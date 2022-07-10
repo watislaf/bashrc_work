@@ -328,7 +328,6 @@ function bash__remote_updater__ {
     cd -
     source ~/.bashrc
   }
-
   echo "auto update Onn(default) => aon"
   function aon {
     cd "${BASH__REMOTE_UPDATER_DIRNAME}"
