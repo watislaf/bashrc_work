@@ -129,7 +129,7 @@ function bash__gTools__ {
         fi
         fgrep --color=auto -riInH -v "$1" ./
       }
-  BASH_GTOOLS__PRINT__SECTION START
+      BASH_GTOOLS__PRINT__SECTION START
       echo "ClionStart -> gsc"
       function gsc() {
         "${BASH_GTOOLS__CLION_PATH__}"/bin/clion.sh >/dev/null 2>&1 &
@@ -147,7 +147,7 @@ function bash__gTools__ {
     }
     echo "Build -> ghb"
     function ghb {
-      echo "-------------- Build--------------"
+  BASH_GTOOLS__PRINT__SECTION BUILD
 
       echo "clean -> gbc"
       function gbc() {
