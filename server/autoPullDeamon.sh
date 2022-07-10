@@ -1,27 +1,20 @@
-pidfile=/path/to/pidfile
-if [ -f "$pidfile" ] && kill -0 `cat $pidfile` 2>/dev/null; then
-    echo AutoPull already exists
-    exit 1
+pidfile=${BASH__REMOTE_UPDATER_DIRNAME}/server/deamonPidFile.txt
+if [ -f "$pidfile" ] && kill -0 $(cat $pidfile) 2>/dev/null; then
+  echo AutoPull already exists
+  exit 1
 fi
-echo $$ > $pidfile
+echo $$ >$pidfile
 
 echo AutoPull started
 
 while :; do
-  UPSTREAM=${1:-'@{u}'}
-  LOCAL=$(git rev-parse @)
-  REMOTE=$(git rev-parse "$UPSTREAM")
-  BASE=$(git merge-base @ "$UPSTREAM")
+  UPSTREAM___=${1:-'@{u}'}
+  LOCAL___=$(git rev-parse @)
+  BASE___=$(git merge-BASE___ @ "$UPSTREAM___")
 
-  if [ $LOCAL = $REMOTE ]; then
-    echo "Up-to-date"
-  elif [ $LOCAL = $BASE ]; then
+  if [ $LOCAL___ = $BASE___ ]; then
     echo "Need to pull"
-  elif [ $REMOTE = $BASE ]; then
-    echo "Need to push"
-  else
-    echo "Diverged"
+    ubr
   fi
-
   sleep 5
 done
