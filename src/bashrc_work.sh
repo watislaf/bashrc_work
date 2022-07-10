@@ -29,6 +29,7 @@ function bash___basics__ {
     export GNB_CCACHE_ENABLED=true
     export ICECC_TEST_REMOTEBUILD=1
     host /var/fpwork/$USER/gnb/set_gnb_env.sh
+    
   }
 }
 
