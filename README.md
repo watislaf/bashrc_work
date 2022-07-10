@@ -4,7 +4,7 @@ Install on server
 ```
 git clone https://github.com/watislaf/bashrc_work.git
 cd bashrc_work/
-cmod +x ./server/initServer.sh
+chmod +x ./server/initServer.sh
 ./server/initServer.sh
 ```
 
