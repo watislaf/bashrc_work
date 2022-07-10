@@ -1,8 +1,4 @@
 function bash__remote_updater__init__ {
-  HOME=$0
-  if [ $HOME == "-bash" ]; then
-    HOME="."
-  fi
   BASH__REMOTE_UPDATER_DIRNAME="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
   cd -
   git pull
