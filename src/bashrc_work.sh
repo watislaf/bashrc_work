@@ -273,9 +273,7 @@ function bash__gTools__ {
       echo "-------------------UT---------------"
       echo "build -> gub"
       function gub() {
-        gmg
         gbs
-        gmg
         ./uplane/L2-PS/server/ut/build_all_ut_icecc.sh
         #    ./buildscript/L2-PS/server ut_build --extra_cmake_flags "-DCMAKE_BUILD_TYPE=Debug" --icecc
       }
