@@ -321,6 +321,14 @@ function bash__remote_updater__ {
     cd -
     source ~/.bashrc
   }
+
+  echo "Update bashrc => ubr"
+  function ubr {
+    cd "${BASH__REMOTE_UPDATER_DIRNAME}"
+    git pull
+    cd -
+    source ~/.bashrc
+  }
 }
 
 function bash__main__ {
