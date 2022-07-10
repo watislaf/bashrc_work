@@ -1,8 +1,11 @@
 pidfile=/path/to/pidfile
 if [ -f "$pidfile" ] && kill -0 `cat $pidfile` 2>/dev/null; then
+    echo AutoPull already exists
     exit 1
 fi
 echo $$ > $pidfile
+
+echo AutoPull started
 
 while :; do
   UPSTREAM=${1:-'@{u}'}
