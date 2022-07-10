@@ -44,12 +44,6 @@ function bash__fixes__ {
 
   # fixes compile error 04.2022
   export LANG=en_US.UTF-8
-
-  #fixes tmux error with displays 06.2022
-  echo $DISPLAY >~/.tmp42.txt
-  ~/local/bin/tmux attach-session -t 0
-  export DISPLAY=$(cat ~/.tmp42.txt)
-
 }
 
 function bash__decorations__ {
@@ -142,6 +136,9 @@ function bash__gTools__ {
 
       echo "Tmux => gst"
       function gst() {
+
+  #fixes tmux error with displays 06.2022
+  echo $DISPLAY >~/.tmp42.txt
         ~/local/bin/tmux has-session -t 0 2>/dev/null
 
         if [ $? != 0 ]; then
@@ -149,6 +146,8 @@ function bash__gTools__ {
         fi
 
         ~/local/bin/tmux attach-session -t 0
+          export DISPLAY=$(cat ~/.tmp42.txt)
+
       }
     }
     echo "Build => ghb"
