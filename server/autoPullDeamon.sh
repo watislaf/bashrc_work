@@ -12,7 +12,7 @@ while :; do
   LOCAL=$(git rev-parse @)
   BASE=$(git merge-base @ "$UPSTREAM")
 
-  if [ LOCAL = BASE ]; then
+  if [ $LOCAL == $BASE ]; then
     echo "Need to pull"
     ubr
   fi
