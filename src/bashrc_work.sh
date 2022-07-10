@@ -29,7 +29,6 @@ function bash___basics__ {
     export GNB_CCACHE_ENABLED=true
     export ICECC_TEST_REMOTEBUILD=1
     host /var/fpwork/$USER/gnb/set_gnb_env.sh
-
   }
 }
 
@@ -58,7 +57,7 @@ function bash__decorations__ {
   git_branch() {
     git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
   }
-  export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+(${debian_chroot})}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \[\033[00;32m\]\$(git_branch)\[\033[00m\]\$ "
+  export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+({$debian_chroot})}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \[\033[00;32m\]\$(git_branch)\[\033[00m\]\$ "
 }
 
 function bash__gTools__ {
@@ -143,13 +142,7 @@ function bash__gTools__ {
 
       echo "Tmux-> gst"
       function gst() {
-        ~/local/bin/tmux has-session -t $session 2>/dev/null
-
-        if [ $? != 0 ]; then
-          ~/local/bin/tmux
-        else
-          ~/local/bin/tmux attach-session -t 0
-        fi
+        ~/local/bin/tmux attach-session -t 0
       }
     }
     echo "Build -> ghb"
@@ -196,7 +189,6 @@ function bash__gTools__ {
 
     function ghi {
       echo "-------------- gIt--------------"
-
       echo "pull => gip"
       function gip {
         gmg
@@ -232,7 +224,7 @@ function bash__gTools__ {
         ./fuse/build_all_sct_fuse_icecc.sh
         cd -
       }
-
+	  
       echo "rebuildTest testName=> gft"
       function gft() {
         gmr
@@ -310,7 +302,6 @@ function bash__gTools__ {
       }
     }
   }
-
   gha
   ght
   ghi
@@ -320,27 +311,13 @@ function bash__gTools__ {
 }
 
 function bash__remote_updater__ {
-  echo "----------------------Updater--------------------"
-  echo "UpdateAutomaticOff=> uof"
-  function uof {
-
-  }
-
-  echo "UpdateAutomaticOnn (default)=> uon"
-  function uon {
-
-  }
-
-  echo "Update bashrc => ubr"
-  function ubr {
-    cd "${BASH__REMOTE_UPDATER_DIRNAME}/../"
+  echo "update bashrc => sourceBashrc"
+  function sourceBashrc {
+    cd "${BASH__REMOTE_UPDATER_DIRNAME}"
     git pull
-    chmod +x ./server/autoPullDeamon.sh
-    chmod +x ./server/iniServer.sh
     cd -
     source ~/.bashrc
   }
-  aon
 }
 
 function bash__main__ {

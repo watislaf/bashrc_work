@@ -35,14 +35,16 @@ def startGitHubAutoPushThread():
     def task():
         def save():
             print("Save")
-            subprocess.call(['git', 'add', '-A'])
-            subprocess.call(['git', 'commit', '-m', 'changes'])
+            si = subprocess.STARTUPINFO()
+            si.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+            subprocess.call(['git', 'add', '-A'], startupinfo=si)
+            subprocess.call(['git', 'commit', '-m', 'changes'], startupinfo=si)
 
             d = dict(os.environ)
             d["HTTP_PROXY"] = str("http://defra1c-proxy.emea.nsn-net.net:8080")
             d["HTTPS_PROXY"] = str("http://defra1c-proxy.emea.nsn-net.net:8080")
 
-            subprocess.call(['git', 'push'], env=d)
+            subprocess.call(['git', 'push'], env=d, startupinfo=si)
 
         def initHashes():
             global hashes
