@@ -326,7 +326,6 @@ function bash__remote_updater__ {
     cd -
     source ~/.bashrc
   }
-
   echo "auto update Onn(default) => aon"
   function aon {
     BASH__WORK__DEAMON__PIDFILE=${BASH__REMOTE_UPDATER_DIRNAME}/server/deamonBASH__WORK__DEAMON__PIDFILE.txt
