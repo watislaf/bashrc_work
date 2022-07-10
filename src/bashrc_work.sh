@@ -74,27 +74,27 @@ function bash__gTools__ {
     echo "go Help Tools => ght"
     function ght {
       BASH_GTOOLS__PRINT__SECTION MOVEMENT
-      echo "Gnb -> gmg"
+      echo "Gnb => gmg"
       function gmg() {
         cd $BASH_GTOOLS__GNB_PATH__
       }
 
-      echo "Uplane -> gmu"
+      echo "Uplane => gmu"
       function gmu {
         cd ${BASH_GTOOLS__GNB_PATH__}/uplane
       }
 
-      echo "Run -> gmr"
+      echo "Run => gmr"
       function gmr() {
         cd $BASH_GTOOLS__GNB_PATH__/uplane/L2-PS/run
       }
 
-      echo "Source -> gms"
+      echo "Source => gms"
       function gms() {
         cd $BASH_GTOOLS__GNB_PATH__/uplane/L2-PS/src/
       }
       BASH_GTOOLS__PRINT__SECTION GREP
-      echo "All word_to_find ->gga"
+      echo "All word_to_find => gga"
       function gga() {
         if [ "$1" == "" ]; then
           echo provide word to find
@@ -103,7 +103,7 @@ function bash__gTools__ {
         fgrep --color=auto -riInH "$1" ./
       }
 
-      echo " onlySource word_to_find ->ggs"
+      echo " onlySource word_to_find => ggs"
       function ggs() {
         if [ "$1" == "" ]; then
           echo provide word to find
@@ -112,7 +112,7 @@ function bash__gTools__ {
         fgrep --color=auto -riInH "$1" ./ --exclude-dir="ut"
       }
 
-      echo "onlyTests word_to_find ->ggt"
+      echo "onlyTests word_to_find => ggt"
       function ggt() {
         if [ "$1" == "" ]; then
           echo provide word to find
@@ -121,7 +121,7 @@ function bash__gTools__ {
         fgrep --color=auto -riInH "$1" ./
       }
 
-      echo "Reversed word_to_find ->ggr"
+      echo "Reversed word_to_find =>ggr"
       function ggr() {
         if [ "$1" == "" ]; then
           echo provide word to find
@@ -130,26 +130,26 @@ function bash__gTools__ {
         fgrep --color=auto -riInH -v "$1" ./
       }
       BASH_GTOOLS__PRINT__SECTION START
-      echo "ClionStart -> gsc"
+      echo "ClionStart => gsc"
       function gsc() {
         "${BASH_GTOOLS__CLION_PATH__}"/bin/clion.sh >/dev/null 2>&1 &
       }
 
-      echo "Vim - gsv"
+      echo "Vim => gsv"
       function gsv() {
         vim -c 'set ic' $1
       }
 
-      echo "Tmux-> gst"
+      echo "Tmux => gst"
       function gst() {
         ~/local/bin/tmux attach-session -t 0
       }
     }
-    echo "Build -> ghb"
+    echo "Build => ghb"
     function ghb {
-  BASH_GTOOLS__PRINT__SECTION BUILD
+      BASH_GTOOLS__PRINT__SECTION BUILD
 
-      echo "clean -> gbc"
+      echo "clean => gbc"
       function gbc() {
         gmg
         git clean -xfd
@@ -162,7 +162,7 @@ function bash__gTools__ {
         cd -
       }
 
-      echo "source -> gbs"
+      echo "source => gbs"
       function gbs() {
         gmr
         # no need with new scripts, but can be use full later
@@ -172,7 +172,7 @@ function bash__gTools__ {
         cd -
       }
 
-      echo "Reinstall -> gbr"
+      echo "Reinstall => gbr"
       function gra() {
         cd /var/fpwork/
         mkdir "${USER}"
@@ -188,7 +188,7 @@ function bash__gTools__ {
     }
 
     function ghi {
-      echo "-------------- gIt--------------"
+  BASH_GTOOLS__PRINT__SECTION GIT
       echo "pull => gip"
       function gip {
         gmg
@@ -214,8 +214,8 @@ function bash__gTools__ {
     }
     echo "Fuse => ghf"
     function ghf {
-      echo "-------------- sct-Fuse--------------"
-      echo "Build-> gfb"
+  BASH_GTOOLS__PRINT__SECTION FUSE
+      echo "Build => gfb"
       function gfb() {
         gbs
         gmr
@@ -225,7 +225,7 @@ function bash__gTools__ {
         cd -
       }
 
-      echo "rebuildTest testName=> gft"
+      echo "rebuildTest testName => gft"
       function gft() {
         gmr
         if [ "$1" == "" ]; then
@@ -236,7 +236,7 @@ function bash__gTools__ {
         cd -
       }
 
-      echo "rebuildBinaryAndTest testName=> gfb"
+      echo "rebuildBinaryAndTest testName => gfb"
       function gft() {
         gmr
         if [ "$1" == "" ]; then
@@ -247,7 +247,7 @@ function bash__gTools__ {
         cd -
       }
 
-      echo "Find testName -> gff "
+      echo "Find testName => gff "
       function gff() {
         gmr
         if [ $1 == "" ]; then
@@ -258,7 +258,7 @@ function bash__gTools__ {
         cd -
       }
 
-      echo "clean logs-> gfc"
+      echo "clean logs => gfc"
       function gcl() {
         gmg
         rm -rf ./uplane/logs
@@ -269,8 +269,8 @@ function bash__gTools__ {
 
     echo "UnitTests => ghu"
     function ghu {
-      echo "-------------------UT---------------"
-      echo "Build -> gub"
+  BASH_GTOOLS__PRINT__SECTION UT
+      echo "Build => gub"
       function gub() {
         gbs
         gmr
@@ -278,7 +278,7 @@ function bash__gTools__ {
         cd -
       }
 
-      echo "Test -> gut name"
+      echo "Test => gut name"
       function gut() {
         if [ $1 == "" ]; then
           echo provide name of the test
@@ -288,7 +288,7 @@ function bash__gTools__ {
         cd -
       }
 
-      echo "Find-> guf"
+      echo "Find => guf"
       function guf() {
         if [ $1 == "" ]; then
           echo provide name of the test
