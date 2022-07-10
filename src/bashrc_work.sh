@@ -148,7 +148,7 @@ function bash__gTools__ {
         if [ $? != 0 ]; then
           ~/local/bin/tmux
         else
-        ~/local/bin/tmux attach-session -t 0
+          ~/local/bin/tmux attach-session -t 0
         fi
       }
     }
@@ -232,7 +232,7 @@ function bash__gTools__ {
         ./fuse/build_all_sct_fuse_icecc.sh
         cd -
       }
-	  
+
       echo "rebuildTest testName=> gft"
       function gft() {
         gmr
