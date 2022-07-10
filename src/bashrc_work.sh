@@ -333,7 +333,6 @@ function bash__remote_updater__ {
     cd -
   }
 }
-
 function bash__main__ {
   bash___basics__
   bash__fixes__

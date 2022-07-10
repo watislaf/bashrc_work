@@ -8,11 +8,11 @@ echo $$ >$pidfile
 echo AutoPull started
 
 while :; do
-  UPSTREAM___=${1:-'@{u}'}
-  LOCAL___=$(git rev-parse @)
-  BASE___=$(git merge-base @ "$UPSTREAM")
+  UPSTREAM=${1:-'@{u}'}
+  LOCAL=$(git rev-parse @)
+  BASE=$(git merge-base @ "$UPSTREAM")
 
-  if [ $LOCAL___ = $BASE___ ]; then
+  if [ LOCAL = BASE ]; then
     echo "Need to pull"
     ubr
   fi
