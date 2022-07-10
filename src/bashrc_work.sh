@@ -137,8 +137,8 @@ function bash__gTools__ {
       echo "Tmux => gst"
       function gst() {
 
-  #fixes tmux error with displays 06.2022
-  echo $DISPLAY >~/.tmp42.txt
+        #fixes tmux error with displays 06.2022
+        echo $DISPLAY >~/.tmp42.txt
         ~/local/bin/tmux has-session -t 0 2>/dev/null
 
         if [ $? != 0 ]; then
@@ -146,7 +146,7 @@ function bash__gTools__ {
         fi
 
         ~/local/bin/tmux attach-session -t 0
-          export DISPLAY=$(cat ~/.tmp42.txt)
+        export DISPLAY=$(cat ~/.tmp42.txt)
 
       }
     }
@@ -193,7 +193,7 @@ function bash__gTools__ {
     }
 
     function ghi {
-  BASH_GTOOLS__PRINT__SECTION GIT
+      BASH_GTOOLS__PRINT__SECTION GIT
       echo "pull => gip"
       function gip {
         gmg
@@ -219,7 +219,7 @@ function bash__gTools__ {
     }
     echo "Fuse => ghf"
     function ghf {
-  BASH_GTOOLS__PRINT__SECTION FUSE
+      BASH_GTOOLS__PRINT__SECTION FUSE
       echo "Build => gfb"
       function gfb() {
         gbs
@@ -274,7 +274,7 @@ function bash__gTools__ {
 
     echo "UnitTests => ghu"
     function ghu {
-  BASH_GTOOLS__PRINT__SECTION UT
+      BASH_GTOOLS__PRINT__SECTION UT
       echo "Build => gub"
       function gub() {
         gbs
