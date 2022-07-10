@@ -304,7 +304,7 @@ function bash__gTools__ {
       }
     }
   }
-  
+
   gha
   ght
   ghi
@@ -315,12 +315,9 @@ function bash__gTools__ {
 
 function bash__remote_updater__ {
   echo "----------------------Updater--------------------"
-  echo "Update bashrc => ubr"
-  function ubr {
-    cd "${BASH__REMOTE_UPDATER_DIRNAME}"
-    git pull
-    cd -
-    source ~/.bashrc
+  echo "UpdateAutomaticOff=> auo"
+  function auo {
+
   }
 
   echo "Update bashrc => ubr"
