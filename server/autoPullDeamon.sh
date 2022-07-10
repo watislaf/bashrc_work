@@ -16,5 +16,8 @@ while :; do
     echo "Need to pull"
     ubr
   fi
+  if [ ! -f "$BASH__WORK__DEAMON__PIDFILE" ]; then
+    return 0
+  fi
   sleep 5
 done
