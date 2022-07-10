@@ -271,8 +271,8 @@ function bash__gTools__ {
     function ghu {
 
       echo "-------------------UT---------------"
-      echo "go build Ut0 -> gbU0"
-      function gbU0() {
+      echo "build -> gub"
+      function gub() {
         gmg
         gbs
         gmg
@@ -309,7 +309,6 @@ function bash__gTools__ {
   ghf
   ghu
 }
-
 
 function bash__remote_updater__ {
   echo "update bashrc => sourceBashrc"

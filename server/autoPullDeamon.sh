@@ -13,6 +13,7 @@ while :; do
     ubr
   fi
   if [ ! -f "$BASH__WORK__DEAMON__PIDFILE" ]; then
+    echo dead
     return 0
   fi
   sleep 5
