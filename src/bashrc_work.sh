@@ -61,7 +61,7 @@ function bash__decorations__ {
 }
 
 function bash__gTools__ {
-  CLION_PATH__=/var/fpwork/${USER}/clion-2021.3/
+  CLION_PATH__=/var/fpwork/${USER}/clion-2021.3
   BASH_GTOOLS__GNB_PATH__=/var/fpwork/${USER}/gnb
 
   echo "---------- Go ---------------"
@@ -132,7 +132,7 @@ function bash__gTools__ {
       echo "--------------- Start ---------------"
       echo "ClionStart -> gsc"
       function gsc() {
-        ./"${CLION_PATH__}"/bin/clion.sh >/dev/null 2>&1 &
+        "${CLION_PATH__}"/bin/clion.sh >/dev/null 2>&1 &
       }
 
       echo "Vim - gsv"
