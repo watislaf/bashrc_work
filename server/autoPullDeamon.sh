@@ -8,6 +8,7 @@ echo $$ >$pidfile
 echo AutoPull started
 
 while :; do
+  echo work
   UPSTREAM=${1:-'@{u}'}
   LOCAL=$(git rev-parse @)
   BASE=$(git merge-base @ "$UPSTREAM")

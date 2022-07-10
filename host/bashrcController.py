@@ -65,7 +65,6 @@ def startGitHubAutoPushThread():
                 save()
 
         initHashes()
-
         while not dead__:
             time.sleep(0.5)
             updateChangedFiles()
