@@ -7,12 +7,8 @@ echo $$ >$BASH__WORK__DEAMON__PIDFILE
 echo AutoPull started
 
 while :; do
-  echo work
-  UPSTREAM=${1:-'@{u}'}
-  LOCAL=$(git rev-parse @)
-  BASE=$(git merge-base @ "$UPSTREAM")
-
-  if [ $LOCAL == $BASE ]; then
+  git fetch
+  if [ $(git rev-parse HEAD) == $(git rev-parse @{u}) ]; then
     echo "Need to pull"
     ubr
   fi
