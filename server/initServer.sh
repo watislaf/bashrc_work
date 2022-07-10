@@ -1,4 +1,7 @@
 function bash__remote_updater__init__ {
+  if [ $0 == "-bash"]; then
+    $0 = "."
+    fi
   BASH__REMOTE_UPDATER_DIRNAME_TMP=$(dirname $0)
   BASH__REMOTE_UPDATER_DIRNAME=$(realpath ${BASH__REMOTE_UPDATER_DIRNAME_TMP}+"/../")
   git pull
