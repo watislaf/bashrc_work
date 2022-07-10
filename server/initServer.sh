@@ -9,6 +9,7 @@ function bash__remote_updater__init__ {
   cd ${BASH__REMOTE_UPDATER_DIRNAME}
   if [ $? == 0 ]; then
     echo error ${BASH__REMOTE_UPDATER_DIRNAME} is not a path
+    return 1
   fi
   cd -
   git pull
