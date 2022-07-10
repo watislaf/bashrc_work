@@ -194,7 +194,7 @@ function bash__gTools__ {
     }
 
     function ghi {
-      BASH_GTOOLS__PRINT__SECTION GIT
+  BASH_GTOOLS__PRINT__SECTION GIT
       echo "pull => gip"
       function gip {
         gmg
@@ -220,7 +220,7 @@ function bash__gTools__ {
     }
     echo "Fuse => ghf"
     function ghf {
-      BASH_GTOOLS__PRINT__SECTION FUSE
+  BASH_GTOOLS__PRINT__SECTION FUSE
       echo "Build => gfb"
       function gfb() {
         gbs
@@ -275,7 +275,7 @@ function bash__gTools__ {
 
     echo "UnitTests => ghu"
     function ghu {
-      BASH_GTOOLS__PRINT__SECTION UT
+  BASH_GTOOLS__PRINT__SECTION UT
       echo "Build => gub"
       function gub() {
         gbs
