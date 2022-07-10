@@ -334,7 +334,6 @@ function bash__remote_updater__ {
     source ./server/autoPullDeamon.sh &
     cd -
   }
-
   echo "auto update Off => aof"
   function aof {
     rm ${BASH__WORK__DEAMON__PIDFILE}
