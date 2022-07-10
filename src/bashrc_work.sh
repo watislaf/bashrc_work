@@ -315,7 +315,7 @@ function bash__gTools__ {
 
 function bash__remote_updater__ {
 
-      BASH_GTOOLS__PRINT__SECTION Update
+  BASH_GTOOLS__PRINT__SECTION Update
   echo "Update bashrc => ubr"
   function ubr {
     cd "${BASH__REMOTE_UPDATER_DIRNAME}"
