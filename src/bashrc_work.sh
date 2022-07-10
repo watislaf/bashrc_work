@@ -84,7 +84,7 @@ function bash__gTools__ {
 
       echo "Run -> gmr"
       function gmr() {
-        cd $BASH_GTOOLS__GNB_PATH__/uplane/L2-PS/server
+        cd $BASH_GTOOLS__GNB_PATH__/uplane/L2-PS/run
       }
 
       echo "Source -> gms"
