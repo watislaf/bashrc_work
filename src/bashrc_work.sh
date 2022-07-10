@@ -337,7 +337,7 @@ function bash__remote_updater__ {
 
   echo "auto update Onn(default) => aof"
   function aof {
-    kill -9 $(${BASH__WORK__DEAMON__PIDFILE})
+    kill -9 $(cat $BASH__WORK__DEAMON__PIDFILE)
     rm ${BASH__WORK__DEAMON__PIDFILE}
   }
 }
