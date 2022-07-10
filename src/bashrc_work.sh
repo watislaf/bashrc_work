@@ -143,12 +143,13 @@ function bash__gTools__ {
 
       echo "Tmux-> gst"
       function gst() {
-        tmux has-session -t $session 2>/dev/null
+        ~/local/bin/tmux has-session -t $session 2>/dev/null
 
-if [ $? != 0 ]; then
-  # Set up your session
-fi
+        if [ $? != 0 ]; then
+          ~/local/bin/tmux
+        else
         ~/local/bin/tmux attach-session -t 0
+        fi
       }
     }
     echo "Build -> ghb"
