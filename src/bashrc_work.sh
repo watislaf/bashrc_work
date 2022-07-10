@@ -334,7 +334,6 @@ function bash__remote_updater__ {
     source ./server/autoPullDeamon.sh &
     cd -
   }
-  aon
 }
 
 function bash__main__ {
