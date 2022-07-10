@@ -1,9 +1,8 @@
-pidfile=${BASH__REMOTE_UPDATER_DIRNAME}/server/deamonPidFile.txt
-if [ -f "$pidfile" ] && kill -0 $(cat $pidfile) 2>/dev/null; then
+if [ -f "$BASH__WORK__DEAMON__PIDFILE" ] && kill -0 $(cat $BASH__WORK__DEAMON__PIDFILE) 2>/dev/null; then
   echo AutoPull already exists
   exit 1
 fi
-echo $$ >$pidfile
+echo $$ >$BASH__WORK__DEAMON__PIDFILE
 
 echo AutoPull started
 
