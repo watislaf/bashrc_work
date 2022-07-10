@@ -319,7 +319,6 @@ function bash__remote_updater__ {
     cd -
     source ~/.bashrc
   }
-  sourceBashrc
 }
 
 function bash__main__ {
@@ -329,3 +328,5 @@ function bash__main__ {
   bash__decorations__
   bash__remote_updater__
 }
+
+bash__main__
