@@ -73,7 +73,6 @@ def startGitHubAutoPushThread():
     t = Thread(target=task)
     t.start()
 
-
 def main():
     startGitHubAutoPushThread()
     proc = openProc()

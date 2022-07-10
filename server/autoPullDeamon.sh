@@ -1,5 +1,14 @@
-git fetch
-if [ $(git rev-parse HEAD) != $(git rev-parse @{u}) ]; then
-    echo "NEED UPDATE PLEASE"
+UPSTREAM=${1:-'@{u}'}
+LOCAL=$(git rev-parse @)
+REMOTE=$(git rev-parse "$UPSTREAM")
+BASE=$(git merge-base @ "$UPSTREAM")
 
-fi;
+if [ $LOCAL = $REMOTE ]; then
+    echo "Up-to-date"
+elif [ $LOCAL = $BASE ]; then
+    echo "Need to pull"
+elif [ $REMOTE = $BASE ]; then
+    echo "Need to push"
+else
+    echo "Diverged"
+fi
