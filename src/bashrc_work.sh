@@ -93,7 +93,7 @@ function bash__gTools__ {
       function gms() {
         cd $BASH_GTOOLS__GNB_PATH__/uplane/L2-PS/src/
       }
-        BASH_GTOOLS__PRINT__SECTION GREP
+      BASH_GTOOLS__PRINT__SECTION GREP
       echo "All word_to_find ->gga"
       function gga() {
         if [ "$1" == "" ]; then
@@ -129,8 +129,7 @@ function bash__gTools__ {
         fi
         fgrep --color=auto -riInH -v "$1" ./
       }
-
-      echo "--------------- Start ---------------"
+  BASH_GTOOLS__PRINT__SECTION START
       echo "ClionStart -> gsc"
       function gsc() {
         "${BASH_GTOOLS__CLION_PATH__}"/bin/clion.sh >/dev/null 2>&1 &
