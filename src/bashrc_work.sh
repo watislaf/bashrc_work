@@ -145,7 +145,7 @@ function bash__gTools__ {
         ~/local/bin/tmux has-session -t 0 2>/dev/null
 
         if [ $? != 0 ]; then
-          source ~/local/bin/tmux
+          ~/local/bin/tmux
         fi
 
         ~/local/bin/tmux attach-session -t 0
