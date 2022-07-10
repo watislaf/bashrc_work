@@ -61,17 +61,19 @@ function bash__decorations__ {
 }
 
 function bash__gTools__ {
-  bash__gTools__CLION_PATH__=/var/fpwork/${USER}/clion-2021.3
+  BASH_GTOOLS__CLION_PATH__=/var/fpwork/${USER}/clion-2021.3
   BASH_GTOOLS__GNB_PATH__=/var/fpwork/${USER}/gnb
-  function 
-  echo "---------- Go ---------------"
+  function BASH_GTOOLS__PRINT__SECTION {
+      echo "---------- ${1} ---------------"
+  }
+  BASH_GTOOLS__PRINT__SECTION GO
 
-  echo "--------------- HELP ---------------"
+  BASH_GTOOLS__PRINT__SECTION HELP
   echo "All => gha"
   function gha {
     echo "go Help Tools => ght"
     function ght {
-      echo "--------------- Movement ---------------"
+        BASH_GTOOLS__PRINT__SECTION MOVEMENT
       echo "Gnb -> gmg"
       function gmg() {
         cd $BASH_GTOOLS__GNB_PATH__
@@ -132,7 +134,7 @@ function bash__gTools__ {
       echo "--------------- Start ---------------"
       echo "ClionStart -> gsc"
       function gsc() {
-        "${bash__gTools__CLION_PATH__}"/bin/clion.sh >/dev/null 2>&1 &
+        "${BASH_GTOOLS__CLION_PATH__}"/bin/clion.sh >/dev/null 2>&1 &
       }
 
       echo "Vim - gsv"
@@ -269,18 +271,16 @@ function bash__gTools__ {
 
     echo "UnitTests => ghu"
     function ghu {
-
       echo "-------------------UT---------------"
-      echo "build -> gub"
+      echo "Build -> gub"
       function gub() {
         gbs
         gmr
         source ./ut/build_all_ut_icecc.sh
-        #    ./buildscript/L2-PS/server ut_build --extra_cmake_flags "-DCMAKE_BUILD_TYPE=Debug" --icecc
         cd -
       }
 
-      echo "go test Ut -> gut name"
+      echo "Test -> gut name"
       function gut() {
         if [ $1 == "" ]; then
           echo provide name of the test
@@ -290,7 +290,7 @@ function bash__gTools__ {
         cd -
       }
 
-      echo "go find Ut -> guf"
+      echo "Find-> guf"
       function guf() {
         if [ $1 == "" ]; then
           echo provide name of the test
