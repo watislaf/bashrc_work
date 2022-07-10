@@ -275,7 +275,7 @@ function bash__gTools__ {
       function gub() {
         gbs
         gmr
-        ./uplane/L2-PS/server/ut/build_all_ut_icecc.sh
+        source ./ut/build_all_ut_icecc.sh
         #    ./buildscript/L2-PS/server ut_build --extra_cmake_flags "-DCMAKE_BUILD_TYPE=Debug" --icecc
         cd -
       }
