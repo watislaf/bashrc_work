@@ -1,9 +1,5 @@
 function bash__remote_updater__init__ {
-  echo $0
-  echo $(realpath -- $0)
-  echo $(dirname -- $0)
-  echo $(realpath  $0)
-  echo $(dirname  $0)
+  echo $(realpath  $(dirname  $0))
 
   BASH__REMOTE_UPDATER_DIRNAME=$(realpath -- $0)
   cd ${BASH__REMOTE_UPDATER_DIRNAME}
