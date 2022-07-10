@@ -314,8 +314,8 @@ function bash__gTools__ {
 }
 
 function bash__remote_updater__ {
-  echo "update bashrc => sourceBashrc"
-  function sourceBashrc {
+  echo "Update bashrc => ubr"
+  function ubr {
     cd "${BASH__REMOTE_UPDATER_DIRNAME}"
     git pull
     cd -
