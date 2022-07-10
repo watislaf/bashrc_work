@@ -8,7 +8,7 @@ echo AutoPull started
 
 while :; do
   git fetch
-  if [ $(git rev-parse HEAD) == $(git rev-parse @{u}) ]; then
+  if [ $(git rev-parse HEAD) != $(git rev-parse @{u}) ]; then
     echo "Need to pull"
     ubr
   fi
