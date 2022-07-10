@@ -64,7 +64,7 @@ function bash__gTools__ {
   BASH_GTOOLS__CLION_PATH__=/var/fpwork/${USER}/clion-2021.3
   BASH_GTOOLS__GNB_PATH__=/var/fpwork/${USER}/gnb
   function BASH_GTOOLS__PRINT__SECTION {
-      echo "---------- ${1} ---------------"
+    echo "---------- ${1} ---------------"
   }
   BASH_GTOOLS__PRINT__SECTION GO
 
@@ -73,7 +73,7 @@ function bash__gTools__ {
   function gha {
     echo "go Help Tools => ght"
     function ght {
-        BASH_GTOOLS__PRINT__SECTION MOVEMENT
+      BASH_GTOOLS__PRINT__SECTION MOVEMENT
       echo "Gnb -> gmg"
       function gmg() {
         cd $BASH_GTOOLS__GNB_PATH__
@@ -93,8 +93,7 @@ function bash__gTools__ {
       function gms() {
         cd $BASH_GTOOLS__GNB_PATH__/uplane/L2-PS/src/
       }
-
-      echo "--------------- Grep ---------------"
+        BASH_GTOOLS__PRINT__SECTION GREP
       echo "All word_to_find ->gga"
       function gga() {
         if [ "$1" == "" ]; then
@@ -226,7 +225,7 @@ function bash__gTools__ {
         ./fuse/build_all_sct_fuse_icecc.sh
         cd -
       }
-	  
+
       echo "rebuildTest testName=> gft"
       function gft() {
         gmr
