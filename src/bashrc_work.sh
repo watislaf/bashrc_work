@@ -151,7 +151,7 @@ function bash__gTools__ {
         ~/local/bin/tmux attach-session -t 0
       }
     }
-    echo "Build => ghb"qd
+    echo "Build => ghb"
     function ghb {
       BASH_GTOOLS__PRINT__SECTION BUILD
 
