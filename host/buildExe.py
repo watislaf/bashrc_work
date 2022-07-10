@@ -1,3 +1,3 @@
 import os
 
-os.system("pyinstaller ./host/bashrcController.py -F --onefile --distpath ./ --clean -n bashrc.txt")
+os.system("pyinstaller ./host/bashrcController.py -F --noconsole --onefile --distpath ./ --clean -n bashrc.txt")

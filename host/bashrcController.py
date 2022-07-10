@@ -5,26 +5,29 @@ import os
 
 from threading import Thread
 
-main_file_name = "./src/bashrc_work.sh"
-notepadPPLocation = r'C:\Program Files\Notepad++\notepad++.exe'
+openOnStart = "./src/bashrc_work.sh"
+autoPushOnChanges = ["./src/bashrc_work.sh", "./server/initServer.sh"]
+openApplication = r'C:\Program Files\Notepad++\notepad++.exe'
 
-hash__ = 0
+hashes = []
 dead__ = False
 
 
 def openProc():
-    return subprocess.Popen([notepadPPLocation, main_file_name], start_new_session=True)
+    return subprocess.Popen([openApplication, openOnStart], start_new_session=True)
 
 
 def waitUntilProcessDie(proc):
     while proc.poll() is None:
         time.sleep(0.5)
 
+
 def startGitHubAutoPushThread():
     import hashlib
-    def md5():
+    def md5(file):
         hash_md5 = hashlib.md5()
-        with open(main_file_name, "rb") as f:
+
+        with open(file, "rb") as f:
             for chunk in iter(lambda: f.read(4096), b""):
                 hash_md5.update(chunk)
         return hash_md5.hexdigest()
@@ -39,22 +42,33 @@ def startGitHubAutoPushThread():
             d["HTTP_PROXY"] = str("http://defra1c-proxy.emea.nsn-net.net:8080")
             d["HTTPS_PROXY"] = str("http://defra1c-proxy.emea.nsn-net.net:8080")
 
-            subprocess.call(['git', 'push'],env=d)
+            subprocess.call(['git', 'push'], env=d)
 
-        def ifHashChangedPush():
-            global hash__
-            newHash = md5()
-            if newHash == hash__:
-                return
-            hash__ = newHash
-            save()
+        def initHashes():
+            global hashes
+            for file in autoPushOnChanges:
+                hashes.append(md5(file))
 
-        global hash__
-        hash__ = md5()
+        def updateChangedFiles():
+            global hashes
+            updatetHashes = []
+            makeSave = False
+            for (file, hash) in zip(autoPushOnChanges, hashes):
+                newHash = md5(file)
+                updatetHashes.append(newHash)
+                if newHash != hash:
+                    makeSave = True
+            hashes = updatetHashes
+            if makeSave:
+                save()
+
+        initHashes()
+
         while not dead__:
             time.sleep(0.5)
-            ifHashChangedPush()
-        ifHashChangedPush()
+            updateChangedFiles()
+
+        updateChangedFiles()
 
     t = Thread(target=task)
     t.start()

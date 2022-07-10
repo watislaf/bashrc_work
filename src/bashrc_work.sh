@@ -1,7 +1,6 @@
 # .bashrc
 
 function bash___basics__ {
-  echo "bash___basics__"
   if [ -f /etc/bashrc ]; then
     . /etc/bashrc
   fi
@@ -34,7 +33,6 @@ function bash___basics__ {
 }
 
 function bash__fixes__ {
-  echo "bash___fixes__"
   # allows to download files from the internet
   export http_proxy=http://defra1c-proxy.emea.nsn-net.net:8080
   export https_proxy=$http_proxy
@@ -55,7 +53,6 @@ function bash__fixes__ {
 }
 
 function bash__decorations__ {
-  echo "bash__decorations__"
   # adds current branch
   git_branch() {
     git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
@@ -67,7 +64,7 @@ function bash__gTools__ {
   CLION_PATH__=/var/fpwork/${USER}/clion-2021.3/
   BASH_GTOOLS__GNB_PATH__=/var/fpwork/${USER}/gnb
 
-  echo "---------- bash__gTools__ ---------------"
+  echo "---------- Go ---------------"
 
   echo "--------------- HELP ---------------"
   echo "All => gha"
@@ -216,7 +213,6 @@ function bash__gTools__ {
           scp -p -P 29418 ${USER}@gerrit-wrsl1.int.net.nokia.com:hooks/commit-msg gnb/.git/hooks/
       }
     }
-
     echo "Fuse => ghf"
     function ghf {
       echo "-------------- sct-Fuse--------------"
@@ -229,7 +225,7 @@ function bash__gTools__ {
         ./fuse/build_all_sct_fuse_icecc.sh
         cd -
       }
-
+	  
       echo "rebuildTest testName=> gft"
       function gft() {
         gmr
@@ -316,13 +312,8 @@ function bash__gTools__ {
 }
 
 function bash__remote_updater__ {
-  echo "bash__remote_updater__"
   echo "update bashrc => sourceBashrc"
   function sourceBashrc {
-    git fetch
-    if [ $(git rev-parse HEAD) == $(git rev-parse @{u}) ]; then
-      return 1
-    fi
     cd "${BASH__REMOTE_UPDATER_DIRNAME}"
     git pull
     cd -
@@ -338,5 +329,3 @@ function bash__main__ {
   bash__decorations__
   bash__remote_updater__
 }
-
-bash__main__

@@ -1,3 +1,5 @@
+This script updates you server bashrc while you change it locally   
+
 Install on server
 ```
 git clone https://github.com/watislaf/bashrc_work.git
