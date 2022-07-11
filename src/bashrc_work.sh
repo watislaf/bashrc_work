@@ -175,9 +175,8 @@ function bash__gTools__ {
         rm -rf uplane/sdkuplane/cache/
         rm -rf externals/integration
         git restore externals/
-        gpl
-        gpl
-        gpl
+        gip
+		gip
         cd -
       }
 	  
