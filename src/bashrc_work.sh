@@ -210,7 +210,7 @@ function bash__gTools__ {
         rm -rf tmp
         rm -rf gnb
         mkdir tmp
-        gil
+        gii
         cd ./gnb &&
           gip &&
           gip
