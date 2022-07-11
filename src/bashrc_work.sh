@@ -168,7 +168,7 @@ function bash__gTools__ {
     function ghb {
       BASH_GTOOLS__PRINT__SECTION BUILD
 
-      echo "clean => gbc"
+      echo "Clean => gbc"
       function gbc() {
         gmg
         git clean -xfd
@@ -180,8 +180,18 @@ function bash__gTools__ {
         gpl
         cd -
       }
-
-      echo "source => gbs"
+	  
+	  echo "L2ps => gbl"
+      function gbl() {
+        gmr
+        # no need with new scripts, but can be use full later
+        # ./buildscript/universal/run_nb_scripts.sh
+        # prepare-5g-env
+        source ./buildL2ps.sh
+        cd -
+      }
+	  
+      echo "Source => gbs"
       function gbs() {
         gmr
         # no need with new scripts, but can be use full later
@@ -192,7 +202,7 @@ function bash__gTools__ {
       }
 
       echo "Reinstall => gbr"
-      function gra() {
+      function gbr() {
         cd /var/fpwork/
         mkdir "${USER}"
         cd "${USER}"
