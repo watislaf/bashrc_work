@@ -137,6 +137,7 @@ function bash__gTools__ {
         fi
         fgrep --color=auto -riInH -v "$1" ./
       }
+	  
       BASH_GTOOLS__PRINT__SECTION START
       echo "ClionStart => gsc"
       function gsc() {
@@ -215,7 +216,21 @@ function bash__gTools__ {
           gip
       }
     }
+    echo "go Help Git => ghi"
+    function ghi {
+	  BASH_GTOOLS__PRINT__SECTION Clion
+	  
+	  echo ---> clangd additional flags 
+	  echo -ferror-limit=0 , -Wno-error , -Wno-unknown-warning-option , -Wno-reserved-user-defined-literal , -Wdeprecated-declarations
+	  
+	  echo ---> SCT cmake build  
+	  echo "-GNinja -DSCT_COMP_L2PS=ON -DCMAKE_BUILD_TYPE=Debug"
+	  
+	  echo ---> FUSE cmake build  
+	  echo "-GNinja -DFUSE=ON -DCMAKE_BUILD_TYPE=Debug"
 
+	}	
+    echo "go Help Git => ghi"
     function ghi {
       BASH_GTOOLS__PRINT__SECTION GIT
       echo "pull => gip"
@@ -296,7 +311,7 @@ function bash__gTools__ {
       }
     }
 
-    echo "UnitTests => ghu"
+    echo "Help UnitTests => ghu"
     function ghu {
       BASH_GTOOLS__PRINT__SECTION UT
       echo "Build => gub"
