@@ -91,12 +91,12 @@ function bash__gTools__ {
         cd $BASH_GTOOLS__GNB_PATH__/uplane/L2-PS/src/
       }
 	  
-	  echo " => gmv"
+	  echo "create save point V here=> gmv"
       function gmv() {
         pwd > ~/last_saved_path.tmp
       }
 	  
-	  echo "Source => gm-"
+	  echo "go to save point => gm-"
       function gm-() {
         cd $(cat ~/last_saved_path.tmp)
       }
