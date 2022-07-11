@@ -223,6 +223,9 @@ function bash__gTools__ {
 	  echo ---> clangd additional flags 
 	  echo -ferror-limit=0 , -Wno-error , -Wno-unknown-warning-option , -Wno-reserved-user-defined-literal , -Wdeprecated-declarations
 	  
+	  echo ---> clang tidy 5g path
+	  echo "/5g/tools/llvm/12.0_034/bin/clang-format"
+	  
 	  echo ---> SCT cmake build  
 	  echo "-GNinja -DSCT_COMP_L2PS=ON -DCMAKE_BUILD_TYPE=Debug"
 	  
