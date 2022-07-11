@@ -187,7 +187,7 @@ function bash__gTools__ {
         # no need with new scripts, but can be use full later
         # ./buildscript/universal/run_nb_scripts.sh
         # prepare-5g-env
-        ./buildL2ps.sh
+        ./buildL2ps.sh --icecc
         cd -
       }
 	  
