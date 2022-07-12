@@ -139,11 +139,6 @@ function bash__gTools__ {
       }
 	  
       BASH_GTOOLS__PRINT__SECTION START
-      echo "ClionStart => gsc"
-      function gsc() {
-        "${BASH_GTOOLS__CLION_PATH__}"/bin/clion.sh >/dev/null 2>&1 &
-      }
-
       echo "Vim => gsv"
       function gsv() {
         vim -c 'set ic' $1
@@ -216,8 +211,9 @@ function bash__gTools__ {
           gip
       }
     }
-    echo "go Help Git => ghi"
-    function ghi {
+	
+    echo "go Help Git => ghc"
+    function ghc {
 	  BASH_GTOOLS__PRINT__SECTION Clion
 	  
 	  echo ---> clangd additional flags 
@@ -231,7 +227,18 @@ function bash__gTools__ {
 	  
 	  echo ---> FUSE cmake build  
 	  echo "-GNinja -DFUSE=ON -DCMAKE_BUILD_TYPE=Debug"
-
+	  
+	  echo "Kill "
+	  function gsc() {
+	    ps aux | grep "/var/fpwork/kozulin/clion-2021.3/bin/clion.sh" | awk '{print $2;}' | xargs -I % -n 1 sh -c 'kill -9 %'
+	  }
+      
+	  echo "ClionStart => gsc"
+      function gsc() {
+	    gck
+        "${BASH_GTOOLS__CLION_PATH__}"/bin/clion.sh >/dev/null 2>&1 &
+      }
+	  
 	}	
     echo "go Help Git => ghi"
     function ghi {
@@ -306,7 +313,7 @@ function bash__gTools__ {
       }
 
       echo "clean logs => gfc"
-      function gcl() {
+      function gfc() {
         gmg
         rm -rf ./uplane/logs
         rm -rf ./logs
@@ -353,6 +360,7 @@ function bash__gTools__ {
   ghb
   ghf
   ghu
+  ghc
 }
 
 function bash__remote_updater__ {
