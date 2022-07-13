@@ -336,11 +336,12 @@ function bash__gTools__ {
 
       echo "Test => gut name"
       function gut() {
+	    gmr
         if [ $1 == "" ]; then
           echo provide name of the test
           return 0
         fi
-
+		./ut/build_and_run_all_ut_icecc.sh
         cd -
       }
 
