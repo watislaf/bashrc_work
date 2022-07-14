@@ -250,7 +250,7 @@ function bash__gTools__ {
 
 		echo idea.config.path=/var/fpwork/${USER}/.CLion/config >> idea.properties
 		echo  idea.system.path=/var/fpwork/${USER}/.CLion/system >> idea.properties
-		sed -e '2d' clion64.vmoptions
+		sed -e '1d' clion64.vmoptions
 		echo -Xmx10000m >> clion64.vmoptions 
 	  }
       
