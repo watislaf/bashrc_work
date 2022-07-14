@@ -376,7 +376,7 @@ function bash__gTools__ {
           echo provide name of the test
           return 0
         fi
-		./ut/build_and_run_all_ut_icecc.sh
+		  ./ut/build_and_run_all_ut_icecc.sh
         cd -
       }
     }
