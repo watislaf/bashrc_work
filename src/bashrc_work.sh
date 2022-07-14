@@ -242,11 +242,11 @@ function bash__gTools__ {
 	  
 	  echo "Install => gci"
 	  function gci() {
+		mkdir cd /var/fpwork/${USER}/
 		cd /var/fpwork/${USER}/
 		wget --no-check-certificate https://download.jetbrains.com/cpp/CLion-2021.3.tar.gz
 		tar xzf CLion-2021.3.tar.gz
 		cd /var/fpwork/${USER}/clion-2021.3/bin/
-
 
 		echo idea.config.path=/var/fpwork/${USER}/.CLion/config >> idea.properties
 		echo  idea.system.path=/var/fpwork/${USER}/.CLion/system >> idea.properties
