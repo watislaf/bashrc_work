@@ -157,7 +157,6 @@ function bash__gTools__ {
 
         /opt/tmux/x86_64/1.9a/bin-wrapped/tmux attach-session -t 0
         export DISPLAY=$(cat ~/.tmp42.txt)
-
       }
     }
     echo "Build => ghb"
@@ -233,6 +232,19 @@ function bash__gTools__ {
 	    ps aux | grep "/var/fpwork/${USER}/clion-2021.3/bin/clion.sh" | awk '{print $2;}' | xargs -I % -n 1 sh -c 'kill -9 %'
 	    ps aux | grep "/var/fpwork/${USER}/clion-2021.3/bin/fsnotifier" | awk '{print $2;}' | xargs -I % -n 1 sh -c 'kill -9 %'
 	    ps aux | grep "/var/fpwork/${USER}/clion-2021.3/jbr/bin/java" | awk '{print $2;}' | xargs -I % -n 1 sh -c 'kill -9 %'
+	  }
+	  
+	  echo "Install => gci"
+	  function gci() {
+		cd /var/fpwork/${USER}/
+		wget --no-check-certificate https://download.jetbrains.com/cpp/CLion-2021.3.tar.gz
+		tar xzf CLion-2021.3.tar.gz
+		cd /var/fpwork/${USER}/clion-2021.3/bin/
+
+
+		echo idea.config.path=/var/fpwork/${USER}/.CLion/config >> idea.properties
+		echo  idea.system.path=/var/fpwork/${USER}/.CLion/system >> idea.properties
+		echo -Xmx10000m >> clion64.vmoptions 
 	  }
       
 	  echo "ClionStart => gsc"
