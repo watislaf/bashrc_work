@@ -399,9 +399,6 @@ function bash__remote_updater__ {
     git pull
     cd -
     source ~/.bashrc
-
-    BASH__WORK__GUB__OLD_FILE_DATE=${BASH__REMOTE_UPDATER_DIRNAME}/server/BASH__WORK__GUB__OLD_FILE_DATE.txt
-    
   }
 
   echo "auto update Onn(default) => gun [does not work]"
