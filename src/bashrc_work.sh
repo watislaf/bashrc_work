@@ -381,13 +381,6 @@ function bash__gTools__ {
       }
     }
   }
-  gha
-  ght
-  ghi
-  ghb
-  ghf
-  ghu
-  ghc
 }
 
 function bash__remote_updater__ {
@@ -415,12 +408,25 @@ function bash__remote_updater__ {
   }
 }
 
+function bash__auto_start_on_bash_source {
+  gha
+  ght
+  ghi
+  ghb
+  ghf
+  ghu
+  ghc
+  gst
+}
+
 function bash__main__ {
   bash___basics__
   bash__fixes__
   bash__gTools__
   bash__decorations__
   bash__remote_updater__
+  
+  bash__auto_start_on_bash_source
 }
 
 bash__main__
