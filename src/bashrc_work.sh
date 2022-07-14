@@ -399,12 +399,12 @@ function bash__remote_updater__ {
     git pull
     cd -
     source ~/.bashrc
-    BASH__WORK__DEAMON__PIDFILE
+    BASH__WORK__GUB__OLD_FILE_DATE=${BASH__REMOTE_UPDATER_DIRNAME}/server/BASH__WORK__GUB__OLD_FILE_DATE.txt
   }
 
   echo "auto update Onn(default) => gun [does not work]"
   function gun {
-    BASH__WORK__DEAMON__PIDFILE=${BASH__REMOTE_UPDATER_DIRNAME}/server/deamonBASH__WORK__DEAMON__PIDFILE.txt
+    BASH__WORK__GUN_DEAMON__PIDFILE=${BASH__REMOTE_UPDATER_DIRNAME}/server/BASH__WORK__GUN_DEAMON__PIDFILE.txt
     cd "${BASH__REMOTE_UPDATER_DIRNAME}"
     source ./server/autoPullDeamon.sh &
     cd -
@@ -412,7 +412,7 @@ function bash__remote_updater__ {
 
   echo "auto update Off => guf [does not work]"
   function guf {
-    rm ${BASH__WORK__DEAMON__PIDFILE}
+    rm ${BASH__WORK__GUN_DEAMON__PIDFILE}
   }
 }
 
