@@ -354,7 +354,7 @@ function bash__gTools__ {
           echo provide name of the test
           return 0
         fi
-		./ut/build_and_run_all_ut_icecc.sh
+		./ut/rebuild_and_run_single_ut.sh $1
         cd -
       }
 
@@ -366,6 +366,17 @@ function bash__gTools__ {
         fi
         gue
         ninja -C build/l2_ps/ut_build/ -t targets | grep $1
+        cd -
+      }
+	  
+	  echo "All => gua"
+      function gub() {
+	    gmr
+        if [ $1 == "" ]; then
+          echo provide name of the test
+          return 0
+        fi
+		./ut/build_and_run_all_ut_icecc.sh
         cd -
       }
     }
