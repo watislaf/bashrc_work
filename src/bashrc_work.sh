@@ -149,13 +149,13 @@ function bash__gTools__ {
 
         #fixes tmux error with displays 06.2022
         echo $DISPLAY >~/.tmp42.txt
-        ~/local/bin/tmux has-session -t 0 2>/dev/null
+        /opt/tmux/x86_64/1.9a/bin-wrapped/tmux has-session -t 0 2>/dev/null
 
         if [ $? != 0 ]; then
-          ~/local/bin/tmux
+          /opt/tmux/x86_64/1.9a/bin-wrapped/tmux
         fi
 
-        ~/local/bin/tmux attach-session -t 0
+        /opt/tmux/x86_64/1.9a/bin-wrapped/tmux attach-session -t 0
         export DISPLAY=$(cat ~/.tmp42.txt)
 
       }
