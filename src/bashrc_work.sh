@@ -146,7 +146,6 @@ function bash__gTools__ {
 
       echo "Tmux => gst"
       function gst() {
-
         #fixes tmux error with displays 06.2022
         echo $DISPLAY >~/.tmp42.txt
         /opt/tmux/x86_64/1.9a/bin-wrapped/tmux has-session -t 0 2>/dev/null
@@ -158,6 +157,13 @@ function bash__gTools__ {
         /opt/tmux/x86_64/1.9a/bin-wrapped/tmux attach-session -t 0
         export DISPLAY=$(cat ~/.tmp42.txt)
       }
+	  
+	  echo "ClionStart => gsc"
+      function gsc() {
+	    gck
+        "${BASH_GTOOLS__CLION_PATH__}"/bin/clion.sh >/dev/null 2>&1 &
+      }
+	  
     }
     echo "Build => ghb"
     function ghb {
@@ -247,12 +253,6 @@ function bash__gTools__ {
 		echo -Xmx10000m >> clion64.vmoptions 
 	  }
       
-	  echo "ClionStart => gsc"
-      function gsc() {
-	    gck
-        "${BASH_GTOOLS__CLION_PATH__}"/bin/clion.sh >/dev/null 2>&1 &
-      }
-	  
 	}	
     echo "go Help Git => ghi"
     function ghi {
