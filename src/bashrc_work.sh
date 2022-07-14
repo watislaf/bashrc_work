@@ -399,9 +399,10 @@ function bash__remote_updater__ {
     git pull
     cd -
     source ~/.bashrc
+    
   }
 
-  echo "auto update Onn(default) => gun"
+  echo "auto update Onn(default) => gun [does not work]"
   function gun {
     BASH__WORK__DEAMON__PIDFILE=${BASH__REMOTE_UPDATER_DIRNAME}/server/deamonBASH__WORK__DEAMON__PIDFILE.txt
     cd "${BASH__REMOTE_UPDATER_DIRNAME}"
@@ -409,7 +410,7 @@ function bash__remote_updater__ {
     cd -
   }
 
-  echo "auto update Off => guf"
+  echo "auto update Off => guf [does not work]"
   function guf {
     rm ${BASH__WORK__DEAMON__PIDFILE}
   }
