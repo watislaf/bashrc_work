@@ -52,7 +52,7 @@ function bash__decorations__ {
     git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
   }
   export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+(${debian_chroot})}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \[\033[00;32m\]\$(git_branch)\[\033[00m\]\$ "
-  
+
   # fzf
   [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 }
@@ -90,12 +90,12 @@ function bash__gTools__ {
       function gms() {
         cd $BASH_GTOOLS__GNB_PATH__/uplane/L2-PS/src/
       }
-	  
+
 	  echo "create save point V here=> gmv"
       function gmv() {
         pwd > ~/last_saved_path.tmp
       }
-	  
+
 	  echo "go to save point => gm-"
       function gm-() {
         cd $(cat ~/last_saved_path.tmp)
@@ -137,7 +137,7 @@ function bash__gTools__ {
         fi
         fgrep --color=auto -riInH -v "$1" ./
       }
-	  
+
       BASH_GTOOLS__PRINT__SECTION START
       echo "Vim => gsv"
       function gsv() {
@@ -157,13 +157,13 @@ function bash__gTools__ {
         /opt/tmux/x86_64/1.9a/bin-wrapped/tmux attach-session -t 0
         export DISPLAY=$(cat ~/.tmp42.txt)
       }
-	  
+
 	  echo "ClionStart => gsc"
       function gsc() {
 	    gck
         "${BASH_GTOOLS__CLION_PATH__}"/bin/clion.sh >/dev/null 2>&1 &
       }
-	  
+
     }
     echo "Build => ghb"
     function ghb {
@@ -180,7 +180,7 @@ function bash__gTools__ {
 		gip
         cd -
       }
-	  
+
 	  echo "L2ps => gbl"
       function gbl() {
         gmr
@@ -191,7 +191,7 @@ function bash__gTools__ {
 
         cd -
       }
-	  
+
       echo "Source => gbs"
       function gbs() {
         gmr
@@ -216,30 +216,30 @@ function bash__gTools__ {
           gip
       }
     }
-	
+
     echo "go Help Git => ghc"
     function ghc {
 	  BASH_GTOOLS__PRINT__SECTION Clion
-	  
+
 	  echo "---> clangd additional flags "
 	  echo -ferror-limit=0 , -Wno-error , -Wno-unknown-warning-option , -Wno-reserved-user-defined-literal , -Wdeprecated-declarations
-	  
+
 	  echo "---> clang tidy 5g path"
 	  echo "/5g/tools/llvm/12.0_034/bin/clang-format"
-	  
+
 	  echo "---> SCT cmake build"
 	  echo "-GNinja -DSCT_COMP_L2PS=ON -DCMAKE_BUILD_TYPE=Debug"
-	  
+
 	  echo "---> FUSE cmake build"
 	  echo "-GNinja -DFUSE=ON -DCMAKE_BUILD_TYPE=Debug"
-	  
+
 	  echo "Kill => gck"
 	  function gck() {
 	    ps aux | grep "/var/fpwork/${USER}/clion-2021.3/bin/clion.sh" | awk '{print $2;}' | xargs -I % -n 1 sh -c 'kill -9 %'
 	    ps aux | grep "/var/fpwork/${USER}/clion-2021.3/bin/fsnotifier" | awk '{print $2;}' | xargs -I % -n 1 sh -c 'kill -9 %'
 	    ps aux | grep "/var/fpwork/${USER}/clion-2021.3/jbr/bin/java" | awk '{print $2;}' | xargs -I % -n 1 sh -c 'kill -9 %'
 	  }
-	  
+
 	  echo "Install => gci"
 	  function gci() {
 		mkdir cd /var/fpwork/${USER}/
@@ -251,10 +251,10 @@ function bash__gTools__ {
 		echo idea.config.path=/var/fpwork/${USER}/.CLion/config >> idea.properties
 		echo  idea.system.path=/var/fpwork/${USER}/.CLion/system >> idea.properties
 		sed -e '1d' clion64.vmoptions
-		echo -Xmx10000m >> clion64.vmoptions 
+		echo -Xmx10000m >> clion64.vmoptions
 	  }
-      
-	}	
+
+	}
     echo "go Help Git => ghi"
     function ghi {
       BASH_GTOOLS__PRINT__SECTION GIT
@@ -368,7 +368,7 @@ function bash__gTools__ {
         ninja -C build/l2_ps/ut_build/ -t targets | grep $1
         cd -
       }
-	  
+
 	  echo "All => gua"
       function gub() {
 	    gmr
@@ -393,24 +393,24 @@ function bash__gTools__ {
 function bash__remote_updater__ {
 
   BASH_GTOOLS__PRINT__SECTION Update
-  echo "Update bashrc => ubr"
-  function ubr {
+  echo "bashrc => gub"
+  function gub {
     cd "${BASH__REMOTE_UPDATER_DIRNAME}"
     git pull
     cd -
     source ~/.bashrc
   }
 
-  echo "auto update Onn(default) => aon"
-  function aon {
+  echo "auto update Onn(default) => gun"
+  function gun {
     BASH__WORK__DEAMON__PIDFILE=${BASH__REMOTE_UPDATER_DIRNAME}/server/deamonBASH__WORK__DEAMON__PIDFILE.txt
     cd "${BASH__REMOTE_UPDATER_DIRNAME}"
     source ./server/autoPullDeamon.sh &
     cd -
   }
 
-  echo "auto update Off => aof"
-  function aof {
+  echo "auto update Off => guf"
+  function guf {
     rm ${BASH__WORK__DEAMON__PIDFILE}
   }
 }
