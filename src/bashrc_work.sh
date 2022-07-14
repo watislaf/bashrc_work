@@ -399,7 +399,7 @@ function bash__remote_updater__ {
     git pull
     cd -
     source ~/.bashrc
-    
+    BASH__WORK__DEAMON__PIDFILE
   }
 
   echo "auto update Onn(default) => gun [does not work]"
