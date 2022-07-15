@@ -397,7 +397,7 @@ function bash__remote_updater__ {
 	function ghr {
 	  BASH_GTOOLS__PRINT__SECTION Update
 	  echo "bashrc => gub"
-	  function gub {
+	  function grb {
 		cd "${BASH__REMOTE_UPDATER_DIRNAME}"
 		git pull
 		cd -
@@ -405,7 +405,7 @@ function bash__remote_updater__ {
 	  }
 
 	  echo "auto update Onn(default) => gun [does not work]"
-	  function gun {
+	  function grn {
 		BASH__WORK__GUN_DEAMON__PIDFILE=${BASH__REMOTE_UPDATER_DIRNAME}/server/BASH__WORK__GUN_DEAMON__PIDFILE.txt
 		cd "${BASH__REMOTE_UPDATER_DIRNAME}"
 		source ./server/autoPullDeamon.sh &
@@ -413,7 +413,7 @@ function bash__remote_updater__ {
 	  }
 
 	  echo "auto update Off => guf [does not work]"
-	  function guf {
+	  function grf {
 		rm ${BASH__WORK__GUN_DEAMON__PIDFILE}
 	  }
   }
