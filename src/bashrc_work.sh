@@ -443,7 +443,6 @@ function bash__auto_start_on_bash_source {
   ghu
   ghc
   ghr
-  gst
 }
 
 function bash__main__ {
