@@ -393,27 +393,29 @@ function bash__gTools__ {
 }
 
 function bash__remote_updater__ {
+	echo "Help remote updater => ghr"
+	function ghr {
+	  BASH_GTOOLS__PRINT__SECTION Update
+	  echo "bashrc => gub"
+	  function gub {
+		cd "${BASH__REMOTE_UPDATER_DIRNAME}"
+		git pull
+		cd -
+		source ~/.bashrc
+	  }
 
-  BASH_GTOOLS__PRINT__SECTION Update
-  echo "bashrc => gub"
-  function gub {
-    cd "${BASH__REMOTE_UPDATER_DIRNAME}"
-    git pull
-    cd -
-    source ~/.bashrc
-  }
+	  echo "auto update Onn(default) => gun [does not work]"
+	  function gun {
+		BASH__WORK__GUN_DEAMON__PIDFILE=${BASH__REMOTE_UPDATER_DIRNAME}/server/BASH__WORK__GUN_DEAMON__PIDFILE.txt
+		cd "${BASH__REMOTE_UPDATER_DIRNAME}"
+		source ./server/autoPullDeamon.sh &
+		cd -
+	  }
 
-  echo "auto update Onn(default) => gun [does not work]"
-  function gun {
-    BASH__WORK__GUN_DEAMON__PIDFILE=${BASH__REMOTE_UPDATER_DIRNAME}/server/BASH__WORK__GUN_DEAMON__PIDFILE.txt
-    cd "${BASH__REMOTE_UPDATER_DIRNAME}"
-    source ./server/autoPullDeamon.sh &
-    cd -
-  }
-
-  echo "auto update Off => guf [does not work]"
-  function guf {
-    rm ${BASH__WORK__GUN_DEAMON__PIDFILE}
+	  echo "auto update Off => guf [does not work]"
+	  function guf {
+		rm ${BASH__WORK__GUN_DEAMON__PIDFILE}
+	  }
   }
 }
 
@@ -425,6 +427,7 @@ function bash__auto_start_on_bash_source {
   ghf
   ghu
   ghc
+  ghr
   gst
 }
 
