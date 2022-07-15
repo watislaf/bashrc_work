@@ -53,8 +53,21 @@ function bash__decorations__ {
   }
   export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+(${debian_chroot})}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \[\033[00;32m\]\$(git_branch)\[\033[00m\]\$ "
 
-  # fzf
-  [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+  # fzf https://github.com/junegunn/fzf
+  if [ -f ~/.fzf.bash ]; then
+	source ~/.fzf.bash
+  else
+	if [ -d ~/.fzf ]; then 
+		~/.fzf/install
+	else 		
+		echo "Instalation of fzf"
+		cd 
+		git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+		~/.fzf/install
+		cd -
+		source ~/.fzf.bash
+	fi;
+   fi;
 }
 
 function bash__gTools__ {
@@ -285,10 +298,12 @@ function bash__gTools__ {
           scp -p -P 29418 ${USER}@gerrit-wrsl1.int.net.nokia.com:hooks/commit-msg gnb/.git/hooks/
       }
 	  
-      echo "Delete all branches  => giD"
-      function giD {
+      echo "git checkout -b  => gib [new branch name]"
+      function gib {
 		git branch | grep -v "master" | xargs git branch -D 
-      }	  
+      }
+	  
+	  
     }
     echo "Fuse => ghf"
     function ghf {
