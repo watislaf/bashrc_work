@@ -63,7 +63,7 @@ function bash__decorations__ {
 		echo "Instalation of fzf"
 		cd 
 		git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-		~/.fzf/install
+		~/.fzf/install  --key-bindings --completion --no-update-rc
 		cd -
 		source ~/.fzf.bash
 	fi;
