@@ -71,22 +71,22 @@ function bash__gTools__ {
     echo "go Help Tools => ght"
     function ght {
       BASH_GTOOLS__PRINT__SECTION MOVEMENT
-      echo "Gnb => gmg"
+      echo "move to Gnb => gmg"
       function gmg() {
         cd $BASH_GTOOLS__GNB_PATH__
       }
 
-      echo "Uplane => gmu"
+      echo "move to Uplane => gmu"
       function gmu {
         cd ${BASH_GTOOLS__GNB_PATH__}/uplane
       }
 
-      echo "Run => gmr"
+      echo "move to Run => gmr"
       function gmr() {
         cd $BASH_GTOOLS__GNB_PATH__/uplane/L2-PS/run
       }
 
-      echo "Source => gms"
+      echo "move to Source => gms"
       function gms() {
         cd $BASH_GTOOLS__GNB_PATH__/uplane/L2-PS/src/
       }
@@ -102,7 +102,7 @@ function bash__gTools__ {
       }
 
       BASH_GTOOLS__PRINT__SECTION GREP
-      echo "All word_to_find => gga"
+      echo "find in All files=> gga  [word_to_find] "
       function gga() {
         if [ "$1" == "" ]; then
           echo provide word to find
@@ -111,7 +111,7 @@ function bash__gTools__ {
         fgrep --color=auto -riInH "$1" ./
       }
 
-      echo " onlySource word_to_find => ggs"
+      echo "find in onlySource files=> ggs  [word_to_find] "
       function ggs() {
         if [ "$1" == "" ]; then
           echo provide word to find
@@ -120,7 +120,7 @@ function bash__gTools__ {
         fgrep --color=auto -riInH "$1" ./ --exclude-dir="ut"
       }
 
-      echo "onlyTests word_to_find => ggt"
+      echo "find in onlyTests files => ggt [word_to_find]"
       function ggt() {
         if [ "$1" == "" ]; then
           echo provide word to find
@@ -129,22 +129,22 @@ function bash__gTools__ {
         fgrep --color=auto -riInH "$1" ./
       }
 
-      echo "Reversed word_to_find =>ggr"
+      echo "Reversed grep, use pipe  =>ggr [word_to_find]"
       function ggr() {
         if [ "$1" == "" ]; then
           echo provide word to find
           return
         fi
-        fgrep --color=auto -riInH -v "$1" ./
+        fgrep --color=auto -riInH -v "$1"
       }
 
       BASH_GTOOLS__PRINT__SECTION START
-      echo "Vim => gsv"
+      echo "start Vim => gsv"
       function gsv() {
         vim -c 'set ic' $1
       }
 
-      echo "Tmux => gst"
+      echo "start Tmux => gst"
       function gst() {
         #fixes tmux error with displays 06.2022
         echo $DISPLAY >~/.tmp42.txt
@@ -158,7 +158,7 @@ function bash__gTools__ {
         export DISPLAY=$(cat ~/.tmp42.txt)
       }
 
-	  echo "ClionStart => gsc"
+	  echo "start Clion=> gsc"
       function gsc() {
 	    gck
         "${BASH_GTOOLS__CLION_PATH__}"/bin/clion.sh >/dev/null 2>&1 &
@@ -169,7 +169,7 @@ function bash__gTools__ {
     function ghb {
       BASH_GTOOLS__PRINT__SECTION BUILD
 
-      echo "Clean => gbc"
+      echo "Clean old data and install newer, hight chanse of fixing => gbc"
       function gbc() {
         gmg
         git clean -xfd
@@ -181,7 +181,7 @@ function bash__gTools__ {
         cd -
       }
 
-	  echo "L2ps => gbl"
+	  echo "build L2PS=> gbl"
       function gbl() {
         gmr
         # no need with new scripts, but can be use full later
@@ -192,7 +192,7 @@ function bash__gTools__ {
         cd -
       }
 
-      echo "Source => gbs"
+      echo "do Source => gbs"
       function gbs() {
         gmr
         # no need with new scripts, but can be use full later
@@ -202,7 +202,7 @@ function bash__gTools__ {
         cd -
       }
 
-      echo "Reinstall => gbr"
+      echo "Install gnb  => gbr"
       function gbr() {
         cd /var/fpwork/
         mkdir "${USER}"
@@ -214,6 +214,7 @@ function bash__gTools__ {
         cd ./gnb &&
           gip &&
           gip
+		gbs
       }
     }
 
@@ -221,26 +222,14 @@ function bash__gTools__ {
     function ghc {
 	  BASH_GTOOLS__PRINT__SECTION Clion
 
-	  echo "---> clangd additional flags "
-	  echo -ferror-limit=0 , -Wno-error , -Wno-unknown-warning-option , -Wno-reserved-user-defined-literal , -Wdeprecated-declarations
-
-	  echo "---> clang tidy 5g path"
-	  echo "/5g/tools/llvm/12.0_034/bin/clang-format"
-
-	  echo "---> SCT cmake build"
-	  echo "-GNinja -DSCT_COMP_L2PS=ON -DCMAKE_BUILD_TYPE=Debug"
-
-	  echo "---> FUSE cmake build"
-	  echo "-GNinja -DFUSE=ON -DCMAKE_BUILD_TYPE=Debug"
-
-	  echo "Kill => gck"
+	  echo "Kill all clion tasks=> gck"
 	  function gck() {
 	    ps aux | grep "/var/fpwork/${USER}/clion-2021.3/bin/clion.sh" | awk '{print $2;}' | xargs -I % -n 1 sh -c 'kill -9 %'
 	    ps aux | grep "/var/fpwork/${USER}/clion-2021.3/bin/fsnotifier" | awk '{print $2;}' | xargs -I % -n 1 sh -c 'kill -9 %'
 	    ps aux | grep "/var/fpwork/${USER}/clion-2021.3/jbr/bin/java" | awk '{print $2;}' | xargs -I % -n 1 sh -c 'kill -9 %'
 	  }
 
-	  echo "Install => gci"
+	  echo "Install clion => gci"
 	  function gci() {
 		mkdir cd /var/fpwork/${USER}/
 		cd /var/fpwork/${USER}/
@@ -256,7 +245,19 @@ function bash__gTools__ {
 		echo -Xmx10000m >> clion64.vmoptions
 	  }
 
+	  echo "--- clangd additional flags "
+	  echo -ferror-limit=0 , -Wno-error , -Wno-unknown-warning-option , -Wno-reserved-user-defined-literal , -Wdeprecated-declarations
+
+	  echo "--- clang tidy 5g path"
+	  echo "/5g/tools/llvm/12.0_034/bin/clang-format"
+
+	  echo "--- SCT cmake build"
+	  echo "-GNinja -DSCT_COMP_L2PS=ON -DCMAKE_BUILD_TYPE=Debug"
+
+	  echo "--- FUSE cmake build"
+	  echo "-GNinja -DFUSE=ON -DCMAKE_BUILD_TYPE=Debug"
 	}
+	
     echo "go Help Git => ghi"
     function ghi {
       BASH_GTOOLS__PRINT__SECTION GIT
@@ -269,7 +270,7 @@ function bash__gTools__ {
         cd -
       }
 
-      echo "Commit  => gic"
+      echo "commit + push => gic"
       function gic {
         gmg
         git diff --name-only | egrep --color=auto "(*.cpp|*.hpp|*.h)" | xargs -I % -n 1 sh -c 'clang-format -i %'
@@ -277,11 +278,17 @@ function bash__gTools__ {
         git push origin HEAD:refs/for/master
         cd -
       }
-      echo "Install  => gii"
+	  
+      echo "Install gnb=> gii"
       function gii {
         git clone ssh://${USER}@gerrit-wrsl1.int.net.nokia.com:29418/MN/5G/NB/gnb &&
           scp -p -P 29418 ${USER}@gerrit-wrsl1.int.net.nokia.com:hooks/commit-msg gnb/.git/hooks/
       }
+	  
+      echo "Delete all branches  => giD"
+      function giD {
+		git branch | grep -v "master" | xargs git branch -D 
+      }	  
     }
     echo "Fuse => ghf"
     function ghf {
