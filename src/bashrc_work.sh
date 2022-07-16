@@ -282,11 +282,13 @@ function bash__gTools__ {
         git submodule update --init --recursive
         cd -
       }
-
+	echo "add all => gia"
+	function gia {
+		git diff --name-only | egrep --color=auto "(*.cpp|*.hpp|*.h)" | xargs -I % -n 1 sh -c 'clang-format -i %'
+	 }
       echo "commit + push => gic"
       function gic {
         gmg
-        git diff --name-only | egrep --color=auto "(*.cpp|*.hpp|*.h)" | xargs -I % -n 1 sh -c 'clang-format -i %'
         git commit --amend --no-edit --reset-author
         git push origin HEAD:refs/for/master
         cd -
