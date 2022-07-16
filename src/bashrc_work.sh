@@ -434,6 +434,7 @@ function bash__gTools__ {
 	  }
   
 }
+}
 
 function bash__auto_start_on_bash_source {
   gha
