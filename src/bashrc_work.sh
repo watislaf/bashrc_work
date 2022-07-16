@@ -55,19 +55,19 @@ function bash__decorations__ {
 
   # fzf https://github.com/junegunn/fzf
   if [ -f ~/.fzf.bash ]; then
-	source ~/.fzf.bash
+    source ~/.fzf.bash
   else
-	if [ -d ~/.fzf ]; then 
-		~/.fzf/install
-	else 		
-		echo "Instalation of fzf"
-		cd 
-		git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-		~/.fzf/install  --key-bindings --completion --no-update-rc
-		cd -
-		source ~/.fzf.bash
-	fi;
-   fi;
+    if [ -d ~/.fzf ]; then
+      ~/.fzf/install
+    else
+      echo "Instalation of fzf"
+      cd
+      git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+      ~/.fzf/install --key-bindings --completion --no-update-rc
+      cd -
+      source ~/.fzf.bash
+    fi
+  fi
 }
 
 function bash__gTools__ {
@@ -104,12 +104,12 @@ function bash__gTools__ {
         cd $BASH_GTOOLS__GNB_PATH__/uplane/L2-PS/src/
       }
 
-	  echo "create save point V here=> gmv"
+      echo "create save point V here=> gmv"
       function gmv() {
-        pwd > ~/last_saved_path.tmp
+        pwd >~/last_saved_path.tmp
       }
 
-	  echo "go to save point => gm-"
+      echo "go to save point => gm-"
       function gm-() {
         cd $(cat ~/last_saved_path.tmp)
       }
@@ -171,9 +171,9 @@ function bash__gTools__ {
         export DISPLAY=$(cat ~/.tmp42.txt)
       }
 
-	  echo "start Clion=> gsc"
+      echo "start Clion=> gsc"
       function gsc() {
-	    gck
+        gck
         "${BASH_GTOOLS__CLION_PATH__}"/bin/clion.sh >/dev/null 2>&1 &
       }
 
@@ -190,17 +190,17 @@ function bash__gTools__ {
         rm -rf externals/integration
         git restore externals/
         gip
-		gip
+        gip
         cd -
       }
 
-	  echo "build L2PS=> gbl"
+      echo "build L2PS=> gbl"
       function gbl() {
         gmr
         # no need with new scripts, but can be use full later
         # ./buildscript/universal/run_nb_scripts.sh
         # prepare-5g-env
-		./buildL2ps.sh --only_sct_binary --icecc
+        ./buildL2ps.sh --only_sct_binary --icecc
 
         cd -
       }
@@ -227,50 +227,50 @@ function bash__gTools__ {
         cd ./gnb &&
           gip &&
           gip
-		gbs
+        gbs
       }
     }
 
     echo "go Help Git => ghc"
     function ghc {
-	  BASH_GTOOLS__PRINT__SECTION Clion
+      BASH_GTOOLS__PRINT__SECTION Clion
 
-	  echo "Kill all clion tasks=> gck"
-	  function gck() {
-	    ps aux | grep "/var/fpwork/${USER}/clion-2021.3/bin/clion.sh" | awk '{print $2;}' | xargs -I % -n 1 sh -c 'kill -9 %'
-	    ps aux | grep "/var/fpwork/${USER}/clion-2021.3/bin/fsnotifier" | awk '{print $2;}' | xargs -I % -n 1 sh -c 'kill -9 %'
-	    ps aux | grep "/var/fpwork/${USER}/clion-2021.3/jbr/bin/java" | awk '{print $2;}' | xargs -I % -n 1 sh -c 'kill -9 %'
-	  }
+      echo "Kill all clion tasks=> gck"
+      function gck() {
+        ps aux | grep "/var/fpwork/${USER}/clion-2021.3/bin/clion.sh" | awk '{print $2;}' | xargs -I % -n 1 sh -c 'kill -9 %'
+        ps aux | grep "/var/fpwork/${USER}/clion-2021.3/bin/fsnotifier" | awk '{print $2;}' | xargs -I % -n 1 sh -c 'kill -9 %'
+        ps aux | grep "/var/fpwork/${USER}/clion-2021.3/jbr/bin/java" | awk '{print $2;}' | xargs -I % -n 1 sh -c 'kill -9 %'
+      }
 
-	  echo "Install clion => gci"
-	  function gci() {
-		mkdir cd /var/fpwork/${USER}/
-		cd /var/fpwork/${USER}/
-		wget --no-check-certificate https://download.jetbrains.com/cpp/CLion-2021.3.tar.gz
-		tar xzf CLion-2021.3.tar.gz
-		cd /var/fpwork/${USER}/clion-2021.3/bin/
+      echo "Install clion => gci"
+      function gci() {
+        mkdir cd /var/fpwork/${USER}/
+        cd /var/fpwork/${USER}/
+        wget --no-check-certificate https://download.jetbrains.com/cpp/CLion-2021.3.tar.gz
+        tar xzf CLion-2021.3.tar.gz
+        cd /var/fpwork/${USER}/clion-2021.3/bin/
 
-		echo idea.config.path=/var/fpwork/${USER}/.CLion/config >> idea.properties
-		echo  idea.system.path=/var/fpwork/${USER}/.CLion/system >> idea.properties
-		echo  idea.plugins.path=/var/fpwork/${USER}/.CLion/config/plugins>> idea.properties
+        echo idea.config.path=/var/fpwork/${USER}/.CLion/config >>idea.properties
+        echo idea.system.path=/var/fpwork/${USER}/.CLion/system >>idea.properties
+        echo idea.plugins.path=/var/fpwork/${USER}/.CLion/config/plugins >>idea.properties
 
-		sed -e '1d' clion64.vmoptions
-		echo -Xmx10000m >> clion64.vmoptions
-	  }
+        sed -e '1d' clion64.vmoptions
+        echo -Xmx10000m >>clion64.vmoptions
+      }
 
-	  echo "--- clangd additional flags "
-	  echo -ferror-limit=0 , -Wno-error , -Wno-unknown-warning-option , -Wno-reserved-user-defined-literal , -Wdeprecated-declarations
+      echo "--- clangd additional flags "
+      echo -ferror-limit=0 , -Wno-error , -Wno-unknown-warning-option , -Wno-reserved-user-defined-literal , -Wdeprecated-declarations
 
-	  echo "--- clang tidy 5g path"
-	  echo "/5g/tools/llvm/12.0_034/bin/clang-format"
+      echo "--- clang tidy 5g path"
+      echo "/5g/tools/llvm/12.0_034/bin/clang-format"
 
-	  echo "--- SCT cmake build"
-	  echo "-GNinja -DSCT_COMP_L2PS=ON -DCMAKE_BUILD_TYPE=Debug"
+      echo "--- SCT cmake build"
+      echo "-GNinja -DSCT_COMP_L2PS=ON -DCMAKE_BUILD_TYPE=Debug"
 
-	  echo "--- FUSE cmake build"
-	  echo "-GNinja -DFUSE=ON -DCMAKE_BUILD_TYPE=Debug"
-	}
-	
+      echo "--- FUSE cmake build"
+      echo "-GNinja -DFUSE=ON -DCMAKE_BUILD_TYPE=Debug"
+    }
+
     echo "go Help Git => ghi"
     function ghi {
       BASH_GTOOLS__PRINT__SECTION GIT
@@ -282,11 +282,11 @@ function bash__gTools__ {
         git submodule update --init --recursive
         cd -
       }
-	echo "add all => gia"
-	function gia {
-		git diff --name-only | egrep --color=auto "(*.cpp|*.hpp|*.h)" | xargs -I % -n 1 sh -c 'clang-format -i %'
-		git add ./
-	 }
+      echo "add all => gia"
+      function gia {
+        git diff --name-only | egrep --color=auto "(*.cpp|*.hpp|*.h)" | xargs -I % -n 1 sh -c 'clang-format -i %'
+        git add ./
+      }
       echo "commit + push => gic"
       function gic {
         gmg
@@ -294,20 +294,20 @@ function bash__gTools__ {
         git push origin HEAD:refs/for/master
         cd -
       }
-	  
+
       echo "Install gnb=> gii"
       function gii {
         git clone ssh://${USER}@gerrit-wrsl1.int.net.nokia.com:29418/MN/5G/NB/gnb &&
           scp -p -P 29418 ${USER}@gerrit-wrsl1.int.net.nokia.com:hooks/commit-msg gnb/.git/hooks/
       }
-	  
+
       echo "git checkout -b  => gib [new branch name]"
       function gib {
-		git branch | grep -v "master" | xargs git branch -D 
+        git branch | grep -v "master" | xargs git branch -D
       }
-	  
-	  
+
     }
+
     echo "Fuse => ghf"
     function ghf {
       BASH_GTOOLS__PRINT__SECTION FUSE
@@ -376,12 +376,12 @@ function bash__gTools__ {
 
       echo "Test => gut name"
       function gut() {
-	    gmr
+        gmr
         if [ $1 == "" ]; then
           echo provide name of the test
           return 0
         fi
-		./ut/rebuild_and_run_single_ut.sh $1
+        ./ut/rebuild_and_run_single_ut.sh $1
         cd -
       }
 
@@ -396,44 +396,43 @@ function bash__gTools__ {
         cd -
       }
 
-	  echo "All => gua"
+      echo "All => gua"
       function gub() {
-	    gmr
+        gmr
         if [ $1 == "" ]; then
           echo provide name of the test
           return 0
         fi
-		  ./ut/build_and_run_all_ut_icecc.sh
+        ./ut/build_and_run_all_ut_icecc.sh
         cd -
       }
     }
-  } 
-  
-	echo "Help remote updater => ghr"
-	function ghr {
-	  BASH_GTOOLS__PRINT__SECTION Update
-	  echo "install update from github => grb"
-	  function grb {
-		cd "${BASH__REMOTE_UPDATER_DIRNAME}"
-		git pull
-		cd -
-		source ~/.bashrc
-	  }
+  }
 
-	  echo "auto update Onn(default) => grn [does not work]"
-	  function grn {
-		BASH__WORK__GUN_DEAMON__PIDFILE=${BASH__REMOTE_UPDATER_DIRNAME}/server/BASH__WORK__GUN_DEAMON__PIDFILE.txt
-		cd "${BASH__REMOTE_UPDATER_DIRNAME}"
-		source ./server/autoPullDeamon.sh &
-		cd -
-	  }
+  echo "Help remote updater => ghr"
+  function ghr {
+    BASH_GTOOLS__PRINT__SECTION Update
+    echo "install update from github => grb"
+    function grb {
+      cd "${BASH__REMOTE_UPDATER_DIRNAME}"
+      git pull
+      cd -
+      source ~/.bashrc
+    }
 
-	  echo "auto update Off => grf [does not work]"
-	  function grf {
-		rm ${BASH__WORK__GUN_DEAMON__PIDFILE}
-	  }
-  
-}
+    echo "auto update Onn(default) => grn [does not work]"
+    function grn {
+      BASH__WORK__GUN_DEAMON__PIDFILE=${BASH__REMOTE_UPDATER_DIRNAME}/server/BASH__WORK__GUN_DEAMON__PIDFILE.txt
+      cd "${BASH__REMOTE_UPDATER_DIRNAME}"
+      source ./server/autoPullDeamon.sh &
+      cd -
+    }
+
+    echo "auto update Off => grf [does not work]"
+    function grf {
+      rm ${BASH__WORK__GUN_DEAMON__PIDFILE}
+    }
+  }
 }
 
 function bash__auto_start_on_bash_source {
@@ -453,7 +452,7 @@ function bash__main__ {
   bash__gTools__
   bash__decorations__
   bash__remote_updater__
-  
+
   bash__auto_start_on_bash_source
 }
 
