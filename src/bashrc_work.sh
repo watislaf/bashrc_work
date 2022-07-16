@@ -408,31 +408,30 @@ function bash__gTools__ {
       }
     }
 
-  echo "Help remote updater => ghr"
-  function ghr {
-    BASH_GTOOLS__PRINT__SECTION Update
-    echo "install update from github => grb"
-    function grb {
-      cd "${BASH__REMOTE_UPDATER_DIRNAME}"
-      git pull
-      cd -
-      source ~/.bashrc
-    }
+    echo "Help remote updater => ghr"
+    function ghr {
+      BASH_GTOOLS__PRINT__SECTION Update
+      echo "install update from github => grb"
+      function grb {
+        cd "${BASH__REMOTE_UPDATER_DIRNAME}"
+        git pull
+        cd -
+        source ~/.bashrc
+      }
 
-    echo "auto update Onn(default) => grn [does not work]"
-    function grn {
-      BASH__WORK__GUN_DEAMON__PIDFILE=${BASH__REMOTE_UPDATER_DIRNAME}/server/BASH__WORK__GUN_DEAMON__PIDFILE.txt
-      cd "${BASH__REMOTE_UPDATER_DIRNAME}"
-      source ./server/autoPullDeamon.sh &
-      cd -
-    }
+      echo "auto update Onn(default) => grn [does not work]"
+      function grn {
+        BASH__WORK__GUN_DEAMON__PIDFILE=${BASH__REMOTE_UPDATER_DIRNAME}/server/BASH__WORK__GUN_DEAMON__PIDFILE.txt
+        cd "${BASH__REMOTE_UPDATER_DIRNAME}"
+        source ./server/autoPullDeamon.sh &
+        cd -
+      }
 
-    echo "auto update Off => grf [does not work]"
-    function grf {
-      rm ${BASH__WORK__GUN_DEAMON__PIDFILE}
+      echo "auto update Off => grf [does not work]"
+      function grf {
+        rm ${BASH__WORK__GUN_DEAMON__PIDFILE}
+      }
     }
-  }
-
   }
 }
 
