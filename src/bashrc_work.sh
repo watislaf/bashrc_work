@@ -81,7 +81,7 @@ function bash__gTools__ {
   BASH_GTOOLS__PRINT__SECTION HELP
   echo "All => gha"
   function gha {
-    echo "go Help Tools => ght"
+    echo " Help Tools => ght"
     function ght {
       BASH_GTOOLS__PRINT__SECTION MOVEMENT
       echo "move to Gnb => gmg"
@@ -109,7 +109,7 @@ function bash__gTools__ {
         pwd >~/last_saved_path.tmp
       }
 
-      echo "go to save point => gm-"
+      echo " to save point => gm-"
       function gm-() {
         cd $(cat ~/last_saved_path.tmp)
       }
@@ -231,7 +231,7 @@ function bash__gTools__ {
       }
     }
 
-    echo "go Help Git => ghc"
+    echo " Help Git => ghc"
     function ghc {
       BASH_GTOOLS__PRINT__SECTION Clion
 
@@ -271,7 +271,7 @@ function bash__gTools__ {
       echo "-GNinja -DFUSE=ON -DCMAKE_BUILD_TYPE=Debug"
     }
 
-    echo "go Help Git => ghi"
+    echo " Help Git => ghi"
     function ghi {
       BASH_GTOOLS__PRINT__SECTION GIT
       echo "pull => gip"
@@ -284,7 +284,7 @@ function bash__gTools__ {
       }
       echo "add all => gia"
       function gia {
-        git diff --name-only | egrep --color=auto "(*.cpp|*.hpp|*.h)" | xargs -I % -n 1 sh -c 'clang-format -i %'
+		git diff --name-only | egrep --color=auto "(*.cpp$|*.hpp$|*.h$)" | xargs -I % -n 1 sh -c 'echo ${GNB_PATH}//%  && echo "ClangFormat on %"'             /var/fpwork/kozulin/gnb//uplane/L2-PS/src/ul/sch/harq/ut/TestHarqPmCounters.cpp
         git add ./
       }
       echo "commit + push => gic"
