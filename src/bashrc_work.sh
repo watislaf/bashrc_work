@@ -407,10 +407,8 @@ function bash__gTools__ {
         cd -
       }
     }
-  }
-}
-
-function bash__remote_updater__ {
+  } 
+  
 	echo "Help remote updater => ghr"
 	function ghr {
 	  BASH_GTOOLS__PRINT__SECTION Update
@@ -434,7 +432,7 @@ function bash__remote_updater__ {
 	  function grf {
 		rm ${BASH__WORK__GUN_DEAMON__PIDFILE}
 	  }
-  }
+  
 }
 
 function bash__auto_start_on_bash_source {
