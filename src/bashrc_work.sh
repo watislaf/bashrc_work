@@ -411,7 +411,7 @@ function bash__gTools__ {
     echo "Help remote updater => ghr"
     function ghr {
       BASH_GTOOLS__PRINT__SECTION Update
-      echo "install update from github => gru"
+      echo "update bashrc from github => gru"
       function gru {
         cd "${BASH__REMOTE_UPDATER_DIRNAME}"
         git pull
