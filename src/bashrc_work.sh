@@ -407,7 +407,6 @@ function bash__gTools__ {
         cd -
       }
     }
-  }
 
   echo "Help remote updater => ghr"
   function ghr {
@@ -432,6 +431,8 @@ function bash__gTools__ {
     function grf {
       rm ${BASH__WORK__GUN_DEAMON__PIDFILE}
     }
+  }
+
   }
 }
 
