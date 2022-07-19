@@ -231,7 +231,7 @@ function bash__gTools__ {
       }
     }
 
-    echo " Help Git => ghc"
+    echo " Help Clion => ghc"
     function ghc {
       BASH_GTOOLS__PRINT__SECTION Clion
 
@@ -284,7 +284,7 @@ function bash__gTools__ {
       }
       echo "add all => gia"
       function gia {
-		git diff --name-only | egrep --color=auto "(*.cpp$|*.hpp$|*.h$)" | xargs -I % -n 1 sh -c 'echo ${GNB_PATH}//%  && echo "ClangFormat on %"'             /var/fpwork/kozulin/gnb//uplane/L2-PS/src/ul/sch/harq/ut/TestHarqPmCounters.cpp
+		git diff --name-only | egrep --color=auto "(*.cpp$|*.hpp$|*.h$)" | xargs -I % -n 1 sh -c 'clang-format -i ${GNB_PATH}//%  && echo "ClangFormat on %"'  
         git add ./
       }
       echo "commit + push => gic"
@@ -305,7 +305,6 @@ function bash__gTools__ {
       function gib {
         git branch | grep -v "master" | xargs git branch -D
       }
-
     }
 
     echo "Fuse => ghf"
@@ -444,6 +443,8 @@ function bash__auto_start_on_bash_source {
   ghu
   ghc
   ghr
+  
+  gmg
 }
 
 function bash__main__ {
