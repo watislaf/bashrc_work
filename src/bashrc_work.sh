@@ -284,7 +284,7 @@ function bash__gTools__ {
       }
       echo "add all => gia"
       function gia {
-		git diff --name-only | egrep --color=auto "(*.cpp$|*.hpp$|*.h$)" | xargs -I % -n 1 sh -c 'clang-format -i ${BASH_GTOOLS__GNB_PATH__}//%  && echo "ClangFormat on %"'  
+		git diff --name-only | egrep --color=auto "(*.cpp$|*.hpp$|*.h$)" | xargs -I % -n 1 sh -c 'clang-format -i ${BASH_GTOOLS__GNB_PATH__}/%  && echo "ClangFormat on %"'  
         git add ./
       }
       echo "commit + push => gic"
