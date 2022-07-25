@@ -304,7 +304,12 @@ function bash__gTools__ {
       }
 
       echo "git checkout -b  => gib [new branch name]"
-      function gib {
+	  function gib {
+        git checkout -b $1
+      }
+	  
+      echo "git delete all branches => gid "	  
+      function gid {
         git branch | grep -v "master" | xargs git branch -D
       }
     }
