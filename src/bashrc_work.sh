@@ -139,7 +139,7 @@ function bash__gTools__ {
           echo provide word to find
           return
         fi
-        fgrep --color=auto -riInH "$1" ./
+	   fgrep --color=auto -riInH "$1" ./ | fgrep --color=auto "/ut/"  | fgrep --color=auto  "$1" 
       }
 
       echo "Reversed grep, use pipe  =>ggr [word_to_find]"
@@ -287,7 +287,7 @@ function bash__gTools__ {
 	    gmg
 		git diff --name-only | egrep --color=auto "(*.cpp$|*.hpp$|*.h$)" | xargs -I % -n 1 sh -c 'clang-format -i ./%  && echo "ClangFormat on %"'  
         git add ./
-		gm-
+		cd -
       }
       echo "commit + push => gic"
       function gic {
@@ -464,4 +464,4 @@ function bash__main__ {
   bash__auto_start_on_bash_source
 }
 
-bash__main__
+bash__main__ 
