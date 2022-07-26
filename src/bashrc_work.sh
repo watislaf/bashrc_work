@@ -148,7 +148,7 @@ function bash__gTools__ {
           echo provide word to find
           return
         fi
-        fgrep --color=auto -riInH -v "$1"
+        fgrep --color=auto -v "$1"
       }
 
       BASH_GTOOLS__PRINT__SECTION START
@@ -286,7 +286,7 @@ function bash__gTools__ {
       function gia {
 	    gmg
 		git diff --name-only | egrep --color=auto "(*.cpp$|*.hpp$|*.h$)" | xargs -I % -n 1 sh -c 'clang-format -i ./%  && echo "ClangFormat on %"'  
-        git add ./
+        git add ./uplane/L2-PS/
 		cd -
       }
       echo "commit + push => gic"
