@@ -286,7 +286,7 @@ function bash__gTools__ {
       function gia {
 	    gmg
 		git diff --name-only | egrep --color=auto "(*.cpp$|*.hpp$|*.h$)" | xargs -I % -n 1 sh -c 'clang-format -i ./%  && echo "ClangFormat on %"'  
-        git add ./uplane/L2-PS/
+        git add ./uplane/L2-PS
 		cd -
       }
       echo "commit + push => gic"
