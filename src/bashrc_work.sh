@@ -364,10 +364,11 @@ function bash__gTools__ {
 	  BASH_GTOOLS__PRINT__COMMAND "git checkout"  \
             " gih [name](default master) "
       function gih {
-		if [ "$1" == "" ]; then
-			$1="master"
+	   BASH_GTOOLS__TMP_VAR=$1
+		if [ $BASH_GTOOLS__TMP_VAR == "" ]; then
+			BASH_GTOOLS__TMP_VAR=master
 		fi
-        git checkout $1
+        git checkout BASH_GTOOLS__TMP_VAR
       }
     }
 
