@@ -542,14 +542,14 @@ function bash__gTools__ {
 
 function bash__auto_start_on_bash_source {
   gha
+  ghc
+  ghn
   ght
   ghi
   ghb
   ghf
   ghu
   ghr
-  ghc
-  ghn
   
   BASH_GTOOLS_PRINT__END
   
