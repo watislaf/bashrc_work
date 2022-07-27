@@ -87,7 +87,7 @@ function bash__gTools__ {
 	else 
 		BASH_GTOOLS__VAR_LINE='-.-.-.-.-.-.-.-.-.-.->'
 	fi;
-	printf "	%s %s $BASH_GTOOLS__VAR_COMMAND \n" "$BASH_GTOOLS__VAR_HELP" "${BASH_GTOOLS__VAR_LINE:${#BASH_GTOOLS__VAR_HELP}}"
+	printf "    %s %s $BASH_GTOOLS__VAR_COMMAND \n" "$BASH_GTOOLS__VAR_HELP" "${BASH_GTOOLS__VAR_LINE:${#BASH_GTOOLS__VAR_HELP}}"
   }
 
   BASH_GTOOLS__PRINT__SECTION "HELP"
@@ -342,7 +342,7 @@ function bash__gTools__ {
         git checkout -b $1
       }
 	  
-	  BASH_GTOOLS__PRINT__COMMAND "git delete all branches"  \
+	  BASH_GTOOLS__PRINT__COMMAND "git del all branches"  \
             "gid"  
       function gid {
         git branch | grep -v "master" | xargs git branch -D
@@ -553,7 +553,7 @@ function bash__auto_start_on_bash_source {
   ghc
   ghn
   
-  BASH_GTOOLS__PRINT__END
+  BASH_GTOOLS_PRINT__END
   
   gmg
 }
