@@ -73,10 +73,22 @@ function bash__decorations__ {
 function bash__gTools__ {
   BASH_GTOOLS__CLION_PATH__=/var/fpwork/${USER}/clion-2021.3
   BASH_GTOOLS__GNB_PATH__=/var/fpwork/${USER}/gnb
-  function BASH_GTOOLS__PRINT__SECTION {
-	 echo ""; echo -e  "--------------- ${1} ---------------"  | head -c 35 ; echo "" 
-  }
   
+  BASH_GTOOLS__START_COLORS_VAL=31
+  BASH_GTOOLS__END_COLORS_VAL=36
+  BASH_GTOOLS__DEFAULT_END_COLOR="\e[0;0m"
+  BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_SECTION_IS_CALLED=$BASH_GTOOLS__START_COLORS_VAL
+  function BASH_GTOOLS__PRINT__SECTION {
+      BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_SECTION_IS_CALLED=$(( BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_SECTION_IS_CALLED + 1 ))
+	  if [ ${BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_SECTION_IS_CALLED} == $BASH_GTOOLS__END_COLORS_VAL ]; then 
+		BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_SECTION_IS_CALLED=$BASH_GTOOLS__START_COLORS_VAL
+	  fi;
+	
+	 BASH_GTOOLS__START_COLOR="\e[0;${BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_SECTION_IS_CALLED}m"
+	 BASH_GTOOLS__MIDDLE_COLOR="\e[7;${BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_SECTION_IS_CALLED}m"
+	  echo ""
+	  echo -e  "${BASH_GTOOLS__START_COLOR}---------------${BASH_GTOOLS__MIDDLE_COLOR} ${1} ${BASH_GTOOLS__START_COLOR}---------------"  | head -c 55  ;	  echo ""  ;	  echo -en "${BASH_GTOOLS__DEFAULT_END_COLOR}"
+  }
   BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_IS_CALLED=0
   function BASH_GTOOLS__PRINT__COMMAND { 
     BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_IS_CALLED=$((BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_IS_CALLED+1))
@@ -89,6 +101,15 @@ function bash__gTools__ {
 	fi;
 	printf "    %s %s $BASH_GTOOLS__VAR_COMMAND \n" "$BASH_GTOOLS__VAR_HELP" "${BASH_GTOOLS__VAR_LINE:${#BASH_GTOOLS__VAR_HELP}}"
   }
+  
+	function BASH_GTOOLS__ADDITIONAL_PRINT__COMMAND {
+		echo -e "$(tput setaf 1)________ $1 ________"
+		echo $2
+		echo ""
+		echo -en "#{BASH_GTOOLS__DEFAULT_END_COLOR}"
+	}
+	
+  ################################################################
 
   BASH_GTOOLS__PRINT__COMMAND "Help all"  \
           "gha"
@@ -506,12 +527,6 @@ function bash__gTools__ {
         rm ${BASH__WORK__GUN_DEAMON__PIDFILE}
       }
     }
-	
-	function BASH_GTOOLS__ADDITIONAL_PRINT__COMMAND {
-		echo -e "________ $1 ________"
-		echo $2
-		echo ""
-	}
 	
 	BASH_GTOOLS__PRINT__COMMAND "Help Notes"  \
             "ghn"
