@@ -83,9 +83,9 @@ function bash__gTools__ {
     BASH_GTOOLS__VAR_HELP=$1
     BASH_GTOOLS__VAR_COMMAND=$2
 	if [[ $((BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_IS_CALLED % 2)) == 0 ]]; then 
-		BASH_GTOOLS__VAR_LINE='- - - - - - - - - - - - - - - - - - - ->'
+		BASH_GTOOLS__VAR_LINE='*-*-*-*-*-*-*-*-*-*-*>'
 	else 
-		BASH_GTOOLS__VAR_LINE='- . - . - . - . - . - . - . - . - . - ->'
+		BASH_GTOOLS__VAR_LINE='-.-.-.-.-.-.-.-.-.-.->'
 	fi;
 	printf "%s %s $BASH_GTOOLS__VAR_COMMAND \n" "$BASH_GTOOLS__VAR_HELP" "${BASH_GTOOLS__VAR_LINE:${#BASH_GTOOLS__VAR_HELP}}"
   }
