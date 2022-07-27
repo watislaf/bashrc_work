@@ -75,7 +75,7 @@ function bash__gTools__ {
   BASH_GTOOLS__GNB_PATH__=/var/fpwork/${USER}/gnb
   
   BASH_GTOOLS__START_COLORS_VAL=31
-  BASH_GTOOLS__END_COLORS_VAL=36
+  BASH_GTOOLS__END_COLORS_VAL=37
   BASH_GTOOLS__DEFAULT_END_COLOR="\e[0;0m"
   BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_SECTION_IS_CALLED=$BASH_GTOOLS__START_COLORS_VAL
   function BASH_GTOOLS__PRINT__SECTION {
@@ -89,21 +89,22 @@ function bash__gTools__ {
 	  echo ""
 	  echo -e  "${BASH_GTOOLS__START_COLOR}---------------${BASH_GTOOLS__MIDDLE_COLOR} ${1} ${BASH_GTOOLS__START_COLOR}---------------"  | head -c 55  ;	  echo ""  ;	  echo -en "${BASH_GTOOLS__DEFAULT_END_COLOR}"
   }
+  
   BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_IS_CALLED=0
   function BASH_GTOOLS__PRINT__COMMAND { 
     BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_IS_CALLED=$((BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_IS_CALLED+1))
     BASH_GTOOLS__VAR_HELP=$1
     BASH_GTOOLS__VAR_COMMAND=$2
 	if [[ $((BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_IS_CALLED % 2)) == 0 ]]; then 
-		BASH_GTOOLS__VAR_LINE='*-*-*-*-*-*-*-*-*-*-*>'
+		BASH_GTOOLS__VAR_LINE='${BASH_GTOOLS__START_COLOR}*-*-*-*-*-*-*-*-*-*-*>${BASH_GTOOLS__DEFAULT_END_COLOR}'
 	else 
-		BASH_GTOOLS__VAR_LINE='-.-.-.-.-.-.-.-.-.-.->'
+		BASH_GTOOLS__VAR_LINE='${BASH_GTOOLS__START_COLOR}-.-.-.-.-.-.-.-.-.-.->${BASH_GTOOLS__DEFAULT_END_COLOR}'
 	fi;
 	printf "    %s %s $BASH_GTOOLS__VAR_COMMAND \n" "$BASH_GTOOLS__VAR_HELP" "${BASH_GTOOLS__VAR_LINE:${#BASH_GTOOLS__VAR_HELP}}"
   }
   
 	function BASH_GTOOLS__ADDITIONAL_PRINT__COMMAND {
-		echo -e "$(tput setaf 1)________ $1 ________"
+		echo -e "________ $1 ________"
 		echo $2
 		echo ""
 		echo -en "#{BASH_GTOOLS__DEFAULT_END_COLOR}"
