@@ -98,9 +98,9 @@ function bash__gTools__ {
     BASH_GTOOLS__VAR_HELP=$1
     BASH_GTOOLS__VAR_COMMAND=$2
 	if [[ $((BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_IS_CALLED % 2)) == 0 ]]; then 
-		BASH_GTOOLS__VAR_LINE='*-*-*-*-*-*-*-*-*-*-*-*-*-*-*>'
+		BASH_GTOOLS__VAR_LINE='____________________________>'
 	else 
-		BASH_GTOOLS__VAR_LINE='-.-.-.-.-.-.-.-.-.-.-.-.-.-.->'
+		BASH_GTOOLS__VAR_LINE='---------------------------->'
 	fi;
 	printf "${BASH_GTOOLS__START_COLOR}||${BASH_GTOOLS__DEFAULT_END_COLOR}     %s ${BASH_GTOOLS__START_COLOR}%s${BASH_GTOOLS__DEFAULT_END_COLOR} $BASH_GTOOLS__VAR_COMMAND \n" "$BASH_GTOOLS__VAR_HELP" "${BASH_GTOOLS__VAR_LINE:${#BASH_GTOOLS__VAR_HELP}}"
   }
@@ -349,20 +349,13 @@ function bash__gTools__ {
 		cd -
       }
 
-	  BASH_GTOOLS__PRINT__COMMAND "git commit + push "  \
+	  BASH_GTOOLS__PRINT__COMMAND "commit ammend + push"  \
             "gic"
       function gic {
         gmg
         git commit --amend --no-edit --reset-author
         git push origin HEAD:refs/for/master
         cd -
-      }
-
-	  BASH_GTOOLS__PRINT__COMMAND "only install gnb"  \
-            "gii"
-      function gii {
-        git clone ssh://${USER}@gerrit-wrsl1.int.net.nokia.com:29418/MN/5G/NB/gnb &&
-          scp -p -P 29418 ${USER}@gerrit-wrsl1.int.net.nokia.com:hooks/commit-msg gnb/.git/hooks/
       }
 
 	  BASH_GTOOLS__PRINT__COMMAND "git checkout -b"  \
@@ -391,6 +384,14 @@ function bash__gTools__ {
            BASH_GTOOLS__TMP_VAR=master
         fi
         git checkout $BASH_GTOOLS__TMP_VAR
+      }
+	  
+	  
+	  BASH_GTOOLS__PRINT__COMMAND "install gnb"  \
+            "gii"
+      function gii {
+        git clone ssh://${USER}@gerrit-wrsl1.int.net.nokia.com:29418/MN/5G/NB/gnb &&
+          scp -p -P 29418 ${USER}@gerrit-wrsl1.int.net.nokia.com:hooks/commit-msg gnb/.git/hooks/
       }
     }
 
@@ -567,7 +568,7 @@ function bash__gTools__ {
 function bash__auto_start_on_bash_source {
   ghn
   ghc
-  ghr
+  ghrq
   ght
   ghf
   ghu
