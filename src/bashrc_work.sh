@@ -508,7 +508,7 @@ function bash__gTools__ {
     function ghr {
       BASH_GTOOLS__PRINT__SECTION Update
 	  
-	  BASH_GTOOLS__PRINT__COMMAND "update bashrc from github"  \
+	  BASH_GTOOLS__PRINT__COMMAND "update from github"  \
             "gru"
       function gru {
         cd "${BASH__REMOTE_UPDATER_DIRNAME}"
