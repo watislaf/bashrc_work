@@ -208,9 +208,9 @@ function bash__gTools__ {
     function ghb {
       BASH_GTOOLS__PRINT__SECTION BUILD
 
-	  BASH_GTOOLS__PRINT__COMMAND "clear sdkuplane and more "
+	  BASH_GTOOLS__PRINT__COMMAND "clear sdkuplane and more " \
             "gbc"
-      function gbc() {
+      function gbc {
         gmg
         git clean -xfd
         rm -rf uplane/sdkuplane/cache/
@@ -223,7 +223,7 @@ function bash__gTools__ {
 
 	  BASH_GTOOLS__PRINT__COMMAND "build L2PS"  \
             "gbl"
-      function gbl() {
+      function gbl {
         gmr
         # no need with new scripts, but can be use full later
         # ./buildscript/universal/run_nb_scripts.sh
