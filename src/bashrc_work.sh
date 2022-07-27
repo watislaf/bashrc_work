@@ -74,48 +74,66 @@ function bash__gTools__ {
   BASH_GTOOLS__CLION_PATH__=/var/fpwork/${USER}/clion-2021.3
   BASH_GTOOLS__GNB_PATH__=/var/fpwork/${USER}/gnb
   function BASH_GTOOLS__PRINT__SECTION {
-    echo "---------- ${1} ---------------"
+    echo -e  "---------| ${1} ---------------"  | head -c 29 ; echo ""
   }
-  BASH_GTOOLS__PRINT__SECTION GO
 
-  BASH_GTOOLS__PRINT__SECTION HELP
-  echo "All => gha"
+  function BASH_GTOOLS__PRINT__COMMAND {
+	tabs 15
+    echo -e "${1}  \t => ${2}"
+	tabs 4
+  }
+
+  BASH_GTOOLS__PRINT__SECTION "GO"
+
+  BASH_GTOOLS__PRINT__SECTION "HELP"
+
+  BASH_GTOOLS__PRINT__COMMAND "Help all"  \
+          "gha"
   function gha {
-    echo " Help Tools => ght"
+	BASH_GTOOLS__PRINT__COMMAND "Help Tools"  \
+            "ght"
     function ght {
-      BASH_GTOOLS__PRINT__SECTION MOVEMENT
-      echo "move to Gnb => gmg"
+      BASH_GTOOLS__PRINT__SECTION "MOVEMENT"
+	  BASH_GTOOLS__PRINT__COMMAND "move to Gnb"  \
+			  "gmg"
       function gmg() {
         cd $BASH_GTOOLS__GNB_PATH__
       }
 
-      echo "move to Uplane => gmu"
+	  BASH_GTOOLS__PRINT__COMMAND "move to Uplane"  \
+              "gmu"
       function gmu {
         cd ${BASH_GTOOLS__GNB_PATH__}/uplane
       }
 
-      echo "move to Run => gmr"
+	  BASH_GTOOLS__PRINT__COMMAND "move to Run"  \
+              "gmr"
       function gmr() {
         cd $BASH_GTOOLS__GNB_PATH__/uplane/L2-PS/run
       }
 
-      echo "move to Source => gms"
+	  BASH_GTOOLS__PRINT__COMMAND "move to Source"  \
+              "gms"
       function gms() {
         cd $BASH_GTOOLS__GNB_PATH__/uplane/L2-PS/src/
       }
 
-      echo "create save point V here=> gmv"
+	  BASH_GTOOLS__PRINT__COMMAND "create savePoint at current place"  \
+               "gmv"
       function gmv() {
         pwd >~/last_saved_path.tmp
       }
 
-      echo " to save point => gm-"
+	  BASH_GTOOLS__PRINT__COMMAND "go to savePoint"  \
+              "gm-"
       function gm-() {
         cd $(cat ~/last_saved_path.tmp)
       }
 
-      BASH_GTOOLS__PRINT__SECTION GREP
-      echo "find in All files=> gga  [word_to_find] "
+      BASH_GTOOLS__PRINT__SECTION "GREP"
+
+	  BASH_GTOOLS__PRINT__COMMAND "find word in All files"  \
+            "gga [word_to_find] "
       function gga() {
         if [ "$1" == "" ]; then
           echo provide word to find
@@ -124,7 +142,8 @@ function bash__gTools__ {
         fgrep --color=auto -riInH "$1" ./
       }
 
-      echo "find in onlySource files=> ggs  [word_to_find] "
+	  BASH_GTOOLS__PRINT__COMMAND "find word in onlySource files"  \
+            "ggs  [word_to_find]"
       function ggs() {
         if [ "$1" == "" ]; then
           echo provide word to find
@@ -133,7 +152,8 @@ function bash__gTools__ {
         fgrep --color=auto -riInH "$1" ./ --exclude-dir="ut"
       }
 
-      echo "find in onlyTests files => ggt [word_to_find]"
+	  BASH_GTOOLS__PRINT__COMMAND "find word in onlyTests files"  \
+            "ggt"
       function ggt() {
         if [ "$1" == "" ]; then
           echo provide word to find
@@ -142,7 +162,8 @@ function bash__gTools__ {
 	   fgrep --color=auto -riInH "$1" ./ | fgrep --color=auto "/ut/"  | fgrep --color=auto  "$1" 
       }
 
-      echo "Reversed grep, use pipe  =>ggr [word_to_find]"
+	  BASH_GTOOLS__PRINT__COMMAND "reversed grep, use pipe"  \
+            "ggr [word_to_find]"
       function ggr() {
         if [ "$1" == "" ]; then
           echo provide word to find
@@ -152,12 +173,14 @@ function bash__gTools__ {
       }
 
       BASH_GTOOLS__PRINT__SECTION START
-      echo "start Vim => gsv"
+	  BASH_GTOOLS__PRINT__COMMAND "start Vim with special flags"  \
+            "gsv"
       function gsv() {
         vim -c 'set ic' $1
       }
 
-      echo "start Tmux => gst"
+	  BASH_GTOOLS__PRINT__COMMAND "start Tmux"  \
+            "gst"
       function gst() {
         #fixes tmux error with displays 06.2022
         echo $DISPLAY >~/.tmp42.txt
@@ -171,18 +194,22 @@ function bash__gTools__ {
         export DISPLAY=$(cat ~/.tmp42.txt)
       }
 
-      echo "start Clion=> gsc"
+	  BASH_GTOOLS__PRINT__COMMAND "start Clion"  \
+            "gsc"
       function gsc() {
         gck
         "${BASH_GTOOLS__CLION_PATH__}"/bin/clion.sh >/dev/null 2>&1 &
       }
 
     }
-    echo "Build => ghb"
+	
+	BASH_GTOOLS__PRINT__COMMAND "Help build"  \
+            "ghb"
     function ghb {
       BASH_GTOOLS__PRINT__SECTION BUILD
 
-      echo "Clean old data and install newer, hight chanse of fixing => gbc"
+	  BASH_GTOOLS__PRINT__COMMAND "Clean old data and install newer, hight chanse of fixing"  \
+            "gbc"
       function gbc() {
         gmg
         git clean -xfd
@@ -194,7 +221,8 @@ function bash__gTools__ {
         cd -
       }
 
-      echo "build L2PS=> gbl"
+	  BASH_GTOOLS__PRINT__COMMAND "build L2PS"  \
+            "gbl"
       function gbl() {
         gmr
         # no need with new scripts, but can be use full later
@@ -205,7 +233,8 @@ function bash__gTools__ {
         cd -
       }
 
-      echo "do Source => gbs"
+	  BASH_GTOOLS__PRINT__COMMAND "do Source"  \
+              "gbs"
       function gbs() {
         gmr
         # no need with new scripts, but can be use full later
@@ -215,7 +244,8 @@ function bash__gTools__ {
         cd -
       }
 
-      echo "Install gnb  => gbr"
+	  BASH_GTOOLS__PRINT__COMMAND "Install gnb"  \
+            "gbr"
       function gbr() {
         cd /var/fpwork/
         mkdir "${USER}"
@@ -231,18 +261,21 @@ function bash__gTools__ {
       }
     }
 
-    echo " Help Clion => ghc"
+	BASH_GTOOLS__PRINT__COMMAND "Help Clion"  \
+            "ghc"
     function ghc {
       BASH_GTOOLS__PRINT__SECTION Clion
 
-      echo "Kill all clion tasks=> gck"
+	  BASH_GTOOLS__PRINT__COMMAND "Kill all clion tasks"  \
+            "gck"
       function gck() {
         ps aux | grep "/var/fpwork/${USER}/clion-2021.3/bin/clion.sh" | awk '{print $2;}' | xargs -I % -n 1 sh -c 'kill -9 %'
         ps aux | grep "/var/fpwork/${USER}/clion-2021.3/bin/fsnotifier" | awk '{print $2;}' | xargs -I % -n 1 sh -c 'kill -9 %'
         ps aux | grep "/var/fpwork/${USER}/clion-2021.3/jbr/bin/java" | awk '{print $2;}' | xargs -I % -n 1 sh -c 'kill -9 %'
       }
 
-      echo "Install clion => gci"
+	  BASH_GTOOLS__PRINT__COMMAND "install clion"  \
+            "gci"
       function gci() {
         mkdir cd /var/fpwork/${USER}/
         cd /var/fpwork/${USER}/
@@ -271,25 +304,31 @@ function bash__gTools__ {
       echo "-GNinja -DFUSE=ON -DCMAKE_BUILD_TYPE=Debug"
     }
 
-    echo " Help Git => ghi"
+	  BASH_GTOOLS__PRINT__COMMAND "Help Git"  \
+            "ghi"
     function ghi {
       BASH_GTOOLS__PRINT__SECTION GIT
-      echo "pull => gip"
-      function gip {
+	  BASH_GTOOLS__PRINT__COMMAND "git pull"  \
+			"gip"
+	  function gip {
         gmg
         git pull --ff-only
         git submodule sync --recursive
         git submodule update --init --recursive
         cd -
       }
-      echo "add all => gia"
+	  
+	  BASH_GTOOLS__PRINT__COMMAND "git add all and format "  \
+            "gia"
       function gia {
 	    gmg
 		git diff --name-only | egrep --color=auto "(*.cpp$|*.hpp$|*.h$)" | xargs -I % -n 1 sh -c 'clang-format -i ./%  && echo "ClangFormat on %"'  
         git add ./uplane/L2-PS
 		cd -
       }
-      echo "commit + push => gic"
+
+	  BASH_GTOOLS__PRINT__COMMAND "git commit + push "  \
+            "gic"
       function gic {
         gmg
         git commit --amend --no-edit --reset-author
@@ -297,28 +336,33 @@ function bash__gTools__ {
         cd -
       }
 
-      echo "Install gnb=> gii"
+	  BASH_GTOOLS__PRINT__COMMAND "only install gnb"  \
+            "gii"
       function gii {
         git clone ssh://${USER}@gerrit-wrsl1.int.net.nokia.com:29418/MN/5G/NB/gnb &&
           scp -p -P 29418 ${USER}@gerrit-wrsl1.int.net.nokia.com:hooks/commit-msg gnb/.git/hooks/
       }
 
-      echo "git checkout -b  => gib [new branch name]"
+	  BASH_GTOOLS__PRINT__COMMAND "git checkout -b"  \
+            "gib [new branch name]"
 	  function gib {
         git checkout -b $1
       }
 	  
-      echo "git delete all branches => gid "	  
+	  BASH_GTOOLS__PRINT__COMMAND "git delete all branches"  \
+            "gid"  
       function gid {
         git branch | grep -v "master" | xargs git branch -D
       }
 	  
-      echo "git status => gis "	  
+	  BASH_GTOOLS__PRINT__COMMAND "git status"  \
+            "gis" 
       function gis {
         git status
       }
 	  
-      echo "git checkout => gih name(default master) "	  
+	  BASH_GTOOLS__PRINT__COMMAND "git checkout"  \
+            " gih [name](default master) "
       function gih {
 		if [ "$1" == "" ]; then
 			$1="master"
@@ -327,10 +371,13 @@ function bash__gTools__ {
       }
     }
 
-    echo "Fuse => ghf"
+	  BASH_GTOOLS__PRINT__COMMAND "Help fuse"  \
+            "ghf"
     function ghf {
-      BASH_GTOOLS__PRINT__SECTION FUSE
-      echo "Build => gfb"
+      BASH_GTOOLS__PRINT__SECTION "FUSE"
+
+	  BASH_GTOOLS__PRINT__COMMAND "Build "  \
+            "gfb"
       function gfb() {
         gbs
         gmr
@@ -339,7 +386,8 @@ function bash__gTools__ {
         cd -
       }
 
-      echo "rebuildTest testName => gft"
+	  BASH_GTOOLS__PRINT__COMMAND "rebuildTest"  \
+            "gft [testName]"
       function gft() {
         gmr
         if [ "$1" == "" ]; then
@@ -350,8 +398,9 @@ function bash__gTools__ {
         cd -
       }
 
-      echo "rebuildBinaryAndTest testName => gfb"
-      function gft() {
+	  BASH_GTOOLS__PRINT__COMMAND "rebuildTest and Bynari testName"  \
+            "gftb [testName]"
+      function gftb() {
         gmr
         if [ "$1" == "" ]; then
           echo provide word to find
@@ -361,7 +410,8 @@ function bash__gTools__ {
         cd -
       }
 
-      echo "Find testName => gff "
+	  BASH_GTOOLS__PRINT__COMMAND "find test"  \
+            "gff [testName]"
       function gff() {
         gmr
         if [ $1 == "" ]; then
@@ -372,15 +422,18 @@ function bash__gTools__ {
         cd -
       }
 
-      echo "All => gfa"
-      function gfb() {
+
+	  BASH_GTOOLS__PRINT__COMMAND "build all fuse sct"  \
+            "gfa"
+      function gfa() {
         gbs
         gmr
         ./fuse/build_all_sct_fuse_icecc.sh
         cd -
       }
 
-      echo "clean logs => gfc"
+	  BASH_GTOOLS__PRINT__COMMAND "clean logs "  \
+            "gfc"
       function gfc() {
         gmg
         rm -rf ./uplane/logs
@@ -389,7 +442,8 @@ function bash__gTools__ {
       }
     }
 
-    echo "Help UnitTests => ghu"
+	 BASH_GTOOLS__PRINT__COMMAND "Help UnitTests"  \
+            "ghu"
     function ghu {
       BASH_GTOOLS__PRINT__SECTION UT
       echo "Build => gub"
@@ -401,6 +455,8 @@ function bash__gTools__ {
       }
 
       echo "Test => gut name"
+	  BASH_GTOOLS__PRINT__COMMAND "Help all"  \
+            "gha"
       function gut() {
         gmr
         if [ $1 == "" ]; then
@@ -412,6 +468,8 @@ function bash__gTools__ {
       }
 
       echo "Find => guf"
+	  BASH_GTOOLS__PRINT__COMMAND "Help all"  \
+            "gha"
       function guf() {
         if [ $1 == "" ]; then
           echo provide name of the test
@@ -423,6 +481,8 @@ function bash__gTools__ {
       }
 
       echo "All => gua"
+	  BASH_GTOOLS__PRINT__COMMAND "Help all"  \
+            "gha"
       function gua() {
         gmr
         ./ut/build_and_run_all_ut_icecc.sh
@@ -431,6 +491,8 @@ function bash__gTools__ {
     }
 
     echo "Help remote updater => ghr"
+	  BASH_GTOOLS__PRINT__COMMAND "Help all"  \
+            "gha"
     function ghr {
       BASH_GTOOLS__PRINT__SECTION Update
       echo "update bashrc from github => gru"
@@ -442,6 +504,8 @@ function bash__gTools__ {
       }
 
       echo "auto update Onn(default) => grn [does not work]"
+	  BASH_GTOOLS__PRINT__COMMAND "Help all"  \
+            "gha"
       function grn {
         BASH__WORK__GUN_DEAMON__PIDFILE=${BASH__REMOTE_UPDATER_DIRNAME}/server/BASH__WORK__GUN_DEAMON__PIDFILE.txt
         cd "${BASH__REMOTE_UPDATER_DIRNAME}"
@@ -450,6 +514,8 @@ function bash__gTools__ {
       }
 
       echo "auto update Off => grf [does not work]"
+	  BASH_GTOOLS__PRINT__COMMAND "Help all"  \
+            "gha"
       function grf {
         rm ${BASH__WORK__GUN_DEAMON__PIDFILE}
       }
@@ -472,10 +538,12 @@ function bash__auto_start_on_bash_source {
 
 function bash__main__ {
   bash___basics__
+  
   bash__fixes__
+  
   bash__gTools__
+  
   bash__decorations__
-  bash__remote_updater__
 
   bash__auto_start_on_bash_source
 }
