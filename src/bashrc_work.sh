@@ -113,10 +113,10 @@ function bash__gTools__ {
 	
   ################################################################
 
-  BASH_GTOOLS__PRINT__COMMAND "Help all"  \
-          "gha"
   function gha {
 	BASH_GTOOLS__PRINT__SECTION "HELP"
+	BASH_GTOOLS__PRINT__COMMAND "Help all"  \
+          "gha"
 	BASH_GTOOLS__PRINT__COMMAND "Help Tools"  \
             "ght"
     function ght {
