@@ -74,7 +74,7 @@ function bash__gTools__ {
   BASH_GTOOLS__CLION_PATH__=/var/fpwork/${USER}/clion-2021.3
   BASH_GTOOLS__GNB_PATH__=/var/fpwork/${USER}/gnb
   function BASH_GTOOLS__PRINT__SECTION {
-    echo -e  "---------| ${1} ---------------------"  | head -c 35 ; echo ""
+    echo -e  "--------------------- ${1} ---------------------"  | head -c 35 ; echo ""
   }
 
   function BASH_GTOOLS__PRINT__COMMAND {
