@@ -77,10 +77,10 @@ function bash__gTools__ {
     echo -e  "--------------------- ${1} ---------------------"  | head -c 35 ; echo ""
   }
 
-  function BASH_GTOOLS__PRINT__COMMAND {
-	tabs 35 ;
-	echo -e "${1}  \t => ${2}" ;
-	tabs -0 
+  function BASH_GTOOLS__PRINT__COMMAND { 
+    BASH_GTOOLS__VAR_HELP=$1
+    BASH_GTOOLS__VAR_COMMAND=$2
+	printf "%s %s [UP]\n" ${BASH_GTOOLS__VAR_HELP} "${line:${#BASH_GTOOLS__VAR_COMMAND}}"
   }
 
   BASH_GTOOLS__PRINT__SECTION "GO"
