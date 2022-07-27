@@ -80,7 +80,8 @@ function bash__gTools__ {
   function BASH_GTOOLS__PRINT__COMMAND { 
     BASH_GTOOLS__VAR_HELP=$1
     BASH_GTOOLS__VAR_COMMAND=$2
-	printf "%s %s [UP]\n" ${BASH_GTOOLS__VAR_HELP} "${line:${#BASH_GTOOLS__VAR_COMMAND}}"
+	line='----------------------------------------'
+	printf "%s %s \n" ${BASH_GTOOLS__VAR_HELP} "${line:${BASH_GTOOLS__VAR_COMMAND}}"
   }
 
   BASH_GTOOLS__PRINT__SECTION "GO"
