@@ -418,7 +418,7 @@ function bash__gTools__ {
           echo provide name of the test
           return 0
         fi
-        ./fuse/list_sct.sh | gga "$1"
+        ./fuse/list_sct.sh | fgrep "$1"
         cd -
       }
 
