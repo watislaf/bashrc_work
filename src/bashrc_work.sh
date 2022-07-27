@@ -120,10 +120,11 @@ function bash__gTools__ {
 	
   ################################################################
 
-  function gha {
+  function ghh {
 	BASH_GTOOLS__PRINT__SECTION "HELP"
-	BASH_GTOOLS__PRINT__COMMAND "Help all"  \
-          "gha"
+	BASH_GTOOLS__PRINT__COMMAND "Help help"  \
+          "ghh"
+		  
 	BASH_GTOOLS__PRINT__COMMAND "Help Tools"  \
             "ght"
     function ght {
@@ -559,24 +560,26 @@ function bash__gTools__ {
 		"-GNinja -DFUSE=ON -DCMAKE_BUILD_TYPE=Debug"
 	}
 	
-	function BASH_GTOOLS_PRINT__END {
-	      BASH_GTOOLS__PRINT__SECTION ---
+	
+	BASH_GTOOLS__PRINT__COMMAND "Help All"  \
+            "gha"
+    function gha {	
+		ghn
+		ghc
+		ghr
+		ght
+		ghf
+		ghu
+		ghi
+		ghb
+		gha
+		BASH_GTOOLS__PRINT__SECTION ---
 	}
   }
 }
 
 function bash__auto_start_on_bash_source {
-  ghn
-  ghc
-  ghrq
-  ght
-  ghf
-  ghu
-  ghi
-  ghb
   gha
-  
-  BASH_GTOOLS_PRINT__END
   
   gmg
 }
