@@ -74,7 +74,7 @@ function bash__gTools__ {
   BASH_GTOOLS__CLION_PATH__=/var/fpwork/${USER}/clion-2021.3
   BASH_GTOOLS__GNB_PATH__=/var/fpwork/${USER}/gnb
   function BASH_GTOOLS__PRINT__SECTION {
-    echo -e  "--------------------- ${1} ---------------------"  | head -c 35 ; echo ""
+    echo -e  "--------------- ${1} ---------------"  | head -c 35 ; echo ""
   }
   
   BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_IS_CALLED=0
@@ -87,7 +87,7 @@ function bash__gTools__ {
 	else 
 		BASH_GTOOLS__VAR_LINE='-.-.-.-.-.-.-.-.-.-.->'
 	fi;
-	printf "%s %s $BASH_GTOOLS__VAR_COMMAND \n" "$BASH_GTOOLS__VAR_HELP" "${BASH_GTOOLS__VAR_LINE:${#BASH_GTOOLS__VAR_HELP}}"
+	printf "		%s %s $BASH_GTOOLS__VAR_COMMAND \n" "$BASH_GTOOLS__VAR_HELP" "${BASH_GTOOLS__VAR_LINE:${#BASH_GTOOLS__VAR_HELP}}"
   }
 
   BASH_GTOOLS__PRINT__SECTION "GO"
