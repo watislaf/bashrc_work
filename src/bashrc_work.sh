@@ -78,9 +78,9 @@ function bash__gTools__ {
   }
 
   function BASH_GTOOLS__PRINT__COMMAND {
-	tabs 35
+	tabs 35  > /dev/null 2>&1
     echo -e "${1}  \t => ${2}"
-	tabs 4
+	tabs 4 > /dev/null 2>&1
   }
 
   BASH_GTOOLS__PRINT__SECTION "GO"
