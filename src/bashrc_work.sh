@@ -137,7 +137,7 @@ function bash__gTools__ {
 
       BASH_GTOOLS__PRINT__SECTION "GREP"
 
-	  BASH_GTOOLS__PRINT__COMMAND "find word in All files"  \
+	  BASH_GTOOLS__PRINT__COMMAND "find int all"  \
             "gga [word_to_find] "
       function gga() {
         if [ "$1" == "" ]; then
@@ -147,7 +147,7 @@ function bash__gTools__ {
         fgrep --color=auto -riInH "$1" ./
       }
 
-	  BASH_GTOOLS__PRINT__COMMAND "find word in onlySource files"  \
+	  BASH_GTOOLS__PRINT__COMMAND "find in source"  \
             "ggs  [word_to_find]"
       function ggs() {
         if [ "$1" == "" ]; then
@@ -157,7 +157,7 @@ function bash__gTools__ {
         fgrep --color=auto -riInH "$1" ./ --exclude-dir="ut"
       }
 
-	  BASH_GTOOLS__PRINT__COMMAND "find word in onlyTests files"  \
+	  BASH_GTOOLS__PRINT__COMMAND "find in ut"  \
             "ggt"
       function ggt() {
         if [ "$1" == "" ]; then
@@ -178,7 +178,7 @@ function bash__gTools__ {
       }
 
       BASH_GTOOLS__PRINT__SECTION START
-	  BASH_GTOOLS__PRINT__COMMAND "start Vim with special flags"  \
+	  BASH_GTOOLS__PRINT__COMMAND "start Vim"  \
             "gsv"
       function gsv() {
         vim -c 'set ic' $1
