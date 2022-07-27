@@ -563,24 +563,23 @@ function bash__gTools__ {
 	
 	BASH_GTOOLS__PRINT__COMMAND "Help All"  \
             "gha"
-    function gha {	
-		ghn
-		ghc
-		ghr
-		ght
-		ghf
-		ghu
-		ghi
-		ghb
-		gha
-		BASH_GTOOLS__PRINT__SECTION ---
-	}
+  }
+  function gha {	
+	ghn
+	ghc
+	ghr
+	ght
+	ghf
+	ghu
+	ghi
+	ghb
+	ghh
+	BASH_GTOOLS__PRINT__SECTION ---
   }
 }
 
 function bash__auto_start_on_bash_source {
   gha
-  
   gmg
 }
 
