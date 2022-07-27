@@ -76,12 +76,18 @@ function bash__gTools__ {
   function BASH_GTOOLS__PRINT__SECTION {
     echo -e  "--------------------- ${1} ---------------------"  | head -c 35 ; echo ""
   }
-
+  
+  BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_IS_CALLED=0
   function BASH_GTOOLS__PRINT__COMMAND { 
+    BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_IS_CALLED=$((BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_IS_CALLED+1))
     BASH_GTOOLS__VAR_HELP=$1
     BASH_GTOOLS__VAR_COMMAND=$2
-	line='----------------------------------------'
-	printf "%s %s \n" ${BASH_GTOOLS__VAR_HELP} "${line:${BASH_GTOOLS__VAR_COMMAND}}"
+	if [[ $((BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_IS_CALLED % 2)) == 0 ]]; then 
+		BASH_GTOOLS__VAR_LINE='- - - - - - - - - - - - - - - - - - - ->'
+	else 
+		BASH_GTOOLS__VAR_LINE='- . - . - . - . - . - . - . - . - . - ->'
+	fi;
+	printf "%s %s %s\n" ${BASH_GTOOLS__VAR_HELP} "${BASH_GTOOLS__VAR_LINE:${#BASH_GTOOLS__VAR_HELP}}" $BASH_GTOOLS__VAR_COMMAND
   }
 
   BASH_GTOOLS__PRINT__SECTION "GO"
