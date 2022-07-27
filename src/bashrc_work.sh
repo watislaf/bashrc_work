@@ -576,6 +576,7 @@ function bash__gTools__ {
 	ghi
 	ghb
 	ghh
+	
 	BASH_GTOOLS__PRINT__SECTION ---
   }
 }
