@@ -208,7 +208,7 @@ function bash__gTools__ {
     function ghb {
       BASH_GTOOLS__PRINT__SECTION BUILD
 
-	  BASH_GTOOLS__PRINT__COMMAND "Clean old data and install newer, hight chanse of fixing"  \
+	  BASH_GTOOLS__PRINT__COMMAND "clear sdkuplane and more "
             "gbc"
       function gbc() {
         gmg
