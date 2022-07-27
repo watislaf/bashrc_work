@@ -398,7 +398,7 @@ function bash__gTools__ {
         cd -
       }
 
-	  BASH_GTOOLS__PRINT__COMMAND "rebuildTest and Bynari testName"  \
+	  BASH_GTOOLS__PRINT__COMMAND "rebuildTest and Bin"  \
             "gftb [testName]"
       function gftb() {
         gmr
