@@ -558,15 +558,15 @@ function bash__gTools__ {
 }
 
 function bash__auto_start_on_bash_source {
-  gha
+  ghn
+  ghc
+  ghr
   ght
-  ghi
-  ghb
   ghf
   ghu
-  ghr
-  ghc
-  ghn
+  ghi
+  ghb
+  gha
   
   BASH_GTOOLS_PRINT__END
   
