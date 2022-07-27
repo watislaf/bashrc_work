@@ -318,8 +318,11 @@ function bash__gTools__ {
         git status
       }
 	  
-      echo "git checkout => gih name "	  
+      echo "git checkout => gih name(default master) "	  
       function gih {
+		if [ "$1" == "" ]; then
+			$1="master"
+		fi
         git checkout $1
       }
     }
