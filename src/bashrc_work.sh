@@ -79,7 +79,7 @@ function bash__gTools__ {
 
   function BASH_GTOOLS__PRINT__COMMAND {
 	tabs 35  
-    echo -en "${1}  \t => ${2}"
+    echo -e "${1}  \t => ${2}"
 	tabs -0 
   }
 
