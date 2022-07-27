@@ -88,7 +88,7 @@ function bash__gTools__ {
 	  BASH_GTOOLS__START_COLOR="\e[0;${BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_SECTION_IS_CALLED}m"
 	  BASH_GTOOLS__MIDDLE_COLOR="\e[7;${BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_SECTION_IS_CALLED}m"
 	  echo -e "${BASH_GTOOLS__START_COLOR}||${BASH_GTOOLS__MIDDLE_COLOR}"
-	  echo -e  "${BASH_GTOOLS__START_COLOR}---------------------------------------------${BASH_GTOOLS__MIDDLE_COLOR} ${1} ${BASH_GTOOLS__START_COLOR}---------------------------------------------"  | head -c 75  ;	  echo ""  ;	  echo -en "${BASH_GTOOLS__DEFAULT_END_COLOR}"
+	  echo -e  "${BASH_GTOOLS__START_COLOR}---------------------------------------------${BASH_GTOOLS__MIDDLE_COLOR} ${1} ${BASH_GTOOLS__START_COLOR}---------------------------------------------"  | head -c 90  ;	  echo ""  ;	  echo -en "${BASH_GTOOLS__DEFAULT_END_COLOR}"
   }
   
   BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_IS_CALLED=0
