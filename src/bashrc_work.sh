@@ -333,7 +333,6 @@ function bash__gTools__ {
         gmr
         ./fuse/build_binary_for_host_icecc.sh
         ./fuse/build_sct_fuse_framework_icecc.sh
-        ./fuse/build_all_sct_fuse_icecc.sh
         cd -
       }
 
@@ -367,6 +366,14 @@ function bash__gTools__ {
           return 0
         fi
         ./fuse/list_sct.sh | gga "$1"
+        cd -
+      }
+
+      echo "All => gfa"
+      function gfb() {
+        gbs
+        gmr
+        ./fuse/build_all_sct_fuse_icecc.sh
         cd -
       }
 
