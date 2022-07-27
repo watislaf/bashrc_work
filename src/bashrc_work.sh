@@ -107,7 +107,7 @@ function bash__gTools__ {
 		echo -e "________ $1 ________"
 		echo $2
 		echo ""
-		echo -en "#{BASH_GTOOLS__DEFAULT_END_COLOR}"
+		echo -en "${BASH_GTOOLS__DEFAULT_END_COLOR}"
 	}
 	
   ################################################################
