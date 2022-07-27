@@ -87,7 +87,7 @@ function bash__gTools__ {
 	else 
 		BASH_GTOOLS__VAR_LINE='- . - . - . - . - . - . - . - . - . - ->'
 	fi;
-	printf "%s %s $BASH_GTOOLS__VAR_COMMAND \n" ${BASH_GTOOLS__VAR_HELP} "${BASH_GTOOLS__VAR_LINE:${#BASH_GTOOLS__VAR_HELP}}" 
+	printf "%s %s ${BASH_GTOOLS__VAR_COMMAND} \n" ${BASH_GTOOLS__VAR_HELP} "${BASH_GTOOLS__VAR_LINE:${#BASH_GTOOLS__VAR_HELP}}" 
   }
 
   BASH_GTOOLS__PRINT__SECTION "GO"
