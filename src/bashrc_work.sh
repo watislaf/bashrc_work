@@ -113,7 +113,7 @@ function bash__gTools__ {
 	  echo -en  "${BASH_GTOOLS__START_COLOR_UNDER}           ${1}"    
 	  echo -e "${BASH_GTOOLS__DEFAULT_END_COLOR}" 
 	  
-	  echo -en "${BASH_GTOOLS__START_COLOR}||${BASH_GTOOLS__MIDDLE_COLOR}"
+	  echo -e "${BASH_GTOOLS__START_COLOR}||${BASH_GTOOLS__MIDDLE_COLOR}"
 	  echo -en "${BASH_GTOOLS__DEFAULT_END_COLOR} $2$ {BASH_GTOOLS__DEFAULT_END_COLOR}"
 	  echo -en "${BASH_GTOOLS__DEFAULT_END_COLOR}"
 	}
