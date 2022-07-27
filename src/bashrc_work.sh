@@ -79,8 +79,8 @@ function bash__gTools__ {
 
   function BASH_GTOOLS__PRINT__COMMAND {
 	tabs 35  
-    echo -e "${1}  \t => ${2}"
-	tabs 4 > /dev/null 
+    echo -en "${1}  \t => ${2}"
+	tabs -0 
   }
 
   BASH_GTOOLS__PRINT__SECTION "GO"
