@@ -96,9 +96,9 @@ function bash__gTools__ {
     BASH_GTOOLS__VAR_HELP=$1
     BASH_GTOOLS__VAR_COMMAND=$2
 	if [[ $((BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_IS_CALLED % 2)) == 0 ]]; then 
-		BASH_GTOOLS__VAR_LINE='*-*-*-*-*-*-*-*-*-*-*>'
+		BASH_GTOOLS__VAR_LINE='*-*-*-*-*-*-*-*-*-*-*-*-*>'
 	else 
-		BASH_GTOOLS__VAR_LINE='-.-.-.-.-.-.-.-.-.-.->'
+		BASH_GTOOLS__VAR_LINE='-.-.-.-.-.-.-.-.-.-.-.-.->'
 	fi;
 	printf "{BASH_GTOOLS__START_COLOR}||${BASH_GTOOLS__DEFAULT_END_COLOR}     %s ${BASH_GTOOLS__START_COLOR}%s${BASH_GTOOLS__DEFAULT_END_COLOR} $BASH_GTOOLS__VAR_COMMAND \n" "$BASH_GTOOLS__VAR_HELP" "${BASH_GTOOLS__VAR_LINE:${#BASH_GTOOLS__VAR_HELP}}"
   }
@@ -234,7 +234,7 @@ function bash__gTools__ {
     function ghb {
       BASH_GTOOLS__PRINT__SECTION BUILD
 
-	  BASH_GTOOLS__PRINT__COMMAND "clear sdkuplane and more " \
+	  BASH_GTOOLS__PRINT__COMMAND "clear rubish" \
             "gbc"
       function gbc {
         gmg
