@@ -454,9 +454,8 @@ function bash__gTools__ {
         cd -
       }
 
-      echo "Test => gut name"
-	  BASH_GTOOLS__PRINT__COMMAND "Help all"  \
-            "gha"
+	  BASH_GTOOLS__PRINT__COMMAND "test "  \
+            "gut [testname]"
       function gut() {
         gmr
         if [ $1 == "" ]; then
@@ -467,9 +466,8 @@ function bash__gTools__ {
         cd -
       }
 
-      echo "Find => guf"
-	  BASH_GTOOLS__PRINT__COMMAND "Help all"  \
-            "gha"
+	  BASH_GTOOLS__PRINT__COMMAND "find"  \
+            "guf [testname]"
       function guf() {
         if [ $1 == "" ]; then
           echo provide name of the test
@@ -480,9 +478,8 @@ function bash__gTools__ {
         cd -
       }
 
-      echo "All => gua"
-	  BASH_GTOOLS__PRINT__COMMAND "Help all"  \
-            "gha"
+	  BASH_GTOOLS__PRINT__COMMAND "test all"  \
+            "gua"
       function gua() {
         gmr
         ./ut/build_and_run_all_ut_icecc.sh
@@ -490,9 +487,8 @@ function bash__gTools__ {
       }
     }
 
-    echo "Help remote updater => ghr"
-	  BASH_GTOOLS__PRINT__COMMAND "Help all"  \
-            "gha"
+	  BASH_GTOOLS__PRINT__COMMAND "Help remote updater"  \
+            "ghr"
     function ghr {
       BASH_GTOOLS__PRINT__SECTION Update
       echo "update bashrc from github => gru"
@@ -503,9 +499,6 @@ function bash__gTools__ {
         source ~/.bashrc
       }
 
-      echo "auto update Onn(default) => grn [does not work]"
-	  BASH_GTOOLS__PRINT__COMMAND "Help all"  \
-            "gha"
       function grn {
         BASH__WORK__GUN_DEAMON__PIDFILE=${BASH__REMOTE_UPDATER_DIRNAME}/server/BASH__WORK__GUN_DEAMON__PIDFILE.txt
         cd "${BASH__REMOTE_UPDATER_DIRNAME}"
@@ -513,10 +506,7 @@ function bash__gTools__ {
         cd -
       }
 
-      echo "auto update Off => grf [does not work]"
-	  BASH_GTOOLS__PRINT__COMMAND "Help all"  \
-            "gha"
-      function grf {
+	  function grf {
         rm ${BASH__WORK__GUN_DEAMON__PIDFILE}
       }
     }
