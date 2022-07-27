@@ -394,7 +394,7 @@ function bash__gTools__ {
           echo provide word to find
           return
         fi
-        ./fuse/rebuild_and_run_single_sct.sh
+		 ./fuse/rebuild_and_run_single_sct_fuse_and_binary_icecc.sh
         cd -
       }
 
