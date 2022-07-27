@@ -565,6 +565,8 @@ function bash__gTools__ {
             "gha"
   }
   function gha {	
+	ghh > /dev/null
+
 	ghn
 	ghc
 	ghr
