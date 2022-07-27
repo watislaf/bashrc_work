@@ -88,7 +88,7 @@ function bash__gTools__ {
 	
 	  BASH_GTOOLS__START_COLOR="\e[0;${BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_SECTION_IS_CALLED}m"
 	  BASH_GTOOLS__MIDDLE_COLOR="\e[7;${BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_SECTION_IS_CALLED}m"
-	  echo -e  "${BASH_GTOOLS__START_COLOR}---------------${BASH_GTOOLS__MIDDLE_COLOR} ${1} ${BASH_GTOOLS__START_COLOR}---------------"  | head -c 55  ;	  echo ""  ;	  echo -en "${BASH_GTOOLS__DEFAULT_END_COLOR}"
+	  echo -e  "${BASH_GTOOLS__START_COLOR}---------------${BASH_GTOOLS__MIDDLE_COLOR} ${1} ${BASH_GTOOLS__START_COLOR}---------------"  | head -c 81  ;	  echo ""  ;	  echo -en "${BASH_GTOOLS__DEFAULT_END_COLOR}"
   }
   
   BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_IS_CALLED=0
@@ -97,9 +97,9 @@ function bash__gTools__ {
     BASH_GTOOLS__VAR_HELP=$1
     BASH_GTOOLS__VAR_COMMAND=$2
 	if [[ $((BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_IS_CALLED % 2)) == 0 ]]; then 
-		BASH_GTOOLS__VAR_LINE='*-*-*-*-*-*-*-*-*-*-*-*-*>'
+		BASH_GTOOLS__VAR_LINE='*-*-*-*-*-*-*-*-*-*-*-*-*-*-*>'
 	else 
-		BASH_GTOOLS__VAR_LINE='-.-.-.-.-.-.-.-.-.-.-.-.->'
+		BASH_GTOOLS__VAR_LINE='-.-.-.-.-.-.-.-.-.-.-.-.-.-.->'
 	fi;
 	printf "${BASH_GTOOLS__START_COLOR}||${BASH_GTOOLS__DEFAULT_END_COLOR}     %s ${BASH_GTOOLS__START_COLOR}%s${BASH_GTOOLS__DEFAULT_END_COLOR} $BASH_GTOOLS__VAR_COMMAND \n" "$BASH_GTOOLS__VAR_HELP" "${BASH_GTOOLS__VAR_LINE:${#BASH_GTOOLS__VAR_HELP}}"
   }
@@ -146,7 +146,7 @@ function bash__gTools__ {
         cd $BASH_GTOOLS__GNB_PATH__/uplane/L2-PS/src/
       }
 
-	  BASH_GTOOLS__PRINT__COMMAND "create savePoint at current place"  \
+	  BASH_GTOOLS__PRINT__COMMAND "create save at pwd"  \
                "gmv"
       function gmv() {
         pwd >~/last_saved_path.tmp
@@ -171,7 +171,7 @@ function bash__gTools__ {
       }
 
 	  BASH_GTOOLS__PRINT__COMMAND "find in source"  \
-            "ggs  [word_to_find]"
+            "ggs [word_to_find]"
       function ggs() {
         if [ "$1" == "" ]; then
           echo provide word to find
