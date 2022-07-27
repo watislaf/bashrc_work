@@ -512,8 +512,8 @@ function bash__gTools__ {
     }
 	
 	function BASH_GTOOLS__ADDITIONAL_PRINT__COMMAND {
-	echo -e "________ $1 ________"
-	echo $2
+		echo -e "________ $1 ________"
+		echo $2
 	}
 	
     BASH_GTOOLS__PRINT__SECTION NOTES
