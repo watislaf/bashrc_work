@@ -166,7 +166,7 @@ function bash__gTools__ {
 
       BASH_GTOOLS__PRINT__SECTION "GREP"
 
-	  BASH_GTOOLS__PRINT__COMMAND "find int all"  \
+	  BASH_GTOOLS__PRINT__COMMAND "find in all"  \
             "gga [word_to_find] "
       function gga() {
         if [ "$1" == "" ]; then
