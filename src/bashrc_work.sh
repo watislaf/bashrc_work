@@ -438,7 +438,7 @@ function bash__gTools__ {
 	 BASH_GTOOLS__PRINT__COMMAND "Help UnitTests"  \
             "ghu"
     function ghu {
-      BASH_GTOOLS__PRINT__SECTION "UT"
+      BASH_GTOOLS__PRINT__SECTION "UnitT"
 	  BASH_GTOOLS__PRINT__COMMAND "build"  \
             "gub"
       function gub() {
