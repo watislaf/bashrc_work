@@ -312,6 +312,16 @@ function bash__gTools__ {
       function gid {
         git branch | grep -v "master" | xargs git branch -D
       }
+	  
+      echo "git status => gis "	  
+      function gis {
+        git status
+      }
+	  
+      echo "git checkout => gih name "	  
+      function gih {
+        git checkout $1
+      }
     }
 
     echo "Fuse => ghf"
@@ -403,12 +413,8 @@ function bash__gTools__ {
       }
 
       echo "All => gua"
-      function gub() {
+      function gua() {
         gmr
-        if [ $1 == "" ]; then
-          echo provide name of the test
-          return 0
-        fi
         ./ut/build_and_run_all_ut_icecc.sh
         cd -
       }
