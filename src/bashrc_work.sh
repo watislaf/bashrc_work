@@ -74,7 +74,7 @@ function bash__gTools__ {
   BASH_GTOOLS__CLION_PATH__=/var/fpwork/${USER}/clion-2021.3
   BASH_GTOOLS__GNB_PATH__=/var/fpwork/${USER}/gnb
   function BASH_GTOOLS__PRINT__SECTION {
-	 echo ""; echo -e  "--------------- ${1} ---------------"  | head -c 35 ; echo "" ; echo "_"
+	 echo ""; echo -e  "--------------- ${1} ---------------"  | head -c 35 ; echo "" 
   }
   
   BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_IS_CALLED=0
@@ -166,7 +166,7 @@ function bash__gTools__ {
 	   fgrep --color=auto -riInH "$1" ./ | fgrep --color=auto "/ut/"  | fgrep --color=auto  "$1" 
       }
 
-	  BASH_GTOOLS__PRINT__COMMAND "reversed grep, use pipe"  \
+	  BASH_GTOOLS__PRINT__COMMAND "reversed grep(pipe version)"  \
             "ggr [word_to_find]"
       function ggr() {
         if [ "$1" == "" ]; then
@@ -542,14 +542,14 @@ function bash__gTools__ {
 
 function bash__auto_start_on_bash_source {
   gha
-  ghc
-  ghn
   ght
   ghi
   ghb
   ghf
   ghu
   ghr
+  ghc
+  ghn
   
   BASH_GTOOLS_PRINT__END
   
