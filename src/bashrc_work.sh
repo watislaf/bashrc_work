@@ -90,11 +90,10 @@ function bash__gTools__ {
 	printf "    %s %s $BASH_GTOOLS__VAR_COMMAND \n" "$BASH_GTOOLS__VAR_HELP" "${BASH_GTOOLS__VAR_LINE:${#BASH_GTOOLS__VAR_HELP}}"
   }
 
-  BASH_GTOOLS__PRINT__SECTION "HELP"
-
   BASH_GTOOLS__PRINT__COMMAND "Help all"  \
           "gha"
   function gha {
+	BASH_GTOOLS__PRINT__SECTION "HELP"
 	BASH_GTOOLS__PRINT__COMMAND "Help Tools"  \
             "ght"
     function ght {
@@ -311,7 +310,7 @@ function bash__gTools__ {
         cd -
       }
 	  
-	  BASH_GTOOLS__PRINT__COMMAND "git add all and format "  \
+	  BASH_GTOOLS__PRINT__COMMAND "git add all & format"  \
             "gia"
       function gia {
 	    gmg
@@ -355,7 +354,7 @@ function bash__gTools__ {
       }
 	  
 	  BASH_GTOOLS__PRINT__COMMAND "git checkout"  \
-            " gih [name](default master) "
+            "gih [name](default master) "
       function gih {
 	   BASH_GTOOLS__TMP_VAR=$1
 		if [ "$BASH_GTOOLS__TMP_VAR" == "" ]; then
