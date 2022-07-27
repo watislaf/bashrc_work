@@ -439,7 +439,6 @@ function bash__gTools__ {
             "ghu"
     function ghu {
       BASH_GTOOLS__PRINT__SECTION "UT"
-	  
 	  BASH_GTOOLS__PRINT__COMMAND "build"  \
             "gub"
       function gub() {
