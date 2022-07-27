@@ -365,10 +365,10 @@ function bash__gTools__ {
             " gih [name](default master) "
       function gih {
 	   BASH_GTOOLS__TMP_VAR=$1
-		if [ $BASH_GTOOLS__TMP_VAR == "" ]; then
-			BASH_GTOOLS__TMP_VAR=master
-		fi
-        git checkout BASH_GTOOLS__TMP_VAR
+		if [ "$BASH_GTOOLS__TMP_VAR" == "" ]; then
+           BASH_GTOOLS__TMP_VAR=master
+        fi
+        git checkout $BASH_GTOOLS__TMP_VAR
       }
     }
 
