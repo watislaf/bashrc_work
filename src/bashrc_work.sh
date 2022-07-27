@@ -515,10 +515,10 @@ function bash__gTools__ {
 		echo ""
 	}
 	
-    BASH_GTOOLS__PRINT__SECTION NOTES
 	BASH_GTOOLS__PRINT__COMMAND "Help Notes"  \
             "ghn"
     function ghn {
+    BASH_GTOOLS__PRINT__SECTION NOTES
 	BASH_GTOOLS__ADDITIONAL_PRINT__COMMAND \
 		"clangd additional flags" \
 		"-ferror-limit=0 , -Wno-error , -Wno-unknown-warning-option , -Wno-reserved-user-defined-literal , -Wdeprecated-declarations"
