@@ -87,10 +87,8 @@ function bash__gTools__ {
 	else 
 		BASH_GTOOLS__VAR_LINE='-.-.-.-.-.-.-.-.-.-.->'
 	fi;
-	printf "		%s %s $BASH_GTOOLS__VAR_COMMAND \n" "$BASH_GTOOLS__VAR_HELP" "${BASH_GTOOLS__VAR_LINE:${#BASH_GTOOLS__VAR_HELP}}"
+	printf "	%s %s $BASH_GTOOLS__VAR_COMMAND \n" "$BASH_GTOOLS__VAR_HELP" "${BASH_GTOOLS__VAR_LINE:${#BASH_GTOOLS__VAR_HELP}}"
   }
-
-  BASH_GTOOLS__PRINT__SECTION "GO"
 
   BASH_GTOOLS__PRINT__SECTION "HELP"
 
@@ -521,7 +519,6 @@ function bash__gTools__ {
 	BASH_GTOOLS__PRINT__COMMAND "Help Notes"  \
             "ghn"
     function ghn {
-	
 	BASH_GTOOLS__ADDITIONAL_PRINT__COMMAND \
 		"clangd additional flags" \
 		"-ferror-limit=0 , -Wno-error , -Wno-unknown-warning-option , -Wno-reserved-user-defined-literal , -Wdeprecated-declarations"
@@ -539,7 +536,9 @@ function bash__gTools__ {
 		"-GNinja -DFUSE=ON -DCMAKE_BUILD_TYPE=Debug"
 	}
 	
+	function BASH_GTOOLS_PRINT__END {
 	      BASH_GTOOLS__PRINT__SECTION ---
+	}
   }
 }
 
@@ -553,6 +552,8 @@ function bash__auto_start_on_bash_source {
   ghr
   ghc
   ghn
+  
+  BASH_GTOOLS__PRINT__END
   
   gmg
 }
