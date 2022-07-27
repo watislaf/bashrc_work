@@ -297,18 +297,6 @@ function bash__gTools__ {
         sed -e '1d' clion64.vmoptions
         echo -Xmx10000m >>clion64.vmoptions
       }
-
-      echo "--- clangd additional flags "
-      echo -ferror-limit=0 , -Wno-error , -Wno-unknown-warning-option , -Wno-reserved-user-defined-literal , -Wdeprecated-declarations
-
-      echo "--- clang tidy 5g path"
-      echo "/5g/tools/llvm/12.0_034/bin/clang-format"
-
-      echo "--- SCT cmake build"
-      echo "-GNinja -DSCT_COMP_L2PS=ON -DCMAKE_BUILD_TYPE=Debug"
-
-      echo "--- FUSE cmake build"
-      echo "-GNinja -DFUSE=ON -DCMAKE_BUILD_TYPE=Debug"
     }
 
 	  BASH_GTOOLS__PRINT__COMMAND "Help Git"  \
@@ -453,8 +441,10 @@ function bash__gTools__ {
 	 BASH_GTOOLS__PRINT__COMMAND "Help UnitTests"  \
             "ghu"
     function ghu {
-      BASH_GTOOLS__PRINT__SECTION UT
-      echo "Build => gub"
+      BASH_GTOOLS__PRINT__SECTION "UT"
+	  
+	  BASH_GTOOLS__PRINT__COMMAND "build"  \
+            "gub"
       function gub() {
         gbs
         gmr
@@ -495,11 +485,13 @@ function bash__gTools__ {
       }
     }
 
-	  BASH_GTOOLS__PRINT__COMMAND "Help remote updater"  \
+	BASH_GTOOLS__PRINT__COMMAND "Help remote updater"  \
             "ghr"
     function ghr {
       BASH_GTOOLS__PRINT__SECTION Update
-      echo "update bashrc from github => gru"
+	  
+	  BASH_GTOOLS__PRINT__COMMAND "update bashrc from github"  \
+            "gru"
       function gru {
         cd "${BASH__REMOTE_UPDATER_DIRNAME}"
         git pull
@@ -518,6 +510,34 @@ function bash__gTools__ {
         rm ${BASH__WORK__GUN_DEAMON__PIDFILE}
       }
     }
+	
+	function BASH_GTOOLS__ADDITIONAL_PRINT__COMMAND {
+	echo -e "________ $1 ________"
+	echo $2
+	}
+	
+    BASH_GTOOLS__PRINT__SECTION NOTES
+	BASH_GTOOLS__PRINT__COMMAND "Help Notes"  \
+            "ghn"
+    function ghn {
+	BASH_GTOOLS__ADDITIONAL_PRINT__COMMAND \
+		"clangd additional flags" \
+		"-ferror-limit=0 , -Wno-error , -Wno-unknown-warning-option , -Wno-reserved-user-defined-literal , -Wdeprecated-declarations"
+
+		BASH_GTOOLS__ADDITIONAL_PRINT__COMMAND \
+		"clang tidy 5g path" \
+		"/5g/tools/llvm/12.0_034/bin/clang-format"
+
+		BASH_GTOOLS__ADDITIONAL_PRINT__COMMAND \
+		"SCT cmake build" \
+		"-GNinja -DSCT_COMP_L2PS=ON -DCMAKE_BUILD_TYPE=Debug"
+
+		BASH_GTOOLS__ADDITIONAL_PRINT__COMMAND \
+		"FUSE cmake build" \
+		"-GNinja -DFUSE=ON -DCMAKE_BUILD_TYPE=Debug"
+	}
+	
+	      BASH_GTOOLS__PRINT__SECTION ---
   }
 }
 
@@ -528,8 +548,9 @@ function bash__auto_start_on_bash_source {
   ghb
   ghf
   ghu
-  ghc
   ghr
+  ghc
+  ghn
   
   gmg
 }
