@@ -188,7 +188,7 @@ function bash__gTools__ {
 	   fgrep --color=auto -riInH "$1" ./ | fgrep --color=auto "/ut/"  | fgrep --color=auto  "$1" 
       }
 
-	  BASH_GTOOLS__PRINT__COMMAND "reversed grep(pipe version)"  \
+	  BASH_GTOOLS__PRINT__COMMAND "reversed grep(pipe usage)"  \
             "ggr [word_to_find]"
       function ggr() {
         if [ "$1" == "" ]; then
