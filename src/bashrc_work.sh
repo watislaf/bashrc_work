@@ -100,7 +100,7 @@ function bash__gTools__ {
 	if [[ $((BASH_GTOOLS__VAR_INCREMENT_EACH_TIME_PRINT_IS_CALLED % 2)) == 0 ]]; then 
 		BASH_GTOOLS__VAR_LINE='============================>'
 	else 
-		BASH_GTOOLS__VAR_LINE='                            >'
+		BASH_GTOOLS__VAR_LINE='-  -  -  -  -  -  -  -  -  ->'
 	fi;
 	printf "${BASH_GTOOLS__START_COLOR}||${BASH_GTOOLS__DEFAULT_END_COLOR}     %s ${BASH_GTOOLS__START_COLOR}%s${BASH_GTOOLS__DEFAULT_END_COLOR} $BASH_GTOOLS__VAR_COMMAND \n" "$BASH_GTOOLS__VAR_HELP" "${BASH_GTOOLS__VAR_LINE:${#BASH_GTOOLS__VAR_HELP}}"
   }
