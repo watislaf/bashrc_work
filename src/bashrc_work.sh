@@ -56,15 +56,15 @@ function bash__decorations__ {
     echo -e "[\e[6;4;35m$(gxt)\e[0;32m]"
   }
   function _home {
-      currentPath=$(pwd)
+      currentPath=$PWD
       if [ $currentPath == "/home/${USER}" ]; then
          echo "~"
           return 
      fi; 
-	 cuttedPath=$(echo $(echo $(pwd) | awk -F"/var/fpwork/${USER}/" '{print$2}'))
+	 cuttedPath= $(echo $(pwd) | awk -F"/var/fpwork/${USER}/" '{print$2}')
 	 
 	 if [ "$cuttedPath" == "" ]; then 
-		currentPath=$( pwd )
+		currentPath=$PWD
 	else
 		currentPath=".../$cuttedPath"
 	fi;	 
