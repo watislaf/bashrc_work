@@ -505,7 +505,8 @@ function bash__gTools__ {
         fi
 		
 		 ./fuse/rebuild_and_run_single_sct_fuse_and_binary_icecc.sh $BASH_GTOOLS__TEST_TO_TEST
-        cd -
+		rm ./uplane/*.json
+		cd -
       }
 
 	  BASH_GTOOLS__PRINT__COMMAND "find test"  \
