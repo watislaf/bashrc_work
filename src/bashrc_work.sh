@@ -377,6 +377,18 @@ function bash__gTools__ {
         git status
       }
 	  
+	  BASH_GTOOLS__PRINT__COMMAND "git restore --soft"  \
+            "girs" 
+      function girs {
+        git restore --soft HEAD~1
+      }
+	  
+	  BASH_GTOOLS__PRINT__COMMAND "git restore --harq"  \
+            "girh" 
+      function gis {
+        git restore --harq HEAD~1
+      }
+	  
 	  BASH_GTOOLS__PRINT__COMMAND "git checkout"  \
             "gih [name](default master) "
       function gih {
