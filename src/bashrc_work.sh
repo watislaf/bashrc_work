@@ -562,7 +562,7 @@ function bash__gTools__ {
       function gfa() {
         gbs
         gmr
-        ./fuse/build_all_sct_fuse_icecc.sh
+        ./runFuseSCT.sh
         cd -
       }
 
