@@ -55,20 +55,22 @@ function bash__decorations__ {
   gxt() {
     echo "[]"
   }
-  _home(){
+  function _home {
       currentPath=$(pwd)
-      if [ $currentPath == "/home/${USER}" ] ; then
+      if [ $currentPath == "/home/${USER}" ]; then
          echo "~"
           return 
      fi; 
-	 cuttedPath=$(echo $(pwd) | awk -F"/${USER}/gnb/" '{print$2}')
-	 if [ $cuttedPath == "" ]; then 
-		currentPath=$(pwd)
+	 cuttedPath=$(echo $(echo $(pwd) | awk -F"/var/fpwork/${USER}/" '{print$2}'))
+	 
+	 if [ "$cuttedPath" == "" ]; then 
+		currentPath=$( pwd )
 	else
-		currentPath="GNB${cuttedPath}"
-	 fi;	 
-     echo -e $currentPath
+		currentPath=".../$cuttedPath"
+	fi;	 
+	echo -e $currentPath
   }
+  
   export PS1="\[\e]0;\u@\h: \w\a\]\[\e[01;32m\]\u@\h\[\e[00m\]:\[\e[01;34m\]\$(_home)\[\033[00m\] \[\033[00;32m\]\$(git_branch)\$(gxt)\[\033[00m\]\$ "
 
   # fzf https://github.com/junegunn/fzf
