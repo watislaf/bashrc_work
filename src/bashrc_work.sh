@@ -299,7 +299,7 @@ function bash__gTools__ {
 	BASH_GTOOLS__PRINT__COMMAND "Help Clion"  \
             "ghc"
     function ghc {
-      BASH_GTOOLS__PRINT__SECTION Clion
+      BASH_GTOOLS__PRINT__SECTION "\033[5;3;35mClion"
 
 	  BASH_GTOOLS__PRINT__COMMAND "Kill all clion tasks"  \
             "gck"
