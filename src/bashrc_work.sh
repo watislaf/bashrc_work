@@ -61,11 +61,11 @@ function bash__decorations__ {
          echo "~"
           return 
      fi; 
-	 cuttedPath=$(echo $(pwd) | awk -F"/home/${USER}/gnb/" '{print$2}')
+	 cuttedPath=$(echo $(pwd) | awk -F"/${USER}/gnb/" '{print$2}')
 	 if [ $cuttedPath == "" ]; then 
 		currentPath=$(pwd)
 	else
-		currentPath="\e[4;33mGNB/\e[0;0m${cuttedPath}"
+		currentPath="GNB${cuttedPath}"
 	 fi;	 
      echo -e $currentPath
   }
