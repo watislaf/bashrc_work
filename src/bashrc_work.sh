@@ -397,6 +397,12 @@ function bash__gTools__ {
         git status
       }
 	  
+	  BASH_GTOOLS__PRINT__COMMAND "git log"  \
+            "gil" 
+      function gis {
+        git log
+      }
+	  
 	  BASH_GTOOLS__PRINT__COMMAND "git reset --soft"  \
             "girs" 
       function girs {
