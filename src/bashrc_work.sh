@@ -61,13 +61,18 @@ function bash__decorations__ {
          echo "~"
           return 
      fi; 
-	 cuttedPath=$(echo $(pwd) | awk -F"/var/fpwork/${USER}/" '{print$2}')
-	 
+	 cuttedPath=$(echo $PWD | awk -F"/var/fpwork/${USER}/gnb/uplane/sct/cpp_testsuites/fuse" '{print$2}')
 	 if [ "$cuttedPath" == "" ]; then 
-		currentPath=$PWD
-	else
-		currentPath=".../$cuttedPath"
-	fi;	 
+		cuttedPath=$(echo $PWD | awk -F"/var/fpwork/${USER}/gnb" '{print$2}')
+		 if [ "$cuttedPath" == "" ]; then 
+			currentPath=$PWD
+		else
+			currentPath="=>GNB$cuttedPath"
+		fi;
+	 else
+		currentPath="=>FUSE$cuttedPath"
+	 fi;
+	 
 	echo -e $currentPath
   }
   
@@ -173,6 +178,13 @@ function bash__gTools__ {
       function gms() {
         cd $BASH_GTOOLS__GNB_PATH__/uplane/L2-PS/src/
       }
+
+	  BASH_GTOOLS__PRINT__COMMAND "move to fuse"  \
+              "gms"
+      function gms() {
+        cd $BASH_GTOOLS__GNB_PATH__/uplane/sct/cpp_testsuites/fuse/
+      }
+
 
 	  BASH_GTOOLS__PRINT__COMMAND "create save at pwd"  \
                "gmv"
