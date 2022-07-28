@@ -296,7 +296,6 @@ function bash__gTools__ {
         cd -
       }
 	
-	
 	  BASH_GTOOLS__PRINT__COMMAND "build"  \
             "gub"
       function gub() {
