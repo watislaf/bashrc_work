@@ -296,7 +296,7 @@ function bash__gTools__ {
         cd -
       }
 	
-	  BASH_GTOOLS__PRINT__COMMAND "build"  \
+	  BASH_GTOOLS__PRINT__COMMAND "build ut"  \
             "gbu"
       function gbu() {
         gbs
@@ -305,7 +305,7 @@ function bash__gTools__ {
         cd -
       }
 	  
-	  BASH_GTOOLS__PRINT__COMMAND "Build "  \
+	  BASH_GTOOLS__PRINT__COMMAND "Build fuse"  \
             "gbf"
       function gbf() {
         gbs
@@ -447,7 +447,7 @@ function bash__gTools__ {
           echo provide word to find
           return
         fi
-		 ./fuse/rebuild_and_run_single_sct_fuse_and_binary_icecc.sh
+		 ./fuse/rebuild_and_run_single_sct_fuse_and_binary_icecc.sh $1
         cd -
       }
 
@@ -459,7 +459,7 @@ function bash__gTools__ {
           echo provide word to find
           return
         fi
-        ./fuse/rebuild_and_run_single_sct_and_binary_icecc.sh
+        ./fuse/rebuild_and_run_single_sct_and_binary_icecc.sh  $1
         cd -
       }
 
