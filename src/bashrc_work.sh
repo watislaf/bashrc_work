@@ -179,9 +179,9 @@ function bash__gTools__ {
         cd $BASH_GTOOLS__GNB_PATH__/uplane/L2-PS/src/
       }
 
-	  BASH_GTOOLS__PRINT__COMMAND "move to fuse"  \
-              "gms"
-      function gms() {
+	  BASH_GTOOLS__PRINT__COMMAND "move to Fuse"  \
+              "gmf"
+      function gmf() {
         cd $BASH_GTOOLS__GNB_PATH__/uplane/sct/cpp_testsuites/fuse/
       }
 
