@@ -377,16 +377,16 @@ function bash__gTools__ {
         git status
       }
 	  
-	  BASH_GTOOLS__PRINT__COMMAND "git restore --soft"  \
+	  BASH_GTOOLS__PRINT__COMMAND "git reset --soft"  \
             "girs" 
       function girs {
-        git restore --soft HEAD~1
+        git reset --soft HEAD~1
       }
 	  
-	  BASH_GTOOLS__PRINT__COMMAND "git restore --harq"  \
+	  BASH_GTOOLS__PRINT__COMMAND "git reset --harq"  \
             "girh" 
       function girh {
-        git restore --hard HEAD~1
+        git reset --hard HEAD~1
       }
 	  
 	  BASH_GTOOLS__PRINT__COMMAND "git checkout"  \
