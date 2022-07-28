@@ -61,7 +61,7 @@ function bash__decorations__ {
          echo "~"
           return 
      fi; 
-	 cuttedPath= $(echo $(pwd) | awk -F"/var/fpwork/${USER}/" '{print$2}')
+	 cuttedPath=$(echo $(pwd) | awk -F"/var/fpwork/${USER}/" '{print$2}')
 	 
 	 if [ "$cuttedPath" == "" ]; then 
 		currentPath=$PWD
