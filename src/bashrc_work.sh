@@ -505,7 +505,9 @@ function bash__gTools__ {
         fi
 		
 		 ./fuse/rebuild_and_run_single_sct_fuse_and_binary_icecc.sh $BASH_GTOOLS__TEST_TO_TEST
-		rm ./uplane/*.json
+		rm ./uplane/logs/*.json
+		rm ./uplane/logs/*.gz
+		rm ./uplane/logs/*.pcap
 		cd -
       }
 
@@ -533,6 +535,10 @@ function bash__gTools__ {
 			    return
 			fi;
         fi
+		rm ./uplane/logs/*.json
+		rm ./uplane/logs/*.gz
+		rm ./uplane/logs/*.pcap
+		
         ./fuse/rebuild_and_run_single_sct_and_binary_icecc.sh  $BASH_GTOOLS__TEST_TO_TEST
         cd -
       }
