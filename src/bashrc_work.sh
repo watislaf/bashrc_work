@@ -268,18 +268,8 @@ function bash__gTools__ {
         cd -
       }
 
-	  BASH_GTOOLS__PRINT__COMMAND "do Source"  \
-              "gbs"
-      function gbs() {
-        gmr
-        # no need with new scripts, but can be use full later
-        # ./buildscript/universal/run_nb_scripts.sh
-        # prepare-5g-env
-        source ./prepareShell.sh
-        cd -
-      }
 
-	  BASH_GTOOLS__PRINT__COMMAND "Install gnb"  \
+	  BASH_GTOOLS__PRINT__COMMAND "reinstall gnb"  \
             "gbr"
       function gbr() {
         cd /var/fpwork/
@@ -293,6 +283,37 @@ function bash__gTools__ {
           gip &&
           gip
         gbs
+      }
+	  
+	  BASH_GTOOLS__PRINT__COMMAND "do Source"  \
+              "gbs"
+      function gbs() {
+        gmr
+        # no need with new scripts, but can be use full later
+        # ./buildscript/universal/run_nb_scripts.sh
+        # prepare-5g-env
+        source ./prepareShell.sh
+        cd -
+      }
+	
+	
+	  BASH_GTOOLS__PRINT__COMMAND "build"  \
+            "gub"
+      function gub() {
+        gbs
+        gmr
+        source ./ut/build_all_ut_icecc.sh
+        cd -
+      }
+	  
+	  BASH_GTOOLS__PRINT__COMMAND "Build "  \
+            "gbf"
+      function gbf() {
+        gbs
+        gmr
+        ./fuse/build_binary_for_host_icecc.sh
+        ./fuse/build_sct_fuse_framework_icecc.sh
+        cd -
       }
     }
 
@@ -413,16 +434,6 @@ function bash__gTools__ {
     function ghf {
       BASH_GTOOLS__PRINT__SECTION "FUSE"
 
-	  BASH_GTOOLS__PRINT__COMMAND "Build "  \
-            "gfb"
-      function gfb() {
-        gbs
-        gmr
-        ./fuse/build_binary_for_host_icecc.sh
-        ./fuse/build_sct_fuse_framework_icecc.sh
-        cd -
-      }
-
 	  BASH_GTOOLS__PRINT__COMMAND "rebuildTest"  \
             "gft [testName]"
       function gft() {
@@ -483,14 +494,6 @@ function bash__gTools__ {
             "ghu"
     function ghu {
       BASH_GTOOLS__PRINT__SECTION "UnitT"
-	  BASH_GTOOLS__PRINT__COMMAND "build"  \
-            "gub"
-      function gub() {
-        gbs
-        gmr
-        source ./ut/build_all_ut_icecc.sh
-        cd -
-      }
 
 	  BASH_GTOOLS__PRINT__COMMAND "test "  \
             "gut [testname]"
