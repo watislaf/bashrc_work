@@ -56,10 +56,12 @@ function bash__decorations__ {
     echo "[]"
   }
   _home(){
-	currentPath=$(pwd)
-	if [ $currentPath == "/home/${USER}" ] ; then
-		echo ~
-	fi;
+      currentPath=$(pwd)
+      if [ $currentPath == "/home/${USER}" ] ; then
+         echo "~"
+          return 
+     fi; 
+     echo $currentPath
   }
   export PS1="\[\e]0;\u@\h: \w\a\]\[\e[01;32m\]\u@\h\[\e[00m\]:\[\e[01;34m\]\$(_home)\[\033[00m\] \[\033[00;32m\]\$(git_branch)\$(gxt)\[\033[00m\]\$ "
 
