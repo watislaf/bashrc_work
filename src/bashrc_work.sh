@@ -297,8 +297,8 @@ function bash__gTools__ {
       }
 	
 	  BASH_GTOOLS__PRINT__COMMAND "build"  \
-            "gub"
-      function gub() {
+            "gbu"
+      function gbu() {
         gbs
         gmr
         source ./ut/build_all_ut_icecc.sh
