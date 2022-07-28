@@ -61,7 +61,13 @@ function bash__decorations__ {
          echo "~"
           return 
      fi; 
-     echo $currentPath
+	 cuttedPath=$(echo $(pwd) | awk -F"/home/${USER}/gnb/" '{print$2}')
+	 if [ $cuttedPath == "" ]; then 
+		currentPath=$(pwd)
+	else
+		currentPath="\e[4;33mGNB/\e[0;0m${cuttedPath}"
+	 fi;	 
+     echo -e $currentPath
   }
   export PS1="\[\e]0;\u@\h: \w\a\]\[\e[01;32m\]\u@\h\[\e[00m\]:\[\e[01;34m\]\$(_home)\[\033[00m\] \[\033[00;32m\]\$(git_branch)\$(gxt)\[\033[00m\]\$ "
 
