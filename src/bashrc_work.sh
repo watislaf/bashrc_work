@@ -88,6 +88,7 @@ function bash__decorations__ {
       source ~/.fzf.bash
     fi
   fi
+  
 }
 
 function bash__gTools__ {
@@ -649,7 +650,7 @@ function bash__gTools__ {
             "gha"
   }
   function gha {	
-	
+	#if u don't need some functionality remove it frome here
 	ghn
 	ghc
 	ghr
@@ -659,7 +660,7 @@ function bash__gTools__ {
 	ghs
 	ghf
 	ghu
-	ghi
+	ghi[q
 	ghb
 	ghh
 	
