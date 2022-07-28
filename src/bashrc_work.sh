@@ -188,7 +188,7 @@ function bash__gTools__ {
 	
 	BASH_GTOOLS__PRINT__COMMAND "Help xxx"  \
             "ghx"
-	function ghx{
+	function ghx() {
 		BASH_GTOOLS__PRINT__SECTION "XXX"
 				
 		BASH_GTOOLS__PRINT__COMMAND "save Test to buffer"  \
