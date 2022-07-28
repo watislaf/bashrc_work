@@ -227,6 +227,7 @@ function bash__gTools__ {
       function gst() {
         #fixes tmux error with displays 06.2022
         echo $DISPLAY >~/.tmp42.txt
+		/opt/tmux/x86_64/1.9a/bin-wrapped/tmux set-option -g history-limit 5000
         /opt/tmux/x86_64/1.9a/bin-wrapped/tmux has-session -t 0 2>/dev/null
 
         if [ $? != 0 ]; then
