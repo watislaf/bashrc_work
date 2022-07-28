@@ -53,7 +53,7 @@ function bash__decorations__ {
   }
   
   get_current_save() {
-    echo "[$(gxt)]"
+    echo -e "[\e[6;4;35m$(gxt)\e[0;32m]"
   }
   function _home {
       currentPath=$(pwd)
