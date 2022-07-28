@@ -656,6 +656,7 @@ function bash__gTools__ {
 	ghr
 	ghm
 	ghg
+	gxh
 	ghs
 	ghf
 	ghu
