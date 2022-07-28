@@ -53,7 +53,7 @@ function bash__decorations__ {
   }
   
   gxt() {
-    echo "[]"
+    echo "[$(gxt)]"
   }
   function _home {
       currentPath=$(pwd)
@@ -186,6 +186,28 @@ function bash__gTools__ {
       }
 	}
 	
+	BASH_GTOOLS__PRINT__COMMAND "Help xxx"  \
+            "ghx"
+	function ghx{
+		BASH_GTOOLS__PRINT__SECTION "XXX"
+				
+		BASH_GTOOLS__PRINT__COMMAND "save Test to buffer"  \
+            "gxt [testName]"
+		function gxt {
+			if [ "$1" == "" ]; then
+				cat ~/.BASH_GTOOLS__SAVED_TEST_NAME
+				return
+			fi
+			echo $1 > ~/.BASH_GTOOLS__SAVED_TEST_NAME
+		}
+		
+		BASH_GTOOLS__PRINT__COMMAND "clear buffer"  \
+            "gxc"
+		function gxc {
+			echo "" > ~/.BASH_GTOOLS__SAVED_TEST_NAME
+		}
+	}
+
 	BASH_GTOOLS__PRINT__COMMAND "Help grep"  \
 			"ghg"
     function ghg {
@@ -471,11 +493,17 @@ function bash__gTools__ {
             "gft [testName]"
       function gft() {
         gmr
-        if [ "$1" == "" ]; then
-          echo provide word to find
-          return
+		
+		BASH_GTOOLS__TEST_TO_TEST=$1
+        if [ "$BASH_GTOOLS__TEST_TO_TEST" == "" ]; then
+			BASH_GTOOLS__TEST_TO_TEST=$(gtx)
+			if [ "$BASH_GTOOLS__TEST_TO_TEST" == "" ]; then
+				echo provide word to find
+			    return
+			fi;
         fi
-		 ./fuse/rebuild_and_run_single_sct_fuse_and_binary_icecc.sh $1
+		
+		 ./fuse/rebuild_and_run_single_sct_fuse_and_binary_icecc.sh $BASH_GTOOLS__TEST_TO_TEST
         cd -
       }
 
@@ -495,11 +523,15 @@ function bash__gTools__ {
             "gftb [testName]"
       function gftb() {
         gmr
-        if [ "$1" == "" ]; then
-          echo provide word to find
-          return
+		BASH_GTOOLS__TEST_TO_TEST=$1
+        if [ "$BASH_GTOOLS__TEST_TO_TEST" == "" ]; then
+			BASH_GTOOLS__TEST_TO_TEST=$(gtx)
+			if [ "$BASH_GTOOLS__TEST_TO_TEST" == "" ]; then
+				echo provide word to find
+			    return
+			fi;
         fi
-        ./fuse/rebuild_and_run_single_sct_and_binary_icecc.sh  $1
+        ./fuse/rebuild_and_run_single_sct_and_binary_icecc.sh  $BASH_GTOOLS__TEST_TO_TEST
         cd -
       }
 
@@ -532,11 +564,15 @@ function bash__gTools__ {
             "gut [testname]"
       function gut() {
         gmr
-        if [ $1 == "" ]; then
-          echo provide name of the test
-          return 0
+		BASH_GTOOLS__TEST_TO_TEST=$1
+        if [ "$BASH_GTOOLS__TEST_TO_TEST" == "" ]; then
+			BASH_GTOOLS__TEST_TO_TEST=$(gtx)
+			if [ "$BASH_GTOOLS__TEST_TO_TEST" == "" ]; then
+				echo provide word to find
+			    return
+			fi;
         fi
-        ./ut/rebuild_and_run_single_ut.sh $1
+        ./ut/rebuild_and_run_single_ut.sh $BASH_GTOOLS__TEST_TO_TEST
         cd -
       }
 
