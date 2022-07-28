@@ -660,7 +660,7 @@ function bash__gTools__ {
 	ghs
 	ghf
 	ghu
-	ghi[q
+	ghi
 	ghb
 	ghh
 	
