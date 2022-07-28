@@ -125,9 +125,9 @@ function bash__gTools__ {
 	BASH_GTOOLS__PRINT__COMMAND "Help help"  \
           "ghh"
 		  
-	BASH_GTOOLS__PRINT__COMMAND "Help Tools"  \
-            "ght"
-    function ght {
+	BASH_GTOOLS__PRINT__COMMAND "Help movement"  \
+            "ghm"
+    function ghm {
       BASH_GTOOLS__PRINT__SECTION "MOVEMENT"
 	  BASH_GTOOLS__PRINT__COMMAND "move to Gnb"  \
 			  "gmg"
@@ -164,7 +164,12 @@ function bash__gTools__ {
       function gm-() {
         cd $(cat ~/last_saved_path.tmp)
       }
-
+	}
+	
+	BASH_GTOOLS__PRINT__COMMAND "Help grep"  \
+			"ghg"
+    function ghg {
+	
       BASH_GTOOLS__PRINT__SECTION "GREP"
 
 	  BASH_GTOOLS__PRINT__COMMAND "find in all"  \
@@ -206,7 +211,10 @@ function bash__gTools__ {
         fi
         fgrep --color=auto -v "$1"
       }
-
+	}
+	BASH_GTOOLS__PRINT__COMMAND "Help start"  \
+			"ghs"
+    function ghs {
       BASH_GTOOLS__PRINT__SECTION START
 	  BASH_GTOOLS__PRINT__COMMAND "start Vim"  \
             "gsv"
@@ -235,7 +243,6 @@ function bash__gTools__ {
         gck
         "${BASH_GTOOLS__CLION_PATH__}"/bin/clion.sh >/dev/null 2>&1 &
       }
-
     }
 	
 	BASH_GTOOLS__PRINT__COMMAND "Help build"  \
@@ -451,18 +458,6 @@ function bash__gTools__ {
         cd -
       }
 
-	  BASH_GTOOLS__PRINT__COMMAND "rebuildTest and Bin"  \
-            "gftb [testName]"
-      function gftb() {
-        gmr
-        if [ "$1" == "" ]; then
-          echo provide word to find
-          return
-        fi
-        ./fuse/rebuild_and_run_single_sct_and_binary_icecc.sh  $1
-        cd -
-      }
-
 	  BASH_GTOOLS__PRINT__COMMAND "find test"  \
             "gff [testName]"
       function gff() {
@@ -472,6 +467,18 @@ function bash__gTools__ {
           return 0
         fi
         ./fuse/list_sct.sh | fgrep "$1"
+        cd -
+      }
+	  
+	  BASH_GTOOLS__PRINT__COMMAND "rebuildTest and Bin"  \
+            "gftb [testName]"
+      function gftb() {
+        gmr
+        if [ "$1" == "" ]; then
+          echo provide word to find
+          return
+        fi
+        ./fuse/rebuild_and_run_single_sct_and_binary_icecc.sh  $1
         cd -
       }
 
@@ -586,11 +593,13 @@ function bash__gTools__ {
   }
   function gha {	
 	ghh > /dev/null
-
+	
 	ghn
 	ghc
 	ghr
-	ght
+	ghm
+	ghg
+	ghs
 	ghf
 	ghu
 	ghi
