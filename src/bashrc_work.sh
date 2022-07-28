@@ -386,7 +386,7 @@ function bash__gTools__ {
 	  BASH_GTOOLS__PRINT__COMMAND "git restore --harq"  \
             "girh" 
       function girh {
-        git restore --harq HEAD~1
+        git restore --hard HEAD~1
       }
 	  
 	  BASH_GTOOLS__PRINT__COMMAND "git checkout"  \
