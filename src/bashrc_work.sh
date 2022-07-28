@@ -496,7 +496,7 @@ function bash__gTools__ {
 		
 		BASH_GTOOLS__TEST_TO_TEST=$1
         if [ "$BASH_GTOOLS__TEST_TO_TEST" == "" ]; then
-			BASH_GTOOLS__TEST_TO_TEST=$(gtx)
+			BASH_GTOOLS__TEST_TO_TEST=$(gxt)
 			if [ "$BASH_GTOOLS__TEST_TO_TEST" == "" ]; then
 				echo provide word to find
 			    return
@@ -525,7 +525,7 @@ function bash__gTools__ {
         gmr
 		BASH_GTOOLS__TEST_TO_TEST=$1
         if [ "$BASH_GTOOLS__TEST_TO_TEST" == "" ]; then
-			BASH_GTOOLS__TEST_TO_TEST=$(gtx)
+			BASH_GTOOLS__TEST_TO_TEST=$(gxt)
 			if [ "$BASH_GTOOLS__TEST_TO_TEST" == "" ]; then
 				echo provide word to find
 			    return
@@ -566,7 +566,7 @@ function bash__gTools__ {
         gmr
 		BASH_GTOOLS__TEST_TO_TEST=$1
         if [ "$BASH_GTOOLS__TEST_TO_TEST" == "" ]; then
-			BASH_GTOOLS__TEST_TO_TEST=$(gtx)
+			BASH_GTOOLS__TEST_TO_TEST=$(gxt)
 			if [ "$BASH_GTOOLS__TEST_TO_TEST" == "" ]; then
 				echo provide word to find
 			    return
