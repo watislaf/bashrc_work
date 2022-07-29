@@ -295,10 +295,10 @@ function bash__gTools__ {
 			"ghs"
     function ghs {
       BASH_GTOOLS__PRINT__SECTION START
-	  BASH_GTOOLS__PRINT__COMMAND "start Vim"  \
-            "gsv"
+	  BASH_GTOOLS__PRINT__COMMAND "open log by vin"  \
+            "gsv [cb_full_test_name]"
       function gsv() {
-        vim -c 'set ic' $1
+        vim -c 'set ic' ${BASH_GTOOLS__GNB_PATH__}/uplane/logs/$1.log
       }
 
 	  BASH_GTOOLS__PRINT__COMMAND "start Tmux"  \
