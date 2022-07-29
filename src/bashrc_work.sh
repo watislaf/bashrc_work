@@ -531,7 +531,7 @@ function bash__gTools__ {
 			    return
 			fi;
         fi
-		./rebuild_and_run_single_sct_fuse.sh $BASH_GTOOLS__TEST_TO_TEST --sdk=$(gfss)
+		./fuse/rebuild_and_run_single_sct_fuse.sh $BASH_GTOOLS__TEST_TO_TEST --sdk=$(gfss)
 		
 		cd -
       }
