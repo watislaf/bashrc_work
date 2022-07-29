@@ -388,8 +388,8 @@ function bash__gTools__ {
 	  BASH_GTOOLS__PRINT__COMMAND "Build fuse"  \
             "gbf"
       function gbf() {
-        gmr
 		gbs
+        gmr
         ./fuse/build_sct_fuse_framework_icecc.sh 
         cd -
       }
