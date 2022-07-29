@@ -52,9 +52,13 @@ function bash__decorations__ {
     git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
   }
   
-  get_current_save() {
+   get_current_save() {
     echo -e "[\e[6;4;35m$(gxt)\e[0;32m]"
   }
+   get_current_sdk() {
+    echo -e "<\e[6;33m$(gfs)\e[0;32m>"
+  }
+  
   function _home {
       currentPath=$PWD
       if [ $currentPath == "/home/${USER}" ]; then
@@ -76,7 +80,7 @@ function bash__decorations__ {
 	echo -e $currentPath
   }
   
-  export PS1="\[\e]0;\u@\h: \w\a\]\[\e[01;32m\]\u@\h\[\e[00m\]:\[\e[01;34m\]\$(_home)\[\033[00m\] \[\033[00;32m\]\$(git_branch)\$(get_current_save)\[\033[00m\]\$ "
+  export PS1="\[\e]0;\u@\h: \w\a\]\[\e[01;32m\]\u@\h\[\e[00m\]:\[\e[01;34m\]\$(_home)\[\033[00m\] \[\033[00;32m\]\$(git_branch)\$(get_current_save)\$(get_current_sdk)\[\033[00m\]\$ "
 
   # fzf https://github.com/junegunn/fzf
   if [ -f ~/.fzf.bash ]; then
@@ -99,6 +103,7 @@ function bash__decorations__ {
 function bash__gTools__ {
   BASH_GTOOLS__CLION_PATH__=/var/fpwork/${USER}/clion-2021.3
   BASH_GTOOLS__GNB_PATH__=/var/fpwork/${USER}/gnb
+  BASH_GTOOLS_DEFAULT_SDK="sm6-snowfish-dynamic-linker-on-gcc9"
   
   BASH_GTOOLS__START_COLORS_VAL=31
   BASH_GTOOLS__END_COLORS_VAL=37
@@ -516,7 +521,7 @@ function bash__gTools__ {
 			fi;
         fi
 		
-		 ./fuse/rebuild_and_run_single_sct_fuse_and_binary_icecc.sh $BASH_GTOOLS__TEST_TO_TEST
+		 ./fuse/rebuild_and_run_single_sct_fuse_and_binary_icecc.sh $BASH_GTOOLS__TEST_TO_TEST --sdk=$(gfss)
 		rm ./uplane/logs/*.json
 		rm ./uplane/logs/*.gz
 		rm ./uplane/logs/*.pcap
@@ -548,22 +553,19 @@ function bash__gTools__ {
 			fi;
         fi
 		
-        ./fuse/rebuild_and_run_single_sct_and_binary_icecc.sh  $BASH_GTOOLS__TEST_TO_TEST
-		
-		rm ./uplane/logs/*.json
-		rm ./uplane/logs/*.gz
-		rm ./uplane/logs/*.pcap
-        cd -
+        ./fuse/rebuild_and_run_single_sct_and_binary_icecc.sh  $BASH_GTOOLS__TEST_TO_TEST --sdk=$(gfss)
+		cd -
+		gfcj
       }
 
 
 	  BASH_GTOOLS__PRINT__COMMAND "build all fuse sct"  \
             "gfa"
       function gfa() {
-        gbs
         gmr
-        ./runFuseSCT.sh
+        ./runFuseSCT.sh --sdk=$(gfss)
         cd -
+		gfcj
       }
 
 	  BASH_GTOOLS__PRINT__COMMAND "clean logs "  \
@@ -574,6 +576,31 @@ function bash__gTools__ {
         rm -rf ./logs
         cd -
       }
+	  BASH_GTOOLS__PRINT__COMMAND "clean json gz pcap"  \
+            "gfcj"
+      function gfch() {
+		gmg
+		rm ./uplane/logs/*.json
+		rm ./uplane/logs/*.gz
+		rm ./uplane/logs/*.pcap
+        cd -
+
+      }
+	  
+		BASH_GTOOLS__PRINT__COMMAND "save SDK "  \
+			"gfss [sdkName]"
+		function gfss {
+			if [ "$1" == "" ]; then
+				cat ~/.BASH_GTOOLS__SAVED_SDK_NAME
+				return
+			fi
+			echo $1 > ~/.BASH_GTOOLS__SAVED_SDK_NAME
+		}
+		BASH_GTOOLS__PRINT__COMMAND "clean SDK "  \
+			"gfsc"
+		function gfsc {
+			echo "" > ~/.BASH_GTOOLS__SAVED_SDK_NAME
+		}
     }
 
 	 BASH_GTOOLS__PRINT__COMMAND "Help UnitTests"  \
