@@ -465,6 +465,13 @@ function bash__gTools__ {
         git checkout -b $1
       }
 	  
+
+	  BASH_GTOOLS__PRINT__COMMAND "git log -2"  \
+            "gil"
+	  function gil {
+        git log -2
+      }
+	  
 	  BASH_GTOOLS__PRINT__COMMAND "git del all branches"  \
             "gid"  
       function gid {
