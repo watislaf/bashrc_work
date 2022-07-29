@@ -534,7 +534,7 @@ function bash__gTools__ {
       BASH_GTOOLS__PRINT__SECTION "FUSE"
 
 	  BASH_GTOOLS__PRINT__COMMAND "rebuildTest"  \
-            "gft [testName]"
+            "gft [testName] (for debug -d)"
       function gft() {
         gmr
 		
@@ -546,7 +546,7 @@ function bash__gTools__ {
 			    return
 			fi;
         fi
-		./runFuseSCT.sh --testcase=$BASH_GTOOLS__TEST_TO_TEST --sdk=$(gfss)  --icecc		
+		./runFuseSCT.sh --testcase=$BASH_GTOOLS__TEST_TO_TEST $2 --sdk=$(gfss)  --icecc		
 		cd -
       }
 
