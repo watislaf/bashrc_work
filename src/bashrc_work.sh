@@ -213,16 +213,16 @@ function bash__gTools__ {
             "gxt [testName]"
 		function gxt {
 			if [ "$1" == "" ]; then
-				cat ~/.BASH_GTOOLS__SAVED_TEST_NAME
+				cat $GNB_DIR/../BASH_GTOOLS__SAVED_TEST_NAME
 				return
 			fi
-			echo $1 > ~/.BASH_GTOOLS__SAVED_TEST_NAME
+			echo $1 > $GNB_DIR/../BASH_GTOOLS__SAVED_TEST_NAME
 		}
 		
 		BASH_GTOOLS__PRINT__COMMAND "clear buffer"  \
             "gxc"
 		function gxc {
-			echo "" > ~/.BASH_GTOOLS__SAVED_TEST_NAME
+			echo "" > $GNB_DIR/../BASH_GTOOLS__SAVED_TEST_NAME
 		}
 	}
 
