@@ -385,12 +385,12 @@ function bash__gTools__ {
         cd -
       }
 	  
-	  BASH_GTOOLS__PRINT__COMMAND "Build fuse"  \
+	  BASH_GTOOLS__PRINT__COMMAND "Build fuse, run all"  \
             "gbf"
       function gbf() {
 		gbs
         gmr		
-        ./runFuseSCT.sh --sdk=$(gfss)
+        ./runFuseSCT.sh --sdk=$(gfss) --icecc
         cd -
 		gfcj 
       }
