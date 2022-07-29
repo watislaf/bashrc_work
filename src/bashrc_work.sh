@@ -212,20 +212,20 @@ function bash__gTools__ {
 		BASH_GTOOLS__PRINT__COMMAND "save Test to buffer"  \
             "gxt [testName]"
 		function gxt {
-			if [ ! -f $GNB_DIR/../BASH_GTOOLS__SAVED_TEST_NAME ]; then 
-				echo "" > $GNB_DIR/../BASH_GTOOLS__SAVED_TEST_NAME			
+			if [ ! -f $BASH_GTOOLS__GNB_PATH__/../BASH_GTOOLS__SAVED_TEST_NAME ]; then 
+				echo "" > $BASH_GTOOLS__GNB_PATH__/../BASH_GTOOLS__SAVED_TEST_NAME			
 			fi;
 			if [ "$1" == "" ]; then
-				cat $GNB_DIR/../BASH_GTOOLS__SAVED_TEST_NAME
+				cat $BASH_GTOOLS__GNB_PATH__/../BASH_GTOOLS__SAVED_TEST_NAME
 				return
 			fi
-			echo $1 > $GNB_DIR/../BASH_GTOOLS__SAVED_TEST_NAME
+			echo $1 > $BASH_GTOOLS__GNB_PATH__/../BASH_GTOOLS__SAVED_TEST_NAME
 		}
 		
 		BASH_GTOOLS__PRINT__COMMAND "clear buffer"  \
             "gxc"
 		function gxc {
-			echo "" > $GNB_DIR/../BASH_GTOOLS__SAVED_TEST_NAME
+			echo "" > $BASH_GTOOLS__GNB_PATH__/../BASH_GTOOLS__SAVED_TEST_NAME
 		}
 	}
 
