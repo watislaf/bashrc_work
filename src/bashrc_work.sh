@@ -44,6 +44,11 @@ function bash__fixes__ {
 
   # fixes compile error 04.2022
   export LANG=en_US.UTF-8
+  
+  # fix GO script gxt
+	if [ ! -f /var/fpwork/${USER} ]; then 
+	mkdir /var/fpwork/${USER}
+	fi;
 }
 
 function bash__decorations__ {
@@ -221,20 +226,22 @@ function bash__gTools__ {
 		BASH_GTOOLS__PRINT__COMMAND "save Test to buffer"  \
             "gxt [testName]"
 		function gxt {
-			if [ ! -f $BASH_GTOOLS__GNB_PATH__/../BASH_GTOOLS__SAVED_TEST_NAME ]; then 
-				echo "" > $BASH_GTOOLS__GNB_PATH__/../BASH_GTOOLS__SAVED_TEST_NAME			
+			FILE_PATH="/var/fpwork/${USER}/BASH_GTOOLS__SAVED_TEST_NAME"
+			if [ ! -f "$FILE_PATH" ]; then 
+				echo "" > $FILE_PATH			
 			fi;
+			
 			if [ "$1" == "" ]; then
-				cat $BASH_GTOOLS__GNB_PATH__/../BASH_GTOOLS__SAVED_TEST_NAME
+				cat $FILE_PATH
 				return
 			fi
-			echo $1 > $BASH_GTOOLS__GNB_PATH__/../BASH_GTOOLS__SAVED_TEST_NAME
+			echo $1 > $FILE_PATH
 		}
 		
 		BASH_GTOOLS__PRINT__COMMAND "clear buffer"  \
             "gxc"
 		function gxc {
-			echo "" > $BASH_GTOOLS__GNB_PATH__/../BASH_GTOOLS__SAVED_TEST_NAME
+			echo "" > $FILE_PATH
 		}
 	}
 
