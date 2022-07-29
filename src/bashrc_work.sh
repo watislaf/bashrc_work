@@ -706,6 +706,10 @@ function bash__gTools__ {
 		BASH_GTOOLS__ADDITIONAL_PRINT__COMMAND \
 		"FUSE cmake build" \
 		"-GNinja -DFUSE=ON -DCMAKE_BUILD_TYPE=Debug"
+		
+		BASH_GTOOLS__ADDITIONAL_PRINT__COMMAND \
+		"ToolChain Dir" \
+		"/var/fpwork/${USER}/gnb/uplane/sdkuplane/prefix-root-list/${gfss}/usr/bin/cmake"
 	}
 	
 	
