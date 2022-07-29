@@ -595,6 +595,9 @@ function bash__gTools__ {
 				return
 			fi
 			echo $1 > ~/.BASH_GTOOLS__SAVED_SDK_NAME
+			if [ $PREPARED_SDK != ""]; then 
+				echo "You will need to close console and source again"
+			fi;
 		}
 		BASH_GTOOLS__PRINT__COMMAND "clean SDK "  \
 			"gfsc"
