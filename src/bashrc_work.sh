@@ -53,11 +53,11 @@ function bash__decorations__ {
   }
   
    get_current_save() {
-    echo  "\e[6;4;35m"
+    echo  "$(gxt)"
   }
    get_current_sdk() {
    CUR_SDKKK=$(gfss)
-    echo  "<\e[6;31m${CUR_SDKKK::3}\e[0;32m>"
+    echo  "${CUR_SDKKK::3}"
   }
   
   function _home {
@@ -80,8 +80,17 @@ function bash__decorations__ {
 	 
 	echo -e $currentPath
   }
-  # here
-  export PS1="\[\e[01;32m\]\u@\h\[\e[00m\]:\[\e[01;34m\]\$(_home)\[\033[00m\] \[\033[00;32m\]$(git_branch)$(get_current_save)\[\033[00m\]\$ "
+  
+  function _host {
+	echo $HOSTNAME | tr -dc '0-9' 
+  }
+  GREETING__="\[\e[01;32m\]\u@\$(_host)\[\e[00m\]:"
+  HOME__="\[\e[01;34m\]\$(_home)\[\033[00m\] "
+  BRANCH__="\[\033[00;32m\]\$(git_branch)"
+  SAVED_TEST__="[\[\e[6;4;35m\]\$(get_current_save)\[\e[0;32m\]]"
+  SAVED_SDK__="<\[\e[6;31m\]\$(get_current_sdk)\[\e[0;32m\]>"
+  TEXT__COLOR__="\[\033[00m\]"
+  export PS1="${GREETING__}${HOME__}${BRANCH__}${SAVED_TEST__}${SAVED_SDK__}${TEXT__COLOR__}\$ "
 
   # fzf https://github.com/junegunn/fzf
   if [ -f ~/.fzf.bash ]; then
