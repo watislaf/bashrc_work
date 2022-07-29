@@ -56,7 +56,8 @@ function bash__decorations__ {
     echo -e "[\e[6;4;35m$(gxt)\e[0;32m]"
   }
    get_current_sdk() {
-    echo -e "<\e[6;33m$(gfs)\e[0;32m>"
+   CUR_SDKKK=$(gfss)
+    echo -e "<\e[6;31m${CUR_SDKKK::3}\e[0;32m>"
   }
   
   function _home {
@@ -103,7 +104,6 @@ function bash__decorations__ {
 function bash__gTools__ {
   BASH_GTOOLS__CLION_PATH__=/var/fpwork/${USER}/clion-2021.3
   BASH_GTOOLS__GNB_PATH__=/var/fpwork/${USER}/gnb
-  BASH_GTOOLS_DEFAULT_SDK="sm6-snowfish-dynamic-linker-on-gcc9"
   
   BASH_GTOOLS__START_COLORS_VAL=31
   BASH_GTOOLS__END_COLORS_VAL=37
