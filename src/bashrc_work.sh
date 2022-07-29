@@ -46,7 +46,7 @@ function bash__fixes__ {
   export LANG=en_US.UTF-8
   
   # fix GO script gxt
-	if [ ! -f /var/fpwork/${USER} ]; then 
+ if [ ! -d /var/fpwork/${USER} ]; then 
 	mkdir /var/fpwork/${USER}
 	fi;
 }
@@ -493,7 +493,7 @@ function bash__gTools__ {
 	  
 	  BASH_GTOOLS__PRINT__COMMAND "git log"  \
             "gil" 
-      function gis {
+      function gil {
         git log
       }
 	  
