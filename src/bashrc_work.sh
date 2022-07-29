@@ -389,9 +389,10 @@ function bash__gTools__ {
             "gbf"
       function gbf() {
 		gbs
-        gmr
-        ./fuse/build_sct_fuse_framework_icecc.sh 
+        gmr		
+        ./runFuseSCT.sh --sdk=$(gfss)
         cd -
+		gfcj 
       }
     }
 
@@ -563,16 +564,6 @@ function bash__gTools__ {
 		
         ./fuse/rebuild_and_run_single_sct_and_binary_icecc.sh  $BASH_GTOOLS__TEST_TO_TEST --sdk=$(gfss)
 		cd -
-		gfcj
-      }
-
-
-	  BASH_GTOOLS__PRINT__COMMAND "build all fuse sct"  \
-            "gfa"
-      function gfa() {
-        gmr
-        ./runFuseSCT.sh --sdk=$(gfss)
-        cd -
 		gfcj
       }
 
