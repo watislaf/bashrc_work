@@ -532,8 +532,7 @@ function bash__gTools__ {
 			    return
 			fi;
         fi
-		./fuse/rebuild_and_run_single_sct_fuse.sh $BASH_GTOOLS__TEST_TO_TEST --sdk=$(gfss)
-		
+		./runFuseSCT.sh --testcase=$BASH_GTOOLS__TEST_TO_TEST --sdk=$(gfss)  --icecc		
 		cd -
       }
 
@@ -561,9 +560,9 @@ function bash__gTools__ {
 			    return
 			fi;
         fi
-		
-        ./fuse/rebuild_and_run_single_sct_and_binary_icecc.sh  $BASH_GTOOLS__TEST_TO_TEST --sdk=$(gfss)
+		./runFuseSCT.sh --testcase=$BASH_GTOOLS__TEST_TO_TEST --sdk=$(gfss)  --icecc --rebuild_binary
 		cd -
+		
 		gfcj
       }
 
