@@ -224,7 +224,7 @@ function bash__gTools__ {
 		
 		BASH_GTOOLS__PRINT__COMMAND "clear buffer"  \
             "gxc"
-		function gxc 
+		function gxc {
 			echo "" > $GNB_DIR/../BASH_GTOOLS__SAVED_TEST_NAME
 		}
 	}
