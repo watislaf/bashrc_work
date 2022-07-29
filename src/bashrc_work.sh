@@ -389,8 +389,8 @@ function bash__gTools__ {
             "gbf"
       function gbf() {
         gmr
-        ./fuse/build_binary_for_host_icecc.sh --sdk=$(gfss)
-        ./fuse/build_sct_fuse_framework_icecc.sh --sdk=$(gfss)
+		gbs
+        ./fuse/build_sct_fuse_framework_icecc.sh 
         cd -
       }
     }
@@ -531,11 +531,8 @@ function bash__gTools__ {
 			    return
 			fi;
         fi
+		./rebuild_and_run_single_sct_fuse.sh $BASH_GTOOLS__TEST_TO_TEST --sdk=$(gfss)
 		
-		 ./fuse/rebuild_and_run_single_sct_fuse_and_binary_icecc.sh $BASH_GTOOLS__TEST_TO_TEST --sdk=$(gfss)
-		rm ./uplane/logs/*.json
-		rm ./uplane/logs/*.gz
-		rm ./uplane/logs/*.pcap
 		cd -
       }
 
