@@ -298,7 +298,7 @@ function bash__gTools__ {
 	  BASH_GTOOLS__PRINT__COMMAND "open log by vin"  \
             "gsv [cb_full_test_name]"
       function gsv() {
-        vim -c 'set ic' ${BASH_GTOOLS__GNB_PATH__}/uplane/logs/$1.log
+        vim -c 'set ic' "${BASH_GTOOLS__GNB_PATH__}/uplane/logs/${1}_0_0.log"
       }
 
 	  BASH_GTOOLS__PRINT__COMMAND "start Tmux"  \
@@ -590,7 +590,7 @@ function bash__gTools__ {
       }
 	  BASH_GTOOLS__PRINT__COMMAND "clean json gz pcap"  \
             "gfcj"
-      function gfch() {
+      function gfcj() {
 		gmg
 		rm ./uplane/logs/*.json
 		rm ./uplane/logs/*.gz
