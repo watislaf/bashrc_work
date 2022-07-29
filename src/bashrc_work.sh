@@ -53,11 +53,11 @@ function bash__decorations__ {
   }
   
    get_current_save() {
-    echo -e "[\e[6;4;35m$(gxt)\e[0;32m]"
+    echo  "\e[6;4;35m"
   }
    get_current_sdk() {
    CUR_SDKKK=$(gfss)
-    echo -e "<\e[6;31m${CUR_SDKKK::3}\e[0;32m>"
+    echo  "<\e[6;31m${CUR_SDKKK::3}\e[0;32m>"
   }
   
   function _home {
@@ -80,8 +80,8 @@ function bash__decorations__ {
 	 
 	echo -e $currentPath
   }
-  
-  export PS1="\[\e]0;\u@\h: \w\a\]\[\e[01;32m\]\u@\h\[\e[00m\]:\[\e[01;34m\]\$(_home)\[\033[00m\] \[\033[00;32m\]\$(git_branch)\$(get_current_save)\$(get_current_sdk)\[\033[00m\]\$ "
+  # here
+  export PS1="\[\e[01;32m\]\u@\h\[\e[00m\]:\[\e[01;34m\]\$(_home)\[\033[00m\] \[\033[00;32m\]$(git_branch)$(get_current_save)\[\033[00m\]\$ "
 
   # fzf https://github.com/junegunn/fzf
   if [ -f ~/.fzf.bash ]; then
@@ -598,7 +598,8 @@ function bash__gTools__ {
 			fi
 			echo $1 > ~/.BASH_GTOOLS__SAVED_SDK_NAME
 			if [ $PREPARED_SDK != ""]; then 
-				echo "You will need to close console and source again"
+				echo "You will need to reopen console"
+				echo "also use clear_sct_build_artefacts.sh"
 			fi;
 		}
 		BASH_GTOOLS__PRINT__COMMAND "clean SDK "  \
