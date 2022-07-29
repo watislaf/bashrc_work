@@ -212,6 +212,9 @@ function bash__gTools__ {
 		BASH_GTOOLS__PRINT__COMMAND "save Test to buffer"  \
             "gxt [testName]"
 		function gxt {
+			if [ ! -f $GNB_DIR/../BASH_GTOOLS__SAVED_TEST_NAME ]; then 
+				echo "" > $GNB_DIR/../BASH_GTOOLS__SAVED_TEST_NAME			
+			fi;
 			if [ "$1" == "" ]; then
 				cat $GNB_DIR/../BASH_GTOOLS__SAVED_TEST_NAME
 				return
@@ -221,7 +224,7 @@ function bash__gTools__ {
 		
 		BASH_GTOOLS__PRINT__COMMAND "clear buffer"  \
             "gxc"
-		function gxc {
+		function gxc 
 			echo "" > $GNB_DIR/../BASH_GTOOLS__SAVED_TEST_NAME
 		}
 	}
@@ -378,8 +381,8 @@ function bash__gTools__ {
       function gbf() {
         gbs
         gmr
-        ./fuse/build_binary_for_host_icecc.sh
-        ./fuse/build_sct_fuse_framework_icecc.sh
+        ./fuse/build_binary_for_host_icecc.sh --sdk=$(gfss)
+        ./fuse/build_sct_fuse_framework_icecc.sh --sdk=$(gfss)
         cd -
       }
     }
