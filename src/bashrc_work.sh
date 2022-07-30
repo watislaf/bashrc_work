@@ -656,7 +656,7 @@ function bash__gTools__ {
             "gua"
       function gua() {
         gmr
-        ./ut/build_and_run_all_ut_icecc.sh
+		./buildL2ps.sh --sdk=$(gfss)
         cd -
       }
     }
