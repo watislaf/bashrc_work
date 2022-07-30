@@ -403,7 +403,14 @@ function bash__gTools__ {
             "gbf"
       function gbf() {
 		gbs
-        gmr		
+		if [ $(find ./BASH_GTOOLS__GNB_PATH__/uplane/build/tickler/ -name tickler_nops.sh | ws -l) == 2 ]:
+			echo DOUBLE FUSE 
+			find ./BASH_GTOOLS__GNB_PATH__/uplane/build/tickler/ -name tickler_nops.sh
+			echo Please remove one dir with tickler nops 
+			rm -rf ./BASH_GTOOLS__GNB_PATH__/uplane/build/tickler/cpp_testsuites/Tickler-prj-prefix/src/Tickler-prj-build/
+			return
+		fi; 
+		gmr		
         ./runFuseSCT.sh --sdk=$(gfss) --icecc
         cd -
 		gfcj 
@@ -573,7 +580,6 @@ function bash__gTools__ {
             "gft [testName] (for debug -d)"
       function gft() {
         gmr
-		
 		BASH_GTOOLS__TEST_TO_TEST=$1
         if [ "$BASH_GTOOLS__TEST_TO_TEST" == "" ]; then
 			BASH_GTOOLS__TEST_TO_TEST=$(gxt)
