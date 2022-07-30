@@ -512,7 +512,7 @@ echo $1 | awk -F"$2" '{print$2}'
 		egrep -v "/externals/integration/" |
 		egrep -v "/context/generator/" |
 		xargs -I % -n 1 bash -c "cut_preffix % $(cut_preffix $PWD /var/fpwork/${USER}/gnb/)" |
-		xargs -I % -n 1 bash -c "gitFormatAndAdd %"
+		xargs -r -I % -n 1 bash -c "gitFormatAndAdd %"
       }
 
 	  BASH_GTOOLS__PRINT__COMMAND "commit ammend + push"  \
