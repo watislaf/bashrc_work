@@ -497,23 +497,24 @@ echo $1 | awk -F"$2" '{print$2}'
 	  
 	  BASH_GTOOLS__PRINT__COMMAND "git add ./ & format"  \
             "gia"
-      function gia {
-		  function gitFormatAndAdd {
-			if [[ "$1" =~ (*.cpp$|*.hpp$|*.h$) ]] ; then 
-				clang-format -i ./%  && echo "Clang format on ./%"
-			fi;
-			git add $1
-		  }
-	  
-		export -f cut_preffix
-		export -f gitFormatAndAdd
-		
-		git diff --name-only |
-		egrep -v "/externals/integration/" |
-		egrep -v "/context/generator/" |
-		xargs -I % -n 1 bash -c "cut_preffix % $(cut_preffix $PWD /var/fpwork/${USER}/gnb/)" |
-		xargs -r -I % -n 1 bash -c "gitFormatAndAdd %"
-      }
+	function gia {
+		function gitFormatAndAdd {
+		if [[ "$1" =~ (*.cpp$|*.hpp$|*.h$) ]] ; then 
+		clang-format -i ./%  && echo "Clang format on ./%"
+		fi;
+		git add $1
+		echo $1
+	}
+
+	export -f cut_preffix
+	export -f gitFormatAndAdd
+
+	git diff --name-only |
+	egrep -v "/externals/integration/" |
+	egrep -v "/context/generator/" |
+	xargs -I % -n 1 bash -c "cut_preffix % $(cut_preffix $PWD/ /var/fpwork/${USER}/gnb/)" |
+	xargs -r -I % -n 1 bash -c "gitFormatAndAdd %"
+}
 
 	  BASH_GTOOLS__PRINT__COMMAND "commit ammend + push"  \
             "gic"
