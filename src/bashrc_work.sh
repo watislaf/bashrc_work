@@ -498,12 +498,12 @@ echo $1 | awk -F"$2" '{print$2}'
 	  BASH_GTOOLS__PRINT__COMMAND "git add ./ & format"  \
             "gia"
       function gia {
-	  function gitFormatAndAdd {
-		if [[ "$1" =~ (*.cpp$|*.hpp$|*.h$) ]] ; then 
-			clang-format -i ./%  && echo "Clang format on ./%"
-		fi;
-		git add $1
-		}
+		  function gitFormatAndAdd {
+			if [[ "$1" =~ (*.cpp$|*.hpp$|*.h$) ]] ; then 
+				clang-format -i ./%  && echo "Clang format on ./%"
+			fi;
+			git add $1
+		  }
 	  
 		export -f cut_preffix
 		export -f gitFormatAndAdd
