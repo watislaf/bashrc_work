@@ -406,14 +406,14 @@ echo $1 | awk -F"$2" '{print$2}'
             "gbf"
       function gbf() {
 		gbs
-		if [ $(find ./BASH_GTOOLS__GNB_PATH__/uplane/build/tickler/ -name tickler_nops.sh | ws -l) == 2 ]:
-			# Fix tickler_nops.sh does not found 30.07.2022
-			echo DOUBLE FUSE 
-			find ./BASH_GTOOLS__GNB_PATH__/uplane/build/tickler/ -name tickler_nops.sh
-			echo Please remove one dir with tickler nops 
-			rm -rf ./BASH_GTOOLS__GNB_PATH__/uplane/build/tickler/cpp_testsuites/Tickler-prj-prefix/src/Tickler-prj-build/
-			return
-		fi; 
+		#if [ $(find ./BASH_GTOOLS__GNB_PATH__/uplane/build/tickler/ -name tickler_nops.sh | ws -l) == 2 ]:
+		#	# Fix tickler_nops.sh does not found 30.07.2022
+		#	echo DOUBLE FUSE 
+		#	find ./BASH_GTOOLS__GNB_PATH__/uplane/build/tickler/ -name tickler_nops.sh
+		#	echo Please remove one dir with tickler nops 
+		#	rm -rf ./BASH_GTOOLS__GNB_PATH__/uplane/build/tickler/cpp_testsuites/Tickler-prj-prefix/src/Tickler-prj-build/
+		#	return
+		#fi
 		gmr		
         ./runFuseSCT.sh --sdk=$(gfss) --icecc
         cd -
