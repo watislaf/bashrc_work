@@ -163,6 +163,9 @@ function bash__gTools__ {
 	  echo -e "${BASH_GTOOLS__DEFAULT_END_COLOR}"
 	}
 	
+function cut_preffix {
+echo $1 | awk -F"$2" '{print$2}'
+}
   ################################################################
 
   function ghh {
@@ -174,7 +177,7 @@ function bash__gTools__ {
             "ghm"
     function ghm {
       BASH_GTOOLS__PRINT__SECTION "MOVEMENT"
-	  BASH_GTOOLS__PRINT__COMMAND "move to Gnb"  \
+	  BASH_GTOOLS__PRINT__COMMAND "move to Gnb"  \[
 			  "gmg"
       function gmg() {
         cd $BASH_GTOOLS__GNB_PATH__
@@ -239,16 +242,16 @@ function bash__gTools__ {
 		}
 		
 		BASH_GTOOLS__PRINT__COMMAND "tools: test clear"  \
-            "gxc"
+            "gtc"
 		function gtc {
 			echo "" > $FILE_PATH
 		}
 		
-		
-		BASH_GTOOLS__PRINT__COMMAND "Change string to another"  \
-            "gxc"
-		function gxc {
-			echo "" > $FILE_PATH
+
+		BASH_GTOOLS__PRINT__COMMAND "format file"  \
+            "gtf [file_name]"
+		function gtf {
+			clang-format -i $1  && echo "ClangFormat on %"
 		}
 	}
 
@@ -495,9 +498,12 @@ function bash__gTools__ {
 	  BASH_GTOOLS__PRINT__COMMAND "git add all & format"  \
             "gia"
       function gia {
-	    gmg
-		git diff --name-only | egrep --color=auto "(*.cpp$|*.hpp$|*.h$)" | xargs -I % -n 1 sh -c 'clang-format -i ./%  && echo "ClangFormat on %"'  
-        git add ./uplane/L2-PS
+	  export -f cut_preffix
+		git diff --name-only |
+		egrep "(*.cpp$|*.hpp$|*.h$)" | 
+		egrep -v "/externals/integration/" |
+		xargs -I % -n 1 bash -c "cut_preffix % $(cut_preffix $PWD /var/fpwork/${USER}/gnb/)" | xargs -r  -I % -n 1 sh -c 'clang-format -i ./%  && echo "ClangFormat on %"'			
+        git add ./
 		cd -
       }
 
