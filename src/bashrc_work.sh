@@ -404,6 +404,7 @@ function bash__gTools__ {
       function gbf() {
 		gbs
 		if [ $(find ./BASH_GTOOLS__GNB_PATH__/uplane/build/tickler/ -name tickler_nops.sh | ws -l) == 2 ]:
+			# Fix tickler_nops.sh does not found 30.07.2022
 			echo DOUBLE FUSE 
 			find ./BASH_GTOOLS__GNB_PATH__/uplane/build/tickler/ -name tickler_nops.sh
 			echo Please remove one dir with tickler nops 
