@@ -388,7 +388,7 @@ function bash__gTools__ {
       function gbu() {
         gbs
         gmr
-        source ./ut/build_all_ut_icecc.sh
+        source ./ut/build_all_ut_icecc.sh --sdk=$(gfss)
         cd -
       }
 	  
