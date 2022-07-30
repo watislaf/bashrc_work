@@ -388,7 +388,7 @@ function bash__gTools__ {
       function gbu() {
         gbs
         gmr
-		buildL2ps.sh --sdk=$(gfss) --ut --icecc
+		./buildL2ps.sh --sdk=$(gfss) --ut --icecc
         cd -
       }
 	  
@@ -636,7 +636,7 @@ function bash__gTools__ {
 			    return
 			fi;
         fi
-        ./ut/rebuild_and_run_single_ut.sh $BASH_GTOOLS__TEST_TO_TEST
+		./buildL2ps.sh --sdk=$(gfss) --rebuild_single_ut=$BASH_GTOOLS__TEST_TO_TEST
         cd -
       }
 
