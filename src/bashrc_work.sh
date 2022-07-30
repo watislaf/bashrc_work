@@ -223,9 +223,9 @@ function bash__gTools__ {
 	function ght() {
 		BASH_GTOOLS__PRINT__SECTION "Tools"
 				
-		BASH_GTOOLS__PRINT__COMMAND "save Test to buffer"  \
-            "gxt [testName]"
-		function gxt {
+		BASH_GTOOLS__PRINT__COMMAND "tools: test set"  \
+            "gts [testName]"
+		function gts {
 			FILE_PATH="/var/fpwork/${USER}/BASH_GTOOLS__SAVED_TEST_NAME"
 			if [ ! -f "$FILE_PATH" ]; then 
 				echo "" > $FILE_PATH			
@@ -238,9 +238,9 @@ function bash__gTools__ {
 			echo $1 > $FILE_PATH
 		}
 		
-		BASH_GTOOLS__PRINT__COMMAND "clear buffer"  \
+		BASH_GTOOLS__PRINT__COMMAND "tools: test clear"  \
             "gxc"
-		function gxc {
+		function gtc {
 			echo "" > $FILE_PATH
 		}
 		
