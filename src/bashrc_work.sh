@@ -218,10 +218,10 @@ function bash__gTools__ {
       }
 	}
 	
-	BASH_GTOOLS__PRINT__COMMAND "Help xxx"  \
-            "ghx"
-	function ghx() {
-		BASH_GTOOLS__PRINT__SECTION "XXX"
+	BASH_GTOOLS__PRINT__COMMAND "Help tools"  \
+            "ght"
+	function ght() {
+		BASH_GTOOLS__PRINT__SECTION "Tools"
 				
 		BASH_GTOOLS__PRINT__COMMAND "save Test to buffer"  \
             "gxt [testName]"
@@ -239,6 +239,13 @@ function bash__gTools__ {
 		}
 		
 		BASH_GTOOLS__PRINT__COMMAND "clear buffer"  \
+            "gxc"
+		function gxc {
+			echo "" > $FILE_PATH
+		}
+		
+		
+		BASH_GTOOLS__PRINT__COMMAND "Change string to another"  \
             "gxc"
 		function gxc {
 			echo "" > $FILE_PATH
@@ -709,7 +716,7 @@ function bash__gTools__ {
 		
 		BASH_GTOOLS__ADDITIONAL_PRINT__COMMAND \
 		"ToolChain Dir" \
-		"/var/fpwork/${USER}/gnb/uplane/sdkuplane/prefix-root-list/${gfss}/usr/bin/cmake"
+		"/var/fpwork/${USER}/gnb/uplane/sdkuplane/prefix-root-list/${gfss}/bin/cmake"
 	}
 	
 	
