@@ -422,6 +422,31 @@ function bash__gTools__ {
         ps aux | grep "/var/fpwork/${USER}/clion-2021.3/bin/fsnotifier" | awk '{print $2;}' | xargs -I % -n 1 sh -c 'kill -9 %'
         ps aux | grep "/var/fpwork/${USER}/clion-2021.3/jbr/bin/java" | awk '{print $2;}' | xargs -I % -n 1 sh -c 'kill -9 %'
       }
+	
+		BASH_GTOOLS__PRINT__COMMAND "Clion Notes"  \
+            "gcn"
+		function gcn {
+		BASH_GTOOLS__PRINT__SECTION Clion NOTES
+		BASH_GTOOLS__ADDITIONAL_PRINT__COMMAND \
+		"clangd additional flags" \
+		"-ferror-limit=0 , -Wno-error , -Wno-unknown-warning-option , -Wno-reserved-user-defined-literal , -Wdeprecated-declarations"
+
+		BASH_GTOOLS__ADDITIONAL_PRINT__COMMAND \
+		"clang tidy 5g path" \
+		"/5g/tools/llvm/12.0_034/bin/clang-format"
+
+		BASH_GTOOLS__ADDITIONAL_PRINT__COMMAND \
+		"SCT cmake build" \
+		"-GNinja -DSCT_COMP_L2PS=ON -DCMAKE_BUILD_TYPE=Debug"
+
+		BASH_GTOOLS__ADDITIONAL_PRINT__COMMAND \
+		"FUSE cmake build" \
+		"-GNinja -DFUSE=ON -DCMAKE_BUILD_TYPE=Debug"
+		
+		BASH_GTOOLS__ADDITIONAL_PRINT__COMMAND \
+		"ToolChain Dir" \
+		"/var/fpwork/${USER}/gnb/uplane/sdkuplane/prefix-root-list/${gfss}/bin/cmake"
+	}
 
 	  BASH_GTOOLS__PRINT__COMMAND "install clion"  \
             "gci"
@@ -438,6 +463,10 @@ function bash__gTools__ {
 
         sed -e '1d' clion64.vmoptions
         echo -Xmx10000m >>clion64.vmoptions
+		
+		echo -e "Clion was isntalled, please set proxy in settings : \n host_name: defra1c-proxy.emea.nsn-net.net \n port number: 8080 \n no_proxy_for: localhost,127.0.0.0/8,10.0.0.0/8,*.local,nsn-net.net,inside.nokiasiemensnetworks.com,access.nokiasiemensnetworks.com,nsn-intra.net,nsn-rdnet.net,int.net.nokia.com,nesc.nokia.net "
+		echo and set flags:
+		gcn
       }
     }
 
@@ -693,31 +722,6 @@ function bash__gTools__ {
         rm ${BASH__WORK__GUN_DEAMON__PIDFILE}
       }
     }
-	
-	BASH_GTOOLS__PRINT__COMMAND "Help Notes"  \
-            "ghn"
-    function ghn {
-    BASH_GTOOLS__PRINT__SECTION NOTES
-	BASH_GTOOLS__ADDITIONAL_PRINT__COMMAND \
-		"clangd additional flags" \
-		"-ferror-limit=0 , -Wno-error , -Wno-unknown-warning-option , -Wno-reserved-user-defined-literal , -Wdeprecated-declarations"
-
-		BASH_GTOOLS__ADDITIONAL_PRINT__COMMAND \
-		"clang tidy 5g path" \
-		"/5g/tools/llvm/12.0_034/bin/clang-format"
-
-		BASH_GTOOLS__ADDITIONAL_PRINT__COMMAND \
-		"SCT cmake build" \
-		"-GNinja -DSCT_COMP_L2PS=ON -DCMAKE_BUILD_TYPE=Debug"
-
-		BASH_GTOOLS__ADDITIONAL_PRINT__COMMAND \
-		"FUSE cmake build" \
-		"-GNinja -DFUSE=ON -DCMAKE_BUILD_TYPE=Debug"
-		
-		BASH_GTOOLS__ADDITIONAL_PRINT__COMMAND \
-		"ToolChain Dir" \
-		"/var/fpwork/${USER}/gnb/uplane/sdkuplane/prefix-root-list/${gfss}/bin/cmake"
-	}
 	
 	
 	BASH_GTOOLS__PRINT__COMMAND "Help All"  \
