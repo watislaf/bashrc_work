@@ -112,7 +112,7 @@ function bash__decorations__ {
       source ~/.fzf.bash
     fi
   fi
-  
+
 }
 
 function bash__gTools__ {
